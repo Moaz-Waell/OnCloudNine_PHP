@@ -1,0 +1,45 @@
+/********************/
+/* RESET  buttons  */
+/********************/
+
+.btn,
+.btn:link,
+.btn:visited {
+  /* this is inline element, make it inline-block so that the box model applies as usual */
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all ease 0.2s;
+
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+}
+
+/********************/
+/* primary buttons  */
+/********************/
+/* LoVe HAte */
+
+.btn--full,
+.btn--full:link,
+.btn--full:visited {
+  background-color: var(--color-btn-primary);
+  color: var(--color-text-secondary);
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: var(--color-btn-hover);
+  color: var(--color-text-primary);
+}
+
+
+
+
+
+
+
