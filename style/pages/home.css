@@ -1,0 +1,232 @@
+@import url(/style/base/base.css);
+@import url(/style/base/typography.css);
+@import url(/style/base/variables.css);
+@import url(/style/Components/buttons.css);
+@import url(/style/base/general.css);
+@import url(/style/base/utilities.css);
+@import url(/style/Components/sidebar.css);
+@import url(/style/mediaqueries/general.css);
+
+
+.container {
+    display: flex;
+    height: 100vh;
+    max-width: 100%;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.header-title h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: var(--color-text-primary);
+}
+
+.search-bar {
+    flex: 1;
+    margin: 0 3rem;
+    position: relative;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 1.2rem 1.2rem 1.2rem 4rem;
+    border-radius: 3rem;
+    border: 1px solid #e0e0e0;
+    font-size: 1.6rem;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+
+.user-greeting {
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--color-text-primary);
+}
+
+
+/* SECTION STYLES */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-text-primary);
+}
+
+
+
+/* CATEGORY SECTION */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 1.5rem;
+}
+
+.category-item {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.category-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.category-item img {
+    width: 4rem;
+    height: 4rem;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.category-item p {
+    font-size: 1.4rem;
+}
+
+/* BESTSELLER SECTION */
+.bestseller-section {
+    margin-top: 4rem;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+}
+
+.menu-item {
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.menu-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.menu-image {
+    height: 12rem;
+}
+
+.menu-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menu-details {
+    padding: 1.5rem;
+}
+
+.menu-details h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+    color: var(--color-text-primary);
+}
+
+.menu-details p {
+    font-size: 1.4rem;
+    color: #777;
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--color-accent);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1200px) {
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+
+    .navigation {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .nav-item.active {
+        border-radius: 0.8rem;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin: 1.5rem 0;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
