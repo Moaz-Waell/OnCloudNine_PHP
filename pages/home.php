@@ -73,26 +73,24 @@ if (!isset($_SESSION['username'])) {
         </div>
 
         <div class="category-flex">
-          <div class="category-item">
-            <img src="../img/category/pizza.png" alt="Pizza" />
-            <p>Pizza</p>
-          </div>
-          <div class="category-item">
-            <img src="../img/category/hamburger.png" alt="Burger" />
-            <p>Sandwich</p>
-          </div>
-          <div class="category-item">
-            <img src="../img/category/spaghetti.png" alt="Pasta" />
-            <p>Pasta</p>
-          </div>
-          <div class="category-item">
-            <img src="../img/category/energy-drink.png" alt="Drinks" />
-            <p>Drinks</p>
-          </div>
-          <div class="category-item">
-            <img src="../img/category/salad.png" alt="Salads" />
-            <p>Salads</p>
-          </div>
+          <?php
+          include('../php/config.php');
+          $query = "SELECT * FROM category";
+          $result = $con->query($query);
+          if ($result->num_rows > 0) {
+            while ($category = $result->fetch_assoc()) {
+              $image_path = "../img/category/" . $category['C_Icon'];
+              ?>
+              <div class="category-item">
+                <img src="<?php echo $image_path; ?>" alt="<?php echo htmlspecialchars($category['C_Name']); ?>">
+                <p><?php echo htmlspecialchars($category['C_Name']); ?></p>
+              </div>
+              <?php
+            }
+          } else {
+            echo "<p>No categories found</p>";
+          }
+          ?>
         </div>
       </section>
 
