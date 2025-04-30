@@ -13,7 +13,7 @@ body {
   display: flex;
   margin-bottom: right;
   margin-top: 1rem;
-  margin-left: 1.5rem;
+  margin-left: 1.6rem;
   align-items: center; /* Vertically center the content */
   justify-content: center; /* Horizontally center the content */
   gap: 1.8rem; /* Space between the icon and text */
