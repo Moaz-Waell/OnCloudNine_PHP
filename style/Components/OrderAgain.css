@@ -1,0 +1,71 @@
+@import url(/style/pages/landing.css);
+
+/* Navbar Styles */
+.navbar {
+    background-color: var(--color-bg-primary);
+    padding: 2rem;
+    box-shadow: 0 0.3rem 0.8rem rgba(0,0,0,0.1);
+  }
+  
+  .heading-secondary {
+    color: var(--color-text-primary);
+  }
+  
+  /* Table Styles */
+  .orders-container {
+    max-width: 120rem;
+    margin: 4rem auto;
+    padding: 2rem;
+    background-color: var(--color-bg-secondary);
+    border-radius: 1.6rem;
+  }
+  
+  .orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+  }
+  
+  .orders-table th,
+  .orders-table td {
+    padding: 1.6rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border-primary);
+  }
+  
+  .orders-table th {
+    font-weight: 700;
+    color: var(--color-text-secondary);
+  }
+  
+  .status {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    border-radius: 9px;
+    font-size: 1.4rem;
+    color: var(--color-text-primary);
+  }
+  
+  .completed {
+    background-color: var(--color-btn-hover);
+  }
+  
+  .delivering {
+    background-color: var(--color-primary-light);
+  }
+  
+  .canceled {
+    background-color: #fdd;
+  }
+  
+  .btn--view-details {
+    background-color: transparent;
+    color: var(--color-btn-primary);
+    border: none;
+    text-decoration: underline;
+    transition: all 0.2s ease;
+  }
+  
+  .btn--view-details:hover {
+    color: var(--color-btn-hover);
+  }

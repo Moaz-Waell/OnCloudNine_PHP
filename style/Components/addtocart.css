@@ -3,9 +3,11 @@
 body {
     background-color: var(--color-bg-primary);
     color: var(--color-text-primary);
-    font-family: var(--font-family);
-    font-size: var(--font-size);
-    line-height: var(--line-height);
+    font-family: "Rubik", sans-serif;
+  line-height: 1;
+  color: var(--color-primary);
+  font-weight: 400;
+  overflow-x: hidden;
 }
 
 /* Back Button */
