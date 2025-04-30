@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meal Cart</title>
+    <!-- <link rel="stylesheet" href="/style/pages/landing.css" /> -->
+    <link rel="stylesheet" href="/style/components/addtocart.css" />
+
+  </head>
+  <body>
+    <!-- Back Button -->
+    <div class="back">
+      <a href="/index.html" class="btn btn--full">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z"
+            fill="currentColor"
+          />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Meal Cart -->
+      <div class="meal-cart">
+        <!-- Meal Item 1 -->
+        <div class="meal-item">
+          <div class="meal-item__info"> <!-- Container for meal info -->
+            <div class="meal-item__photo">
+              <img src="data:image/jpeg;base64,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" alt="Meal Photo" />
+            </div>
+            <div class="meal-item__content">
+              <div class="heading-secondary meal-item__name">Fury</div>
+              <div class="description meal-item__description">
+                Fury Gold Strike Pet 400ml
+              </div>
+            </div>
+            <button class="meal-item__remove-btn">-</button>
+          </div>
+        </div>
+
+        <!-- Meal Item 2 -->
+        <div class="meal-item">
+          <div class="meal-item__info">
+            <div class="meal-item__photo">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV3Q6tLK8qsW6YW-Cc_gZ4srCN2w4W81v8Eg&s" alt="Meal Photo" />
+            </div>
+            <div class="meal-item__content">
+              <div class="heading-secondary meal-item__name">Red Bull</div>
+              <div class="description meal-item__description">
+                The Spring Edition 250ml
+              </div>
+            </div>
+            <button class="meal-item__remove-btn">-</button>
+          </div>
+        </div>
+      </div>
+      <!-- Total Amount -->
+      <div class="heading-secondary  total-amount">
+        Total Amount: $<span id="total-amount">0.00</span>
+      </div>
+
+      <!-- Proceed to Checkout Button -->
+      <a href="#" class="heading-secondary btn btn--checkout">Proceed to Checkout</a>
+  </body>
+</html> 

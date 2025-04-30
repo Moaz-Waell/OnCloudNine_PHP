@@ -1,0 +1,178 @@
+
+@import url(/style/pages/landing.css);
+body{
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+}
+/* Back Button */
+
+.back {
+  display: flex;
+  margin-bottom: right;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  gap: 1.8rem; /* Space between the icon and text */
+  font-size: 1.4rem; /* Smaller font size */
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-secondary);
+  padding: 1rem; /* Reduced padding */
+  border-radius: 50%; /* Make the button circular */
+  width: 4rem; /* Fixed width for circular shape */
+  height: 4rem; /* Fixed height for circular shape */
+  text-decoration: none; /* Remove underline from link */
+  overflow: hidden; /* Ensure content doesn't overflow */
+
+}
+
+
+.back svg {
+  width: 1.6rem; /* Smaller icon size */
+  height: 1.6rem; /* Smaller icon size */
+  fill: var(--color-text-secondary); /* Icon color */
+}
+
+.back:hover,
+.back:active {
+  background-color: var(--color-btn-hover); /* Background color on hover */
+  color: var(--color-text-primary); /* Text/icon color on hover */
+}
+
+/* Additional styles for meal cart */
+.meal-cart {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background-color: var(--color-bg-primary);
+  border-radius: 1rem;
+}
+.meal-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Aligns photo, content, and remove button */
+  background-color: var(--color-bg-secondary);
+  border: 0.5px solid var(--color-border-primary);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  transition: all ease 0.2s;
+  padding: 1rem;
+  max-width: 150rem;
+  margin: 1rem auto;
+  gap: 1.6rem; /* Space between elements */
+  margin-bottom: right;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  bottom: auto; /* Space between items */
+}
+
+.meal-item__info {
+  display: flex;
+  align-items: center;
+  flex: 1; /* Takes up remaining space */
+  gap: 4.6rem; /* Space between photo and content */
+}
+
+.meal-item__photo {
+  align-content:start; /* Fixed size for the photo */
+  width: 60px; /* Set a fixed width for the image */
+}
+
+.meal-item__photo img {
+  align-content: center;
+  width: 100%;
+  height: auto;
+  border-radius: 9px;
+}
+
+.meal-item__content {
+  flex: 1; /* Allow the content to take up available space */
+  text-align: center; /* Center the meal name and description */
+}
+
+.heading-secondary,
+.meal-item__name {
+  /* font-weight: 700;
+  color: var(--color-text-primary);
+  text-align: left; Align meal name to the left */
+  margin-bottom: center;
+
+}
+
+.description
+.meal-item__description {
+  /* align-content: center;
+  font-size: 1.3rem;
+  line-height: 1rem;
+  color: inherit;;
+  margin-bottom: 0.8rem; /* Space between description and price */
+  text-align: center end; 
+}
+
+/* Remove Button */
+
+.meal-item__remove-btn {
+  align-content:end ;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem; /* Smaller font size */
+  background-color:var(--color-btn-primary);
+  color: var(--color-text-secondary);
+  width: 4rem; /* Fixed width for circular shape */
+  height: 4rem; /* Fixed height for circular shape */
+  border-radius: 50%; /* Make the button circular */
+  display: flex;
+  align-items: center; /* Center the icon vertically */
+  justify-content: center; /* Center the icon */
+  transition: all ease 0.2s;
+}
+
+.meal-item__remove-btn:hover,
+.meal-item__remove-btn:active {
+  background-color: var(--color-btn-hover);
+  color:var(--color-text-primary) /* Optional: Add a subtle background on hover */
+}
+
+.heading-secondary,
+.total-amount {
+  /* margin-top: 1.6rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-align: left; Align total amount to the right */
+  color: var(--color-text-primary);
+  /* Add padding to the right for spacing */;
+  margin-bottom: right;
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+.btn--checkout-container {
+padding: 1 rem;
+text-align: center
+}
+
+.btn--checkout {
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all ease 0.2s;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 0.9rem 1.6rem;
+  border-radius: 9px;
+  background-color: var(--color-btn-primary);
+  color: var(--color-text-secondary);
+  margin-top: 2rem;
+  width: fit-content; /* Full-width button */
+}
+
+.btn--checkout:hover,
+.btn--checkout:active {
+  background-color: var(--color-btn-hover);
+  color: var(--color-text-primary);
+}
