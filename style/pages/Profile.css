@@ -1,70 +1,57 @@
-
 @import url('landing.css');
 
-
 .profile-header {
-  /* Using grid utilities from the imported standards */
-  align-items: center; /* Vertically align name/ID block and image */
-  border-bottom: 1px solid var(--color-border-primary); /* Use variable for border */
-  padding-bottom: 2.4rem; /* Spacing below header content */
-  margin-bottom: 2.4rem; /* Spacing after the entire header section */
+  align-items: center;
+  border-bottom: 1px solid var(--color-border-primary);
+  padding-bottom: 2.4rem;
+  margin-bottom: 2.4rem;
 }
 
 .profile-img {
-  /* Style the profile picture */
-  width: 8rem; /* Example size (80px) */
-  height: 8rem; /* Example size (80px) */
-  border-radius: 50%; /* Make it round */
-  display: block; /* Helps prevent extra space issues */
-  margin-left: auto; /* Push to the right (complements text-align: right in HTML) */
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
 }
 
-/* --- Allergies Section --- */
 .allergies-grid {
-  margin-top: 1.6rem; /* Space between "Allergies:" heading and the grid */
+  margin-top: 1.6rem;
 }
 
-/* Adjust spacing and alignment within the 4-column allergy rows */
 .allergies-grid .grid-4-cols {
-  align-items: center; /* Vertically align checkbox and label in each cell */
-  row-gap: 1.6rem; /* Space between different allergy rows */
-  column-gap: 0.8rem; /* Narrower gap between checkbox and its label */
+  align-items: center;
+  row-gap: 1.6rem;
+  column-gap: 0.8rem;
 }
 
 input[type="checkbox"] {
-  /* Style the checkboxes */
-  width: 1.6rem; /* 16px */
-  height: 1.6rem; /* 16px */
-  accent-color: var(--color-primary); /* Use primary color for the checkmark */
+  width: 1.6rem;
+  height: 1.6rem;
+  accent-color: var(--color-primary);
   cursor: pointer;
-  justify-self: center; /* Center the checkbox within its grid column */
+  justify-self: center;
 }
 
 .allergy-label label {
-  /* Style the checkbox labels */
-  font-size: 1.4rem; /* Example size (14px) */
+  font-size: 1.4rem;
   cursor: pointer;
 }
 
-/* --- Form Actions / Button --- */
 .form-actions {
-  margin-top: 3.2rem; /* Space above the button area */
-  text-align: center; /* Center the button */
-  padding-top: 2.4rem; /* Space between content above and the button */
-  border-top: 1px solid var(--color-border-primary); /* Separator line */
+  margin-top: 3.2rem;
+  text-align: center;
+  padding-top: 2.4rem;
+  border-top: 1px solid var(--color-border-primary);
 }
 
-
-
 .form-actions .btn {
-
   background-color: var(--color-btn-primary);
   color: var(--color-text-secondary);
 }
 
 .form-actions .btn:hover,
 .form-actions .btn:active {
- 
   background-color: var(--color-btn-hover);
   color: var(--color-text-primary);
 }
