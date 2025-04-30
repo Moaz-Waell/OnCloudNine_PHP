@@ -1,0 +1,25 @@
+/**************************/
+/* BELOW  1344px  (smaller desktops)/
+/**************************/
+@media (max-width: 84em) {}
+
+/**************************************/
+/* BELOW  1200px  (Landscape Tablets) */
+/**************************************/
+
+@media (max-width: 75em) {
+    html {
+        /* 9px / 16px = 0.5625 */
+        font-size: 56.25% !important;
+    }
+}
+
+/**************************/
+/* BELOW  944px  (Tablets) */
+/**************************/
+@media (max-width: 59em) {
+    html {
+        /* 8px / 16px = 0.5 */
+        font-size: 50% !important;
+    }
+}
