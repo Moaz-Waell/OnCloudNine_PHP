@@ -1,0 +1,70 @@
+
+@import url('landing.css');
+
+
+.profile-header {
+  /* Using grid utilities from the imported standards */
+  align-items: center; /* Vertically align name/ID block and image */
+  border-bottom: 1px solid var(--color-border-primary); /* Use variable for border */
+  padding-bottom: 2.4rem; /* Spacing below header content */
+  margin-bottom: 2.4rem; /* Spacing after the entire header section */
+}
+
+.profile-img {
+  /* Style the profile picture */
+  width: 8rem; /* Example size (80px) */
+  height: 8rem; /* Example size (80px) */
+  border-radius: 50%; /* Make it round */
+  display: block; /* Helps prevent extra space issues */
+  margin-left: auto; /* Push to the right (complements text-align: right in HTML) */
+}
+
+/* --- Allergies Section --- */
+.allergies-grid {
+  margin-top: 1.6rem; /* Space between "Allergies:" heading and the grid */
+}
+
+/* Adjust spacing and alignment within the 4-column allergy rows */
+.allergies-grid .grid-4-cols {
+  align-items: center; /* Vertically align checkbox and label in each cell */
+  row-gap: 1.6rem; /* Space between different allergy rows */
+  column-gap: 0.8rem; /* Narrower gap between checkbox and its label */
+}
+
+input[type="checkbox"] {
+  /* Style the checkboxes */
+  width: 1.6rem; /* 16px */
+  height: 1.6rem; /* 16px */
+  accent-color: var(--color-primary); /* Use primary color for the checkmark */
+  cursor: pointer;
+  justify-self: center; /* Center the checkbox within its grid column */
+}
+
+.allergy-label label {
+  /* Style the checkbox labels */
+  font-size: 1.4rem; /* Example size (14px) */
+  cursor: pointer;
+}
+
+/* --- Form Actions / Button --- */
+.form-actions {
+  margin-top: 3.2rem; /* Space above the button area */
+  text-align: center; /* Center the button */
+  padding-top: 2.4rem; /* Space between content above and the button */
+  border-top: 1px solid var(--color-border-primary); /* Separator line */
+}
+
+
+
+.form-actions .btn {
+
+  background-color: var(--color-btn-primary);
+  color: var(--color-text-secondary);
+}
+
+.form-actions .btn:hover,
+.form-actions .btn:active {
+ 
+  background-color: var(--color-btn-hover);
+  color: var(--color-text-primary);
+}
