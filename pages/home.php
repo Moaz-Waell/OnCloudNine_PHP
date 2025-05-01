@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-  header("Location: user_login.php"); // Redirect to login if not authenticated
+  header("Location: user_login.php");
   exit();
 }
 ?>
@@ -65,13 +65,11 @@ if (!isset($_SESSION['username'])) {
           </div>
         </div>
       </header>
-
       <!-- Category Section -->
       <section class="category-section">
         <div class="section-header">
           <h2>Category</h2>
         </div>
-
         <div class="category-flex">
           <?php
           include('../php/config.php');
@@ -93,7 +91,6 @@ if (!isset($_SESSION['username'])) {
           ?>
         </div>
       </section>
-
       <!-- Best Seller Section -->
       <section class="bestseller-section">
         <div class="section-header">
