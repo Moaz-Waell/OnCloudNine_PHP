@@ -13,6 +13,7 @@ body{
 
 .navbar {
     background-color: var(--color-bg-primary);
+    color:var(--color-text-primary); ;
     padding: 2rem;
     font-size: 3rem;
     margin-bottom: 1.6rem;
@@ -46,18 +47,19 @@ body{
 .orders-table td {
   padding: 1.6rem;
   text-align: left;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
   border-bottom: 1px solid var(--color-border-primary);
 }
 
 .orders-table th {
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.5px;
+  font-size: 3rem;
    font-size: 1.5rem;
   line-height: 1.2;
   flex-shrink: 0; /* منع انكماش الاسم عند طول الوصف */
-  margin-bottom: 0.8rem;
-  color: var(--color-text-secondary);
+  margin-bottom: 1.6rem;
+  color: var(--color-text-primary);
   background-color: var(--color-bg-secondary);
 }
 
@@ -82,7 +84,7 @@ body{
 }
 
 /* Completed Button */
-.completed {
+.ordersstatus {
   background-color: var(--color-btn-hover);
   color: var(--color-text-secondary);
 }
