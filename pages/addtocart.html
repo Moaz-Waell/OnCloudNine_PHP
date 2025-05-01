@@ -3,43 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
-    <link rel="stylesheet" href="/style/Components/addtocart.css">
+    <title>Meal Cart</title>
+    <link rel="stylesheet" href="/style/components/addtocart.css">
 </head>
 <body>
-    <!-- Top Navigation Bar -->
-    <nav class="top-nav">
-        <button class="nav-button back-btn">←</button>
-        <h1 class="nav-title">Cart</h1>
-        <button class="nav-button cart-btn">🛒</button>
-    </nav>
+    <!-- Back Button -->
+    <div class="back">
+        <a href="/index.html" class="btn btn--full">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z" fill="currentColor"/>
+            </svg>
+        </a>
+    </div>
 
-    <!-- Cart Items -->
-    <main class="cart-container">
-        <div class="cart-item">
-            <img src="product1.jpg" alt="Product 1" class="item-image">
-            <div class="item-info">
-                <h3 class="item-name">Fury Energy Drink</h3>
-                <p class="item-price">EGP 17.00</p>
+    <!-- Meal Cart -->
+    <div class="meal-cart-container">
+        <div class="meal-cart">
+            <!-- Meal Item 1 -->
+            <div class="meal-item">
+                <div class="meal-item__info">
+                    <div class="meal-item__photo">
+                        <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
+                    </div>
+                    <div class="meal-item__content">
+                        <div class="heading-secondary meal-item__name">Falafel</div>
+                        <div class="description meal-item__description">Falafel, tomato, cucumber, pickles, tahini, baladi bread.</div>
+                    </div>
+                    <button class="meal-item__remove-btn">-</button>
+                </div>
+            </div>
+            <!-- Meal Item 2 -->
+            <div class="meal-item">
+                <div class="meal-item__info">
+                    <div class="meal-item__photo">
+                        <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
+                    </div>
+                    <div class="meal-item__content">
+                        <div class="heading-secondary meal-item__name">Red Bull</div>
+                        <div class="description meal-item__description">The Spring Edition 250ml</div>
+                    </div>
+                    <button class="meal-item__remove-btn">-</button>
+                </div>
+            </div>
+            <div class="meal-item">
+                <div class="meal-item__info">
+                    <div class="meal-item__photo">
+                        <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
+                    </div>
+                    <div class="meal-item__content">
+                        <div class="heading-secondary meal-item__name">Red Bull</div>
+                        <div class="description meal-item__description">
+                            <span>The Spring Edition 250ml</span> 
+                        </div>
+                    </div>
+                    <button class="meal-item__remove-btn">-</button>
+                </div>
+            </div>
+            <div class="meal-item">
+                <div class="meal-item__info">
+                    <div class="meal-item__photo">
+                        <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
+                    </div>
+                    <div class="meal-item__content">
+                        <div class="heading-secondary meal-item__name">Red Bull</div>
+                        <div class="description meal-item__description">The Spring Edition 250ml</div>
+                    </div>
+                    <button class="meal-item__remove-btn">-</button>
+                </div>
+            </div><div class="meal-item">
+                <div class="meal-item__info">
+                    <div class="meal-item__photo">
+                        <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
+                    </div>
+                    <div class="meal-item__content">
+                        <div class="heading-secondary meal-item__name">Red Bull</div>
+                        <div class="description meal-item__description">The Spring Edition 250ml</div>
+                    </div>
+                    <button class="meal-item__remove-btn">-</button>
+                </div>
             </div>
         </div>
 
-        <div class="cart-item">
-            <img src="product2.jpg" alt="Product 2" class="item-image">
-            <div class="item-info">
-                <h3 class="item-name">Red Bull Special Edition</h3>
-                <p class="item-price">EGP 50.00</p>
-            </div>
-        </div>
-    </main>
 
-    <!-- Bottom Navigation Bar -->
-    <nav class="bottom-nav">
-        <div class="total-section">
-            <span class="total-label">Total Amount</span>
-            <span class="total-price">EGP 67.00</span>
+        
+        <div class="cart-footer">
+            <div class="total-amount">
+                Total Amount: $<span id="total-amount">0.00</span>
+            </div>
+            <button class="btn btn--full btn--checkout">Checkout</button>
         </div>
-        <button class="checkout-btn">Checkout</button>
-    </nav>
+    
 </body>
 </html>
+
+
+
