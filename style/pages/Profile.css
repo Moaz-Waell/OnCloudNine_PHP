@@ -1,60 +1,4 @@
-/*@import url('landing.css');
 
-.profile-header {
-  align-items: center;
-  border-bottom: 1px solid var(--color-border-primary);
-  padding-bottom: 2.4rem;
-  margin-bottom: 2.4rem;
-}
-
-.profile-img {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50%;
-  display: block;
-  margin-left: auto;
-}
-
-.allergies-grid {
-  margin-top: 1.6rem;
-}
-
-.allergies-grid .grid-4-cols {
-  align-items: center;
-  row-gap: 1.6rem;
-  column-gap: 0.8rem;
-}
-
-input[type="checkbox"] {
-  width: 1.6rem;
-  height: 1.6rem;
-  accent-color: var(--color-primary);
-  cursor: pointer;
-  justify-self: center;
-}
-
-.allergy-label label {
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-
-.form-actions {
-  margin-top: 3.2rem;
-  text-align: center;
-  padding-top: 2.4rem;
-  border-top: 1px solid var(--color-border-primary);
-}
-
-.form-actions .btn {
-  background-color: var(--color-btn-primary);
-  color: var(--color-text-secondary);
-}
-
-.form-actions .btn:hover,
-.form-actions .btn:active {
-  background-color: var(--color-btn-hover);
-  color: var(--color-text-primary);
-}*/
 /* Assuming landing.css provides base styles, variables, and grid classes */
 /* Assuming landing.css provides base styles, variables, container, grid, headings */
 @import url('../landing.css'); /* Adjusted path assuming landing.css is one level up */
@@ -168,13 +112,14 @@ input[type="checkbox"] {
 .allergy-option {
   display: flex;
   align-items: center;
-  gap: 0.8rem; /* Space between checkbox and label */
+  gap: 0.8rem;
+   /* Space between checkbox and label */
 }
 
 input[type="checkbox"] {
   width: 1.6rem;
   height: 1.6rem;
-  accent-color: var(--color-primary);
+  accent-color: #5f9ea0;
   cursor: pointer;
   /* Removed justify-self as flex alignment handles it now */
 }
@@ -191,6 +136,8 @@ input[type="checkbox"] {
 /* --- Form Actions / Button (Reverted to original styles) --- */
 /* --- Form Actions / Button (Container styled as original, Button uses standard .btn--full) --- */
 /* --- Form Actions / Button (Unique style overrides for this specific button) --- */
+/* --- Form Actions / Button (Unique style overrides for this specific button) --- */
+/* --- Form Actions / Button (Unique style overrides for this specific button) --- */
 .form-actions {
   /* Container styles remain as requested */
   margin-top: 3.2rem;
@@ -200,17 +147,23 @@ input[type="checkbox"] {
 }
 
 .form-actions .btn {
-  /* Base styles like padding, border-radius, font-weight come from .btn in buttons.css */
-
   /* --- Overrides specific to THIS button's appearance --- */
-  /* Use color picker or inspect element to get actual hex codes */
-  background-color: #5F9EA0; /* Example: Muted Teal - REPLACE WITH ACTUAL COLOR FROM IMAGE 1 */
+  background-color: #5F9EA0; /* Example: REPLACE WITH ACTUAL COLOR */
   color: #FFFFFF;            /* White text */
+
+  /* --- Size and Transition Overrides --- */
+  /* Larger padding (adjust values as needed) */
+  padding: 0.8rem 0.8rem;
+border-radius: 1.2rem;
+font-size:1.0rem;
+
+  /* Smoother transition (adjust duration as needed) */
+  transition: all ease 0.3s;
 }
 
 .form-actions .btn:hover,
 .form-actions .btn:active {
  /* --- Hover overrides specific to THIS button's appearance --- */
-  background-color: var(--color-btn-primary); /* Example: Lighter Teal/Blue - REPLACE WITH ACTUAL COLOR FROM IMAGE 2 */
-  color: var(--color-btn-hover)            /* Example: Dark Grey text - REPLACE WITH ACTUAL COLOR FROM IMAGE 2 */
+  background-color: #ADD8E6; /* Example: REPLACE WITH ACTUAL COLOR */
+  color: #333333;            /* Example: REPLACE WITH ACTUAL COLOR */
 }
