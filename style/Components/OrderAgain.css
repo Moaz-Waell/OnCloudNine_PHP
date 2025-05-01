@@ -23,7 +23,7 @@ body{
   
   /* Table Styles */
   .orders-container {
-    max-width: 120rem;
+    max-width: 84rem;
     margin: 4rem auto;
     padding: 2rem;
     background-color: var(--color-bg-secondary);
