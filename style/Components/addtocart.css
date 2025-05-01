@@ -183,9 +183,33 @@ body {
   margin-bottom: 1rem;
 }
 
-.btn--checkout {
-  width: 100%;
-  max-width: 20rem;
-}
-
+.btn--checkout-container {
+  padding: 1 rem;
+  text-align: center
+  }
+  
+  .btn--checkout:root {
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all ease 0.2s;
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 1.6rem 3.2rem;
+    width: 100%;
+    max-width: 80rem; /* Set a maximum width for the button */
+    border-radius: 9px;
+    background-color: var(--color-btn-primary);
+    color: var(--color-text-secondary);
+    margin-top: 2rem;
+    width: fit-content; /* Full-width button */
+  }
+  
+  .btn--checkout:hover,
+  .btn--checkout:active {
+    background-color: var(--color-btn-hover);
+    color: var(--color-text-primary);
+  }
 
