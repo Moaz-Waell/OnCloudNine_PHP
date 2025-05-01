@@ -1,0 +1,217 @@
+@import url(/style/pages/landing.css);
+
+@media (max-width: 84em) {}
+
+body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: "Rubik", sans-serif;
+  line-height: 1;
+  color: var(--color-primary);
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+/* Back Button */
+.back {
+  display: flex;
+  margin-bottom: right;
+  margin-top: 1rem;
+  margin-left: 1.6rem;
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  gap: 1.8rem; /* Space between the icon and text */
+  font-size: 1.4rem; /* Smaller font size */
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-secondary);
+  padding: 1rem; /* Reduced padding */
+  border-radius: 50%; /* Make the button circular */
+  width: 4rem; /* Fixed width for circular shape */
+  height: 4rem; /* Fixed height for circular shape */
+  text-decoration: none; /* Remove underline from link */
+  overflow: hidden; /* Ensure content doesn't overflow */
+
+}
+
+
+.back svg {
+  width: 1.6rem; /* Smaller icon size */
+  height: 1.6rem; /* Smaller icon size */
+  fill: var(--color-text-secondary); /* Icon color */
+}
+.back:hover,
+.back:active {
+  background-color: var(--color-btn-hover); /* Background color on hover */
+  color: var(--color-text-primary); /* Text/icon color on hover */
+}
+.meal-cart-container {
+  width: 90%;
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--color-bg-secondary);
+  border-radius: 1.6rem;
+  box-shadow: 0 0  1rem rgba(0,0,0,0.1);
+  box-sizing: border-box;
+
+}
+.meal-cart{
+  margin-bottom: 2rem;
+}
+/* Core styles */
+.meal-item {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg-secondary);
+  box-shadow: 0 0.3rem 0.8rem rgba(0,0,0,0.1);
+  border-radius: 1.2rem;
+  transition: all ease 0.2s;
+  padding: 2rem;
+  max-width: 150 rem;
+  margin: 1rem auto;
+  gap: 1.6rem;
+  cursor: pointer;
+  width: 100%;
+  height: 8rem;
+  padding-right: 5rem;
+  justify-content: space-between;
+  position: relative;
+}
+.meal-item:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+  transform: translateY(-0.2rem);
+}
+
+.meal-item__info {
+  flex: 1 ;
+  display: flex;
+  grid-template-columns: 6rem 1fr auto;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.meal-item__photo {
+  align-content: start;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+.meal-item__photo img {
+  align-content: center;
+  width: 100%;
+  height: auto;
+  border-radius: 9px;
+  object-fit: cover; /* Maintain aspect ratio and cover the area */
+}
+
+.meal-item__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* محاذاة يسار بدلاً من center */
+  justify-content: flex-start;
+  gap: 0.4rem; /* مسافة ثابتة بين الاسم والوصف */
+}
+
+.meal-item__name {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin: 0; /* إزالة أي مارجين تلقائي */
+  padding: 0;
+  flex-shrink: 0; /* منع انكماش الاسم عند طول الوصف */
+}
+
+.meal-item__description {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 0; /* إزالة أي مارجين */
+  padding: 0;
+  max-height: 3rem; /* تحديد ارتفاع أقصى للوصف */
+  overflow: hidden; /* إخفاء النص الزائد */
+  text-overflow: ellipsis; /* وضع نقاط عند النص الطويل */
+}
+.meal-item__description.expanded {
+  max-height: none; /* إزالة الحد الأقصى للارتفاع عند التوسيع */
+  overflow: visible; /* إظهار النص بالكامل */
+  text-overflow: clip; /* إزالة النقاط عند التوسيع */
+}
+
+/* Remove Button */
+
+.meal-item__remove-btn {
+  position: absolute;
+  align-content:end ;
+  right: 1rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem; /* Smaller font size */
+  background-color:var(--color-btn-primary);
+  color: var(--color-text-secondary);
+  width: 4rem; /* Fixed width for circular shape */
+  height: 4rem; /* Fixed height for circular shape */
+  border-radius: 50%; /* Make the button circular */
+  display: flex;
+  align-items: center; /* Center the icon vertically */
+  justify-content: center; /* Center the icon */
+  transition: all ease 0.2s;
+}
+
+.meal-item__remove-btn:hover,
+.meal-item__remove-btn:active {
+  background-color: var(--color-btn-hover);
+  color:var(--color-text-primary) /* Optional: Add a subtle background on hover */
+}
+
+
+
+/* Total & Checkout */
+.total-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.6rem;
+  padding: 2rem;
+  background-color: var(--color-bg-secondary);
+  border-radius: 1.2rem;
+  margin-top: 2rem;
+}
+
+.total-amount {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.btn--checkout-container {
+  padding: 1 rem;
+  text-align: center
+  }
+  
+  .btn--checkout:root {
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all ease 0.2s;
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 1.6rem 3.2rem;
+    width: 100%;
+    max-width: 80rem; /* Set a maximum width for the button */
+    border-radius: 9px;
+    background-color: var(--color-btn-primary);
+    color: var(--color-text-secondary);
+    margin-top: 2rem;
+    width: fit-content; /* Full-width button */
+  }
+  
+  .btn--checkout:hover,
+  .btn--checkout:active {
+    background-color: var(--color-btn-hover);
+    color: var(--color-text-primary);
+  }
+
