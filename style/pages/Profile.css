@@ -1,4 +1,4 @@
-@import url('landing.css');
+/*@import url('landing.css');
 
 .profile-header {
   align-items: center;
@@ -54,4 +54,163 @@ input[type="checkbox"] {
 .form-actions .btn:active {
   background-color: var(--color-btn-hover);
   color: var(--color-text-primary);
+}*/
+/* Assuming landing.css provides base styles, variables, and grid classes */
+/* Assuming landing.css provides base styles, variables, container, grid, headings */
+@import url('../landing.css'); /* Adjusted path assuming landing.css is one level up */
+
+/* ****** Default Theme Variables (Examples - MUST MATCH landing.css) ****** */
+:root {
+  /* !!! REPLACE WITH ACTUAL VARIABLES FROM landing.css !!! */
+  --color-primary: #007bff;        /* Example Blue */
+  --color-text-primary: #333;     /* Example Dark Grey */
+  --color-text-secondary: #fff;   /* Example White */
+  --color-background-card: #ffffff; /* Example White */
+  --color-border-primary: #ddd;   /* Example Light Grey */
+  --color-btn-primary: #007bff;   /* Example Blue */
+  --color-btn-hover: #0056b3;    /* Example Darker Blue */
+  --card-border-radius: 1.6rem;
+  --card-padding: 2.4rem;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional */
+}
+
+/* ****** Layout Styling ****** */
+/* Using .container class for max-width/centering if defined in landing.css */
+.profile-layout.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Adjust ratio if needed */
+  gap: 4.8rem;
+  align-items: start;
+  padding-top: 4.8rem; /* Add space at the top of the page */
+  padding-bottom: 4.8rem; /* Add space at the bottom */
+}
+
+/* ****** Left Column Styling ****** */
+.profile-left-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* Text color should be standard now */
+  color: var(--color-text-primary);
+  padding-top: 2.4rem;
+}
+
+/* Profile Image - Ensure styles are appropriate */
+.profile-img {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 2.4rem;
+  object-fit: cover; /* Prevents image distortion */
+}
+
+.profile-name {
+  /* Inherits .heading-secondary */
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--color-text-primary); /* Standard text color */
+  margin-bottom: 0.8rem;
+}
+
+.profile-id,
+.profile-phone {
+  /* Inherits .description */
+  font-size: 1.6rem;
+  color: var(--color-text-primary); /* Standard text color */
+  opacity: 0.8; /* Slightly muted */
+  margin-bottom: 1.2rem;
+}
+
+
+/* ****** Right Column Styling ****** */
+.profile-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+/* ****** Card Styling ****** */
+.profile-card {
+  background-color: var(--color-background-card, #fff);
+  border-radius: var(--card-border-radius, 1.6rem);
+  padding: var(--card-padding, 2.4rem);
+  box-shadow: var(--card-shadow, none);
+}
+
+.profile-card .heading-tertiary {
+  /* Assuming .heading-tertiary */
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2.4rem; /* Increased space after heading */
+  color: var(--color-text-primary);
+}
+
+/* --- UPDATED Allergies Section Styling --- */
+.allergies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem; /* Space between each allergy item */
+}
+
+.allergy-item {
+  display: grid;
+  /* Creates two columns for Yes/No options */
+  grid-template-columns: 1fr 1fr;
+  /* Adjust gap between Yes/No columns as needed */
+  column-gap: 2.4rem;
+  /* Optional: Add border/padding if each item needs visual separation */
+  /* border-bottom: 1px solid var(--color-border-primary); */
+  /* padding-bottom: 1.6rem; */
+}
+
+.allergy-option {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem; /* Space between checkbox and label */
+}
+
+input[type="checkbox"] {
+  width: 1.6rem;
+  height: 1.6rem;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+  /* Removed justify-self as flex alignment handles it now */
+}
+
+/* Label styling was inside .allergy-label before, now direct child */
+.allergy-option label {
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--color-text-primary);
+}
+
+
+/* --- Form Actions / Button --- */
+/* --- Form Actions / Button (Reverted to original styles) --- */
+/* --- Form Actions / Button (Container styled as original, Button uses standard .btn--full) --- */
+/* --- Form Actions / Button (Unique style overrides for this specific button) --- */
+.form-actions {
+  /* Container styles remain as requested */
+  margin-top: 3.2rem;
+  text-align: center;
+  padding-top: 2.4rem;
+  border-top: 1px solid var(--color-border-primary);
+}
+
+.form-actions .btn {
+  /* Base styles like padding, border-radius, font-weight come from .btn in buttons.css */
+
+  /* --- Overrides specific to THIS button's appearance --- */
+  /* Use color picker or inspect element to get actual hex codes */
+  background-color: #5F9EA0; /* Example: Muted Teal - REPLACE WITH ACTUAL COLOR FROM IMAGE 1 */
+  color: #FFFFFF;            /* White text */
+}
+
+.form-actions .btn:hover,
+.form-actions .btn:active {
+ /* --- Hover overrides specific to THIS button's appearance --- */
+  background-color: var(--color-btn-primary); /* Example: Lighter Teal/Blue - REPLACE WITH ACTUAL COLOR FROM IMAGE 2 */
+  color: var(--color-btn-hover)            /* Example: Dark Grey text - REPLACE WITH ACTUAL COLOR FROM IMAGE 2 */
 }
