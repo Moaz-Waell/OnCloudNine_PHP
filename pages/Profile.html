@@ -1,40 +1,29 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Profile</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Make sure this path is correct relative to where Profile.html is served from -->
-    <!-- If Profile.html is in 'pages', and Profile.css is in 'style/pages', this path is likely incorrect. -->
-    <!-- Assuming Profile.html is in 'pages' folder: -->
     <link rel="stylesheet" href="../style/pages/Profile.css">
 </head>
 <body>
-    <!-- Using container for padding/max-width, assuming defined in landing.css -->
-    <!-- Removed the blue background wrapper -->
     <div class="profile-layout container">
 
-        <!-- ****** LEFT COLUMN ****** -->
         <div class="profile-left-col">
-            <!-- Profile Image - ensure path is correct relative to HTML file -->
+            <!--الصوره بتاعة البروفايل-->
             <img src="../img/icons/EmptyProfileIcon.png" alt="Profile Icon" class="profile-img">
             <h2 class="heading-secondary profile-name">Ziad</h2>
             <p class="description profile-id">231014487</p>
             <p class="description profile-phone">Phone: 0620400868</p>
         </div>
 
-        <!-- ****** RIGHT COLUMN ****** -->
         <div class="profile-right-col">
-
-            <!-- ****** ALLERGIES CARD ****** -->
             <div class="profile-card">
                 <h3 class="heading-tertiary">Allergies:</h3>
-                <!-- Simplified grid container for vertical stacking of items -->
                 <div class="allergies-list">
-
-                    <!-- Allergy Item 1 -->
+<!--الكلاس الكبير اللي ماسك الحتة دي كلها -->
                     <div class="allergy-item">
+                        <!--الكلاس بتاع الأوبشن بس-->
                          <div class="allergy-option">
                              <input type="checkbox" id="allergy1-yes" checked aria-label="Allergy 1 Yes">
                              <label for="allergy1-yes">Allergy 1 (Yes)</label>
@@ -45,7 +34,6 @@
                          </div>
                     </div>
 
-                    <!-- Allergy Item 2 -->
                     <div class="allergy-item">
                          <div class="allergy-option">
                              <input type="checkbox" id="allergy2-yes" checked aria-label="Allergy 2 Yes">
@@ -57,7 +45,6 @@
                          </div>
                     </div>
 
-                    <!-- Allergy Item 3 -->
                     <div class="allergy-item">
                          <div class="allergy-option">
                              <input type="checkbox" id="allergy3-yes" checked aria-label="Allergy 3 Yes">
@@ -69,16 +56,15 @@
                          </div>
                     </div>
 
-                </div> <!-- End allergies-list -->
-            </div> <!-- End profile-card -->
+                </div>
+            </div>
 
-            <!-- ****** SAVE BUTTON (Placed below card in right column) ****** -->
             <div class="form-actions">
                 <button type="button" class="btn">Save changes</button>
             </div>
 
-        </div> <!-- End profile-right-col -->
+        </div>
 
-    </div> <!-- End profile-layout -->
+    </div>
 </body>
 </html>
