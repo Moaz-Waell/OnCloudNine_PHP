@@ -63,6 +63,15 @@ body{
   background-color: var(--color-bg-secondary);
 }
 
+.orders-table td {
+  font-size: 3rem;
+   font-size: 1.2rem;
+  line-height: 1.2;
+  flex-shrink: 0; /* منع انكماش الاسم عند طول الوصف */
+  margin-bottom: 1.6rem;
+  color: var(--color-btn-primary);
+}
+
 /* View Details Link */
 .view-details {
   color: var(--color-btn-primary);

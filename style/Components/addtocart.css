@@ -154,13 +154,13 @@ overflow-x: hidden;
   max-height: 3rem; /* تحديد ارتفاع أقصى للوصف */
   overflow: hidden; /* إخفاء النص الزائد */
   text-overflow: ellipsis; /* وضع نقاط عند النص الطويل */
-  color: var(--color-text-secondary);
+  color: #777; /* لون رمادي للنص */
 }
 
 .meal-item__price {
   font-size: 1.4rem;
   font-weight: 600;
-  color: var(--color-text-secondary);
+  color: #777;
   margin-top: 0.4rem;
 }
 
