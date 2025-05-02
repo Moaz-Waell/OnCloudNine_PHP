@@ -1,81 +1,66 @@
+@import url('../landing.css');
 
-/* Assuming landing.css provides base styles, variables, and grid classes */
-/* Assuming landing.css provides base styles, variables, container, grid, headings */
-@import url('../landing.css'); /* Adjusted path assuming landing.css is one level up */
-
-/* ****** Default Theme Variables (Examples - MUST MATCH landing.css) ****** */
 :root {
-  /* !!! REPLACE WITH ACTUAL VARIABLES FROM landing.css !!! */
-  --color-primary: #007bff;        /* Example Blue */
-  --color-text-primary: #333;     /* Example Dark Grey */
-  --color-text-secondary: #fff;   /* Example White */
-  --color-background-card: #ffffff; /* Example White */
-  --color-border-primary: #ddd;   /* Example Light Grey */
-  --color-btn-primary: #007bff;   /* Example Blue */
-  --color-btn-hover: #0056b3;    /* Example Darker Blue */
+  --color-primary: #007bff;
+  --color-text-primary: #333;
+  --color-text-secondary: #fff;
+  --color-background-card: #ffffff;
+  --color-border-primary: #ddd;
+  --color-btn-primary: #007bff;
+  --color-btn-hover: #0056b3;
   --card-border-radius: 1.6rem;
   --card-padding: 2.4rem;
-  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional */
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* ****** Layout Styling ****** */
-/* Using .container class for max-width/centering if defined in landing.css */
 .profile-layout.container {
   display: grid;
-  grid-template-columns: 1fr 2fr; /* Adjust ratio if needed */
+  grid-template-columns: 1fr 2fr;
   gap: 4.8rem;
   align-items: start;
-  padding-top: 4.8rem; /* Add space at the top of the page */
-  padding-bottom: 4.8rem; /* Add space at the bottom */
+  padding-top: 4.8rem;
+  padding-bottom: 4.8rem;
 }
 
-/* ****** Left Column Styling ****** */
 .profile-left-col {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /* Text color should be standard now */
   color: var(--color-text-primary);
   padding-top: 2.4rem;
 }
 
-/* Profile Image - Ensure styles are appropriate */
 .profile-img {
   width: 12rem;
   height: 12rem;
   border-radius: 50%;
   display: block;
   margin-bottom: 2.4rem;
-  object-fit: cover; /* Prevents image distortion */
+  object-fit: cover;
 }
 
 .profile-name {
-  /* Inherits .heading-secondary */
   font-size: 2.4rem;
   font-weight: 600;
-  color: var(--color-text-primary); /* Standard text color */
+  color: var(--color-text-primary);
   margin-bottom: 0.8rem;
 }
 
 .profile-id,
 .profile-phone {
-  /* Inherits .description */
   font-size: 1.6rem;
-  color: var(--color-text-primary); /* Standard text color */
-  opacity: 0.8; /* Slightly muted */
+  color: var(--color-text-primary);
+  opacity: 0.8;
   margin-bottom: 1.2rem;
 }
 
-
-/* ****** Right Column Styling ****** */
 .profile-right-col {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
 }
 
-/* ****** Card Styling ****** */
 .profile-card {
   background-color: var(--color-background-card, #fff);
   border-radius: var(--card-border-radius, 1.6rem);
@@ -84,36 +69,28 @@
 }
 
 .profile-card .heading-tertiary {
-  /* Assuming .heading-tertiary */
   font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 2.4rem; /* Increased space after heading */
+  margin-bottom: 2.4rem;
   color: var(--color-text-primary);
 }
 
-/* --- UPDATED Allergies Section Styling --- */
 .allergies-list {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem; /* Space between each allergy item */
+  gap: 1.6rem;
 }
 
 .allergy-item {
   display: grid;
-  /* Creates two columns for Yes/No options */
   grid-template-columns: 1fr 1fr;
-  /* Adjust gap between Yes/No columns as needed */
   column-gap: 2.4rem;
-  /* Optional: Add border/padding if each item needs visual separation */
-  /* border-bottom: 1px solid var(--color-border-primary); */
-  /* padding-bottom: 1.6rem; */
 }
 
 .allergy-option {
   display: flex;
   align-items: center;
   gap: 0.8rem;
-   /* Space between checkbox and label */
 }
 
 input[type="checkbox"] {
@@ -121,25 +98,15 @@ input[type="checkbox"] {
   height: 1.6rem;
   accent-color: #5f9ea0;
   cursor: pointer;
-  /* Removed justify-self as flex alignment handles it now */
 }
 
-/* Label styling was inside .allergy-label before, now direct child */
 .allergy-option label {
   font-size: 1.4rem;
   cursor: pointer;
   color: var(--color-text-primary);
 }
 
-
-/* --- Form Actions / Button --- */
-/* --- Form Actions / Button (Reverted to original styles) --- */
-/* --- Form Actions / Button (Container styled as original, Button uses standard .btn--full) --- */
-/* --- Form Actions / Button (Unique style overrides for this specific button) --- */
-/* --- Form Actions / Button (Unique style overrides for this specific button) --- */
-/* --- Form Actions / Button (Unique style overrides for this specific button) --- */
 .form-actions {
-  /* Container styles remain as requested */
   margin-top: 3.2rem;
   text-align: center;
   padding-top: 2.4rem;
@@ -147,23 +114,16 @@ input[type="checkbox"] {
 }
 
 .form-actions .btn {
-  /* --- Overrides specific to THIS button's appearance --- */
-  background-color: #5F9EA0; /* Example: REPLACE WITH ACTUAL COLOR */
-  color: #FFFFFF;            /* White text */
-
-  /* --- Size and Transition Overrides --- */
-  /* Larger padding (adjust values as needed) */
+  background-color: #5F9EA0;
+  color: #FFFFFF;
   padding: 0.8rem 0.8rem;
-border-radius: 1.2rem;
-font-size:1.0rem;
-
-  /* Smoother transition (adjust duration as needed) */
+  border-radius: 1.2rem;
+  font-size: 1.0rem;
   transition: all ease 0.3s;
 }
 
 .form-actions .btn:hover,
 .form-actions .btn:active {
- /* --- Hover overrides specific to THIS button's appearance --- */
-  background-color: #ADD8E6; /* Example: REPLACE WITH ACTUAL COLOR */
-  color: #333333;            /* Example: REPLACE WITH ACTUAL COLOR */
+  background-color: #ADD8E6;
+  color: #333333;
 }
