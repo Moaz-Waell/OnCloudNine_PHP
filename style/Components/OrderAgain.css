@@ -1,4 +1,12 @@
-@import url(/style/pages/landing.css);
+@import url(../base/variables.css);
+@import url(../base/base.css);
+@import url(../base/typography.css);
+@import url(../Components/buttons.css);
+@import url(../base/general.css);
+@import url(../base/utilities.css);
+@import url(../Components/sidebar.css);
+@import url(../mediaqueries/general.css);
+
 
 body{
     font-family: "Rubik", sans-serif;
@@ -61,6 +69,15 @@ body{
   margin-bottom: 1.6rem;
   color: var(--color-text-primary);
   background-color: var(--color-bg-secondary);
+}
+
+.orders-table td {
+  font-size: 3rem;
+   font-size: 1.2rem;
+  line-height: 1.2;
+  flex-shrink: 0; /* منع انكماش الاسم عند طول الوصف */
+  margin-bottom: 1.6rem;
+  color: var(--color-btn-primary);
 }
 
 /* View Details Link */

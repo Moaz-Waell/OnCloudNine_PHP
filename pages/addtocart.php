@@ -8,6 +8,16 @@
  
 </head>
 <body>
+  <div class="container">
+
+    <?php include('../components/nav.html'); ?>
+    <main class="main-content">
+      <header class="header">
+        <div class="header">
+         <h1>Menu</h1>
+        </div>
+
+   
 
   <!-- Navigation Bar -->
   <nav class="navbar">
@@ -143,6 +153,7 @@
     </div>
     <button class="btn btn--full btn--checkout">Checkout</button>
   </div>
+</main>
 
 </body>
 </html>

@@ -1,4 +1,12 @@
-@import url(/style/pages/landing.css);
+@import url(../base/variables.css);
+@import url(../base/base.css);
+@import url(../base/typography.css);
+@import url(../Components/buttons.css);
+@import url(../base/general.css);
+@import url(../base/utilities.css);
+@import url(../Components/sidebar.css);
+@import url(../mediaqueries/general.css);
+
 @media (max-width: 84em) {}
 
 body {
@@ -154,13 +162,13 @@ overflow-x: hidden;
   max-height: 3rem; /* تحديد ارتفاع أقصى للوصف */
   overflow: hidden; /* إخفاء النص الزائد */
   text-overflow: ellipsis; /* وضع نقاط عند النص الطويل */
-  color: var(--color-text-secondary);
+  color: #777; /* لون رمادي للنص */
 }
 
 .meal-item__price {
   font-size: 1.4rem;
   font-weight: 600;
-  color: var(--color-text-secondary);
+  color: #777;
   margin-top: 0.4rem;
 }
 
