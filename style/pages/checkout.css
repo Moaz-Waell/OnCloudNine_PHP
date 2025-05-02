@@ -4,17 +4,14 @@
 @import url(/style/Components/buttons.css);
 @import url(/style/base/general.css);
 @import url(/style/base/utilities.css);
+@import url(/style/pages/home.css);
 
 body{
   background-color: var(--color-bg-tertiary);
 }
-.grid,
-.grid-3-cols,
+
 .checkout.container {
-  /* display: grid; */
-  /* grid-template-columns: 1fr 2fr 2fr; */
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   gap: 2rem;
