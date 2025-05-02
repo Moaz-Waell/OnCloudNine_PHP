@@ -1,10 +1,10 @@
-@import url(/style/base/base.css);
-@import url(/style/base/typography.css);
-@import url(/style/base/variables.css);
-@import url(/style/Components/buttons.css);
-@import url(/style/base/general.css);
-@import url(/style/base/utilities.css);
-@import url(/style/mediaqueries/general.css);
+@import url(../base/variables.css);
+@import url(../base/base.css);
+@import url(../base/typography.css);
+@import url(buttons.css);
+@import url(../base/general.css);
+@import url(../base/utilities.css);
+@import url(../mediaqueries/general.css);
 
 .section-login {
     width: 100%;
@@ -25,7 +25,7 @@
 }
 
 .login-image {
-    width: 80%;
+    width: 100%;
     height: auto;
     margin: 0 auto;
     animation: float 6s ease-in-out infinite;
@@ -108,7 +108,6 @@
     background: linear-gradient(45deg, var(--color-btn-primary-dark), var(--color-btn-primary));
 }
 
-/* Password Visibility Toggle */
 .password-toggle {
     position: absolute;
     right: 15px;
@@ -123,7 +122,35 @@
     color: var(--color-btn-primary);
 }
 
-/* Responsive Design */
+.error-message {
+    background: var(--color-error);
+    color: var(--color-text-primary);
+    padding: 1.2rem 2rem;
+    border-radius: 8px;
+    margin-bottom: 2.4rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    animation: slideDown 0.5s ease-out;
+    box-shadow: 0 4px 12px rgba(208, 47, 47, 0.15);
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 768px) {
     .grid-2-cols {
         grid-template-columns: 1fr;
