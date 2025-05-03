@@ -28,5 +28,7 @@
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #999;
 
-  
+  --color-error: #ffebee;
+  --color-error-dark: #d32f2f;
+
 }

@@ -3,8 +3,9 @@ body {
   line-height: 1;
   color: var(--color-primary);
   font-weight: 400;
-
   overflow-x: hidden;
+  font-size: 1.6rem;
+  background-color: var(--color-bg-primary);
 }
 
 .heading-primary,

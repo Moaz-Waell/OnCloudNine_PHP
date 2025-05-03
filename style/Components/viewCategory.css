@@ -43,7 +43,7 @@ body {
   margin: 0 auto 4rem;
   padding: 2rem;
   background-color: var(--color-bg-secondary);
-  border-radius: 16px;
+  border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
   max-width: 1400px;
 }
@@ -102,6 +102,9 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  border-color: var(--color-primary-light);
+  border-width: 2px;
+  border-style: solid;
 }
 .meal-item:hover {
   transform: translateY(-6px);
