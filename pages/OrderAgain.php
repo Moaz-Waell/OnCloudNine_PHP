@@ -4,9 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Orders</title>
-  <link rel="stylesheet" href="/style/Components/OrderAgain.css">
+  <link rel="stylesheet" href="/style/Components/OrderAgain.php">
 </head>
 <body>
+  <div class="container">
+
+    <?php include('../components/nav.html'); ?>
+    <main class="main-content">
+      <header class="header">
+        <div class="header">
+         <h1>Menu</h1>
+        </div>
 
   <!-- Navigation Bar -->
   <nav class=" navbar">
@@ -80,6 +88,9 @@
     <!-- Repeat rows for other orders -->
   </tbody>
 </table>
+
+</main>
+  </div>
   
 
 </body>
