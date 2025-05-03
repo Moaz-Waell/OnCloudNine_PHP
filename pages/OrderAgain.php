@@ -17,7 +17,7 @@
       <!-- Navigation Bar -->
       <!-- <nav class=" navbar"> -->
       <!-- <div class="container"> -->
-      <h2 class="heading-secondary padding-left-4rem">Orders</h2>
+      <h2 class="heading-secondary text-center">Orders</h2>
       <!-- </div> -->
       <!-- </nav> -->
 
