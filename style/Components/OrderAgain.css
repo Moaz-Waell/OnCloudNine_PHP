@@ -4,9 +4,9 @@
 @import url(../Components/buttons.css);
 @import url(../base/general.css);
 @import url(../base/utilities.css);
-@import url(../Components/sidebar.css);
 @import url(../mediaqueries/general.css);
-
+@import url(../Components/sidebar.css);
+@import url(../pages/home.css);
 
 body{
     font-family: "Rubik", sans-serif;
@@ -24,30 +24,27 @@ body{
     color:var(--color-text-primary); ;
     padding: 2rem;
     font-size: 3rem;
-    margin-bottom: 1.6rem;
+    margin-bottom: 0;
     font-weight: 700;
     line-height: 1.05;
     letter-spacing: -0.5px;
   }
   
-  /* Table Styles */
-  .orders-container {
-    max-width: 84rem;
-    margin: 4rem auto;
-    padding: 2rem;
-    background-color: var(--color-bg-secondary);
-    border-radius: 1.6rem;
-  }
   
   /* Table Styles */
 /* Basic Table Styles */
 .orders-table {
+  width: 100%;
   width: 90%;
+  margin-top: 0;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   margin: 4rem auto;
   border-collapse: collapse;
   background-color: var(--color-bg-secondary);
   border-radius: 1.6rem;
   overflow: hidden;
+  
 }
 
 /* Table Headers */
