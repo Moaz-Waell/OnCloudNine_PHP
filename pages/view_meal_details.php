@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/style/Components/view_meal_details.css" />
+    <link rel="stylesheet" href="../style/Components/view_meal_details.css" />
   </head>
   <body>
     <div class="wave">
@@ -100,10 +100,10 @@
           </div>
         </div>
         <!-- <div class="meal_image"> -->
-        <img src="/img/meals/test_3.png" alt="Meal Image" />
+        <img src="../img/meals/test_3.png" alt="Meal Image" />
         <!-- </div> -->
       </div>
     </section>
-    <script src="/js/quantity_counter.js"></script>
+    <script src="../js/quantity_counter.js"></script>
   </body>
 </html>

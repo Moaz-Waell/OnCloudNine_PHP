@@ -52,11 +52,11 @@ if (!isset($_SESSION['username'])) {
           $result = $con->query($query);
           if ($result->num_rows > 0) {
             while ($category = $result->fetch_assoc()) {
-              $image_path = "../img/category/" . $category['C_Icon'];
+              $image_path = "../img/category/" . $category['CATEGORY_Icon'];
               ?>
               <div class="category-item">
-                <img src="<?php echo $image_path; ?>" alt="<?php echo htmlspecialchars($category['C_Name']); ?>">
-                <p><?php echo htmlspecialchars($category['C_Name']); ?></p>
+                <img src="<?php echo $image_path; ?>" alt="<?php echo htmlspecialchars($category['CATEGORY_Name']); ?>">
+                <p><?php echo htmlspecialchars($category['CATEGORY_Name']); ?></p>
               </div>
               <?php
             }
