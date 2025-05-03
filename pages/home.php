@@ -5,7 +5,6 @@ if (!isset($_SESSION['username'])) {
   exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,31 +20,7 @@ if (!isset($_SESSION['username'])) {
 <body>
   <div class="container">
     <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="logo">
-        <img src="../img/logo/onCloudNine-white.svg" alt="OCN Logo" />
-      </div>
-
-      <nav class="navigation">
-        <a href="#" class="nav-item">
-          <i class="fas fa-home"></i>
-          <span>Homepage</span>
-        </a>
-        <a href="#" class="nav-item">
-          <i class="fas fa-shopping-cart"></i>
-          <span>Cart</span>
-        </a>
-        <a href="#" class="nav-item">
-          <i class="fas fa-list"></i>
-          <span>Orders</span>
-        </a>
-        <a href="#" class="nav-item">
-          <i class="fas fa-user"></i>
-          <span>Profile</span>
-        </a>
-      </nav>
-    </aside>
-
+    <?php include('../components/nav.html'); ?>
     <!-- Main Content -->
     <main class="main-content">
       <!-- Header -->
@@ -92,7 +67,7 @@ if (!isset($_SESSION['username'])) {
         </div>
       </section>
       <!-- Best Seller Section -->
-      <section class="bestseller-section">
+      <section class="meal-section">
         <div class="section-header">
           <h2>Best Seller</h2>
         </div>
