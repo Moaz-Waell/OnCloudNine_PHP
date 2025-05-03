@@ -9,7 +9,6 @@
 @import url(../pages/home.css);
 
 body{
-    font-family: "Rubik", sans-serif;
     line-height: 1;
     color: var(--color-primary);
     font-weight: 400;
