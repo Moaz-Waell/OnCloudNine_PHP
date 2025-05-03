@@ -1,158 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Add to Cart</title>
-  <link rel="stylesheet" href="../style/Components/addtocart.css"/>
- 
+  <link rel="stylesheet" href="../style/Components/addtocart.css" />
+
 </head>
+
 <body>
   <div class="container">
 
     <?php include('../components/nav.html'); ?>
     <main class="main-content">
-      <header class="header">
-        <div class="header">
-         <h1>Menu</h1>
+      <!-- Navigation Bar -->
+      <nav class="navbar">
+        <!-- زر العودة -->
+        <a href="/index.html" class="btn-back">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z" fill="currentColor" />
+          </svg>
+        </a>
+        <!-- عنوان الصفحة -->
+        <h2 class="heading-secondary">Cart</h2>
+      </nav>
+
+        <!-- Meal Cart Container -->
+        <div class="meal-cart-container">
+          <div class="meal-cart">
+
+            <!-- Meal Item 1 -->
+            <div class="meal-item">
+              <div class="meal-item__info">
+                <div class="meal-item__photo">
+                  <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
+                </div>
+                <div class="meal-item__content">
+                  <div class="heading-secondary meal-item__name">Falafel</div>
+                  <div class="description meal-item__description">Falafel, tomato, cucumber, pickles, tahini, baladi bread.</div>
+                  <div class="meal-item__price">$5.59</div>
+                </div>
+                <button class="meal-item__remove-btn">-</button>
+              </div>
+            </div>
+
+            <!-- Meal Item 2 -->
+            <div class="meal-item">
+              <div class="meal-item__info">
+                <div class="meal-item__photo">
+                  <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
+                </div>
+                <div class="meal-item__content">
+                  <div class="heading-secondary meal-item__name">Red Bull</div>
+                  <div class="description meal-item__description">The Spring Edition 250ml</div>
+                  <div class="meal-item__price">$2.99</div>
+                </div>
+                <button class="meal-item__remove-btn">-</button>
+              </div>
+            </div>
+
+            <!-- Meal Item 1 -->
+            <div class="meal-item">
+              <div class="meal-item__info">
+                <div class="meal-item__photo">
+                  <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
+                </div>
+                <div class="meal-item__content">
+                  <div class="heading-secondary meal-item__name">Falafel</div>
+                  <div class="description meal-item__description">Falafel, tomato, cucumber, pickles, tahini, baladi bread.</div>
+                  <div class="meal-item__price">$5.59</div>
+                </div>
+                <button class="meal-item__remove-btn">-</button>
+              </div>
+            </div>
+
+            <!-- Meal Item 1 -->
+            <div class="meal-item">
+              <div class="meal-item__info">
+                <div class="meal-item__photo">
+                  <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
+                </div>
+                <div class="meal-item__content">
+                  <div class="heading-secondary meal-item__name">Falafel</div>
+                  <div class="description meal-item__description">Falafel, tomato, cucumber, pickles, tahini, baladi bread.</div>
+                  <div class="meal-item__price">$5.59</div>
+                </div>
+                <button class="meal-item__remove-btn">-</button>
+              </div>
+            </div>
+
+            <!-- Meal Item 1 -->
+            <div class="meal-item">
+              <div class="meal-item__info">
+                <div class="meal-item__photo">
+                  <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
+                </div>
+                <div class="meal-item__content">
+                  <div class="heading-secondary meal-item__name">Falafel</div>
+                  <div class="description meal-item__description">Falafel, tomato, cucumber, pickles, tahini, baladi bread.</div>
+                  <div class="meal-item__price">$5.59</div>
+                </div>
+                <button class="meal-item__remove-btn">-</button>
+              </div>
+            </div>
+
+            <!-- Meal Item 1 -->
+            <div class="meal-item">
+              <div class="meal-item__info">
+                <div class="meal-item__photo">
+                  <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
+                </div>
+                <div class="meal-item__content">
+                  <div class="heading-secondary meal-item__name">Falafel</div>
+                  <div class="description meal-item__description">Falafel, tomato, cucumber, pickles, tahini, baladi bread.</div>
+                  <div class="meal-item__price">$5.59</div>
+                </div>
+                <button class="meal-item__remove-btn">-</button>
+              </div>
+            </div>
+
+            <!-- Meal Item 1 -->
+            <div class="meal-item">
+              <div class="meal-item__info">
+                <div class="meal-item__photo">
+                  <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
+                </div>
+                <div class="meal-item__content">
+                  <div class="heading-secondary meal-item__name">Falafel</div>
+                  <div class="description meal-item__description">Falafel, tomato, cucumber, pickles, tahini, baladi bread.</div>
+                  <div class="meal-item__price">$5.59</div>
+                </div>
+                <button class="meal-item__remove-btn">-</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- Cart Footer (خارج الـ meal-cart-container) -->
+        <div class="cart-footer">
+          <div class="total-amount">
+            Total Amount: $<span id="total-amount">0.00</span>
+          </div>
+          <button class="btn btn--full btn--checkout">Checkout</button>
         </div>
 
-
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="container">
-      <!-- زر العودة -->
-      <a href="/index.html" class="btn-back">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z" fill="currentColor"/>
-        </svg>
-      </a>
-
-      <!-- عنوان الصفحة -->
-      <h2 class="heading-secondary">Cart</h2>
-    </div>
-  </nav>
-
-  <!-- Meal Cart Container -->
-  <div class="meal-cart-container">
-    <div class="meal-cart">
-
-      <!-- Meal Item 1 -->
-      <div class="meal-item">
-        <div class="meal-item__info">
-          <div class="meal-item__photo">
-            <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
-          </div>
-          <div class="meal-item__content">
-            <div class="heading-secondary meal-item__name">Falafel</div>
-            <div class="description meal-item__description">Falafel, tomato, cucumber, pickles, tahini, baladi bread.</div>
-            <div class="meal-item__price">$5.59</div>
-          </div>
-          <button class="meal-item__remove-btn">-</button>
-        </div>
-      </div>
-
-      <!-- Meal Item 2 -->
-      <div class="meal-item">
-        <div class="meal-item__info">
-          <div class="meal-item__photo">
-            <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
-          </div>
-          <div class="meal-item__content">
-            <div class="heading-secondary meal-item__name">Red Bull</div>
-            <div class="description meal-item__description">The Spring Edition 250ml</div>
-            <div class="meal-item__price">$2.99</div>
-          </div>
-          <button class="meal-item__remove-btn">-</button>
-        </div>
-      </div>
-
-       <!-- Meal Item 1 -->
-       <div class="meal-item">
-        <div class="meal-item__info">
-          <div class="meal-item__photo">
-            <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
-          </div>
-          <div class="meal-item__content">
-            <div class="heading-secondary meal-item__name">Falafel</div>
-            <div class="description meal-item__description">Falafel, tomato, cucumber, pickles, tahini, baladi bread.</div>
-            <div class="meal-item__price">$5.59</div>
-          </div>
-          <button class="meal-item__remove-btn">-</button>
-        </div>
-      </div>
-
-       <!-- Meal Item 1 -->
-       <div class="meal-item">
-        <div class="meal-item__info">
-          <div class="meal-item__photo">
-            <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
-          </div>
-          <div class="meal-item__content">
-            <div class="heading-secondary meal-item__name">Falafel</div>
-            <div class="description meal-item__description">Falafel, tomato, cucumber, pickles, tahini, baladi bread.</div>
-            <div class="meal-item__price">$5.59</div>
-          </div>
-          <button class="meal-item__remove-btn">-</button>
-        </div>
-      </div>
-
-       <!-- Meal Item 1 -->
-       <div class="meal-item">
-        <div class="meal-item__info">
-          <div class="meal-item__photo">
-            <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
-          </div>
-          <div class="meal-item__content">
-            <div class="heading-secondary meal-item__name">Falafel</div>
-            <div class="description meal-item__description">Falafel, tomato, cucumber, pickles, tahini, baladi bread.</div>
-            <div class="meal-item__price">$5.59</div>
-          </div>
-          <button class="meal-item__remove-btn">-</button>
-        </div>
-      </div>
-
-       <!-- Meal Item 1 -->
-       <div class="meal-item">
-        <div class="meal-item__info">
-          <div class="meal-item__photo">
-            <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
-          </div>
-          <div class="meal-item__content">
-            <div class="heading-secondary meal-item__name">Falafel</div>
-            <div class="description meal-item__description">Falafel, tomato, cucumber, pickles, tahini, baladi bread.</div>
-            <div class="meal-item__price">$5.59</div>
-          </div>
-          <button class="meal-item__remove-btn">-</button>
-        </div>
-      </div>
-
-       <!-- Meal Item 1 -->
-       <div class="meal-item">
-        <div class="meal-item__info">
-          <div class="meal-item__photo">
-            <img src="data:image/jpeg;base64,...base64string..." alt="Meal Photo">
-          </div>
-          <div class="meal-item__content">
-            <div class="heading-secondary meal-item__name">Falafel</div>
-            <div class="description meal-item__description">Falafel, tomato, cucumber, pickles, tahini, baladi bread.</div>
-            <div class="meal-item__price">$5.59</div>
-          </div>
-          <button class="meal-item__remove-btn">-</button>
-        </div>
-      </div>
-
-    </div>
+    </main>
   </div>
-
-  <!-- Cart Footer (خارج الـ meal-cart-container) -->
-  <div class="cart-footer">
-    <div class="total-amount">
-      Total Amount: $<span id="total-amount">0.00</span>
-    </div>
-    <button class="btn btn--full btn--checkout">Checkout</button>
-  </div>
-</main>
-  </div> 
 </body>
+
 </html>
