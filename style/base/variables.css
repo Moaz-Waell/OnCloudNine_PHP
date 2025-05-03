@@ -31,4 +31,6 @@
   --color-error: #ffebee;
   --color-error-dark: #d32f2f;
 
+  --card-padding: 2.4rem;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
