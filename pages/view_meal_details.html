@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/Components/view_meal_details.css" />
+  </head>
+  <body>
+    <div class="wave">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#3d5963"
+          fill-opacity="1"
+          d="M0,288L40,282.7C80,277,160,267,240,229.3C320,192,400,128,480,101.3C560,75,640,85,720,106.7C800,128,880,160,960,144C1040,128,1120,64,1200,80C1280,96,1360,192,1400,240L1440,288L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
+        ></path>
+      </svg>
+    </div>
+    <section class="meal_details">
+      <div class="container">
+        <div class="caption">
+          <div class="heading-primary meal_name">meal name</div>
+
+          <div class="description meal_description">
+            this section will contain the discription of the meal
+          </div>
+
+          <div class="description alergy_warning">
+            <p>"alergy detected"</p>
+          </div>
+
+          <div class="ingrediants">
+            <p class="description">
+              <i>select to remove from the meal</i>
+            </p>
+            <div class="grid grid-3-cols ingredients_list">
+              <div class="ingredient-item">
+                <input type="checkbox" id="ingredient1" />
+                <label class="description" for="ingredient1"
+                  >Ingredient 1</label
+                >
+              </div>
+
+              <div class="ingredient-item">
+                <input type="checkbox" id="ingredient2" />
+                <label class="description" for="ingredient2"
+                  >Ingredient 2</label
+                >
+              </div>
+
+              <div class="ingredient-item">
+                <input type="checkbox" id="ingredient3" />
+                <label class="description" for="ingredient3"
+                  >Ingredient 3</label
+                >
+              </div>
+
+              <div class="ingredient-item">
+                <input type="checkbox" id="ingredient4" />
+                <label class="description" for="ingredient4"
+                  >Ingredient 4</label
+                >
+              </div>
+
+              <div class="ingredient-item">
+                <input type="checkbox" id="ingredient5" />
+                <label class="description" for="ingredient5"
+                  >Ingredient 5</label
+                >
+              </div>
+
+              <div class="ingredient-item">
+                <input type="checkbox" id="ingredient6" />
+                <label class="description" for="ingredient6"
+                  >Ingredient 6</label
+                >
+              </div>
+
+              <div class="ingredient-item">
+                <input type="checkbox" id="ingredient7" />
+                <label class="description" for="ingredient7"
+                  >Ingredient 7</label
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="heading-secondary meal_price">meal price</div>
+
+          <div class="buttons">
+            <div class="quantity-selector">
+              <button class="quantity__btn" onclick="changeQuantity(-1)">
+                -
+              </button>
+              <div class="quantity__display" id="quantity">1</div>
+              <button class="quantity__btn" onclick="changeQuantity(1)">
+                +
+              </button>
+            </div>
+            <button class="btn btn--full add_to_cart">Add to Cart</button>
+          </div>
+        </div>
+        <!-- <div class="meal_image"> -->
+        <img src="/img/meals/test_3.png" alt="Meal Image" />
+        <!-- </div> -->
+      </div>
+    </section>
+    <script src="/js/quantity_counter.js"></script>
+  </body>
+</html>
