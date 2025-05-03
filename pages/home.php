@@ -5,7 +5,6 @@ if (!isset($_SESSION['username'])) {
   exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,7 +67,7 @@ if (!isset($_SESSION['username'])) {
         </div>
       </section>
       <!-- Best Seller Section -->
-      <section class="bestseller-section">
+      <section class="meal-section">
         <div class="section-header">
           <h2>Best Seller</h2>
         </div>
