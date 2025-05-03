@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Add to Cart</title>
-  <link rel="stylesheet" href="/style/Components/addtocart.css"/>
+  <link rel="stylesheet" href="../style/Components/addtocart.css"/>
  
 </head>
 <body>
@@ -154,6 +154,6 @@
     <button class="btn btn--full btn--checkout">Checkout</button>
   </div>
 </main>
-
+  </div> 
 </body>
 </html>
