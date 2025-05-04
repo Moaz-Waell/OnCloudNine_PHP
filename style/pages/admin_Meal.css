@@ -1,0 +1,248 @@
+/*@import url('../pages/home.css');
+
+body {
+  background-color: var(--color-bg-primary);
+
+  color: var(--color-text-primary); 
+}
+
+.container {
+
+  padding-top: 3.2rem;
+  padding-bottom: 6.4rem; 
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4.8rem; 
+  
+}
+
+.page-header__back {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.btn-icon img {
+  width: 2.4rem;
+  height: 2.4rem;
+  display: block;
+}
+
+
+.page-header .heading-primary {
+  font-size: 2.4rem;
+  margin-bottom: 0; 
+}
+
+.meal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem; 
+}
+
+.meal-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto; 
+  align-items: center;
+  column-gap: 2.4rem; 
+  padding: 2.4rem; 
+  background-color: var(--color-bg-secondary);
+  border-radius: 9px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); 
+}
+
+.meal-item__icon {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 5px;
+  object-fit: cover;
+
+  background-color: var(--color-bg-tertiary); 
+  border: 1px dashed var(--color-grey-dark-3); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--color-grey-dark-2);
+}
+
+.meal-item__icon[alt]:not([src]) {
+    color: transparent; 
+}
+
+
+.meal-item__details .heading-secondary {
+    
+}
+
+.meal-item__details .description {
+    font-size: 1.4rem; 
+    line-height: 1.4;
+}
+
+.meal-item__ingredients {
+  font-style: italic;
+  color: var(--color-grey-dark-2);
+  margin-top: 0.8rem;
+}
+
+.meal-item__actions {
+  display: flex;
+  gap: 1.2rem;
+  justify-self: end;
+  align-items: center;
+}
+
+
+
+.meal-item__actions .btn:not(.btn--full) {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-grey-dark-1);
+}
+
+.meal-item__actions .btn:not(.btn--full):hover {
+  background-color: var(--color-grey-dark-3);
+  color: var(--color-text-secondary);
+}*/
+@import url('../pages/home.css');
+
+body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-header {
+    position: relative;
+    margin-bottom: 3.2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.back-button {
+    position: absolute;
+    top: 0;
+    left: 0; /* Move to top left corner */
+    transform: none; /* Remove centering transform */
+}
+
+.btn--circular {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: inherit; /* Inherit font size from .btn */
+}
+
+.back-button::before {
+    content: "\2190"; /* Unicode left arrow */
+    font-size: 1.6rem;
+    line-height: 1;
+    color: inherit; /* Inherit color from .btn */
+}
+
+.page-header .heading-primary {
+    font-size: 2.4rem;
+    margin: 4rem 0 0 0; /* Space below back button */
+}
+
+.meal-list-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.meal-list-header {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 1.6rem;
+}
+
+.meal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    width: 100%;
+}
+
+.meal-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: 2.4rem;
+    padding: 2.4rem;
+    background-color: var(--color-bg-secondary);
+    border-radius: 9px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.meal-item__icon {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 5px;
+    object-fit: cover;
+    background-color: var(--color-bg-tertiary);
+    border: 1px dashed var(--color-grey-dark-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--color-grey-dark-2);
+}
+
+.meal-item__icon[alt]:not([src]) {
+    color: transparent;
+}
+
+.meal-item__details .description {
+    font-size: 1.4rem;
+    line-height: 1.4;
+}
+
+.meal-item__ingredients {
+    font-style: italic;
+    color: var(--color-grey-dark-2);
+    margin-top: 0.8rem;
+}
+
+.meal-item__actions {
+    display: flex;
+    gap: 1.2rem;
+    justify-self: end;
+    align-items: center;
+}
+
+.meal-item__actions .btn:not(.btn--full) {
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-grey-dark-1);
+}
+
+.meal-item__actions .btn:not(.btn--full):hover {
+    background-color: var(--color-grey-dark-3);
+    color: var(--color-text-secondary);
+}
+
