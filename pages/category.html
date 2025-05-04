@@ -3,47 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Category Management</title>
-  <link rel="stylesheet" href="/style/pages/category1.css">
+  <link rel="stylesheet" href="/style/pages/category.css">
 </head>
 <body>
-<div>
-    <a href="/index.html" class="btn-back">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z" fill="currentColor" />
-        </svg>
-</a>
-</div>
+
   <div class="category-container">
     <div class="category-header">
       <h2> Category</h2>
-      <button class="add-category">Add category</button>
+      <a href="#popupForm" class="add-category">Add category</a>
     </div>
 
     <table class="category-table">
       <thead>
         <tr>
-          <th>icon</th>
+          <th>Icon</th>
           <th>Category Name</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td><img src="\img\category\pizza.png" class="icon-img"></td>
-          <td>Category name</td>
-          <td>
-            <button>Remove</button>
-            <button>Update</button>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="checked.png" alt="checked" class="icon-img"></td>
-          <td>Category name</td>
-          <td>
-            <button>Remove</button>
-            <button>Update</button>
-          </td>
-        </tr>
         <tr>
           <td><img src="checked.png" alt="checked" class="icon-img"></td>
           <td>Category name</td>
@@ -54,6 +32,21 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <!-- Popup Form (activated via #popupForm anchor) -->
+  <div id="popupForm" class="popup">
+    <div class="popup-content">
+      <h3 id="popheder">Add Category</h3>
+      <a href="#" class="close-btn">&times;</a>
+      <form>
+        <labecl class="header-lable">Category name:</labecl><br>
+        <input type="text" placeholder="Enter name"><br><br>
+        <label class="header-lable">Icon:</label><br>
+        <input type="text" placeholder="Image Name"><br><br>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   </div>
 
 </body>
