@@ -8,7 +8,34 @@
 @import url(../Components/sidebar.css);
 @import url(../pages/home.css);
 
-@media (max-width: 84em) {
+
+:root {
+    --color-primary: #446a76;
+    --color-primary-light: #4f7b8c;
+    --color-primary-dark: #3d5963;
+    --color-btn-primary: #446a76;
+    --color-btn-primary-light: #4f7b8c;
+    --color-btn-primary-dark: #3d5963;
+    --color-btn-hover: #9abfcb;
+    --color-text-primary: #1d292f;
+    --color-text-secondary: #ffffff;
+    --color-bg-primary: #f3f1e5;
+    --color-bg-secondary: #efeee9;
+    --color-bg-tertiary: #e3e3e3;
+    --color-border-primary: #446a76;
+    --color-grey-dark-1: #333;
+    --color-grey-dark-2: #777;
+    --color-grey-dark-3: #999;
+    --color-error: #ffebee;
+    --color-error-dark: #d32f2f;
+}
+
+@media (max-width: 600px) {
+  .cart-footer {
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    width: 95%;
+  }
 }
 
 body {
@@ -19,6 +46,7 @@ body {
   color: var(--color-primary);
   font-weight: 400;
   overflow-x: hidden;
+  padding-bottom: 14rem; /* مساحة لأسفل لتجنب تغطية الـ footer الثابت */
 }
 .heading-secondary {
   font-size: 2.4rem;
@@ -57,7 +85,7 @@ body {
   justify-content: center;
   gap: 1.8rem;
   font-size: 1.4rem;
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-btn-primary);
   color: var(--color-text-secondary);
   padding: 1rem;
   border-radius: 50%;
@@ -198,24 +226,24 @@ body {
   color: var(--color-text-primary);
 }
 
-/* Cart Footer - ثابت في أسفل الصفحة */
-.cart-footer {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-28%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 2rem;
-  background-color: var(--color-bg-secondary);
-  border-radius: 1.2rem 1.2rem 0 0; /* زوايا علوية دائرية فقط */
-  width: 90%;
-  max-width: 50rem;
-  z-index: 1000;
-  box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.1); /* ظل من الأعلى */
-}
+  .cart-footer {
+    position: fixed;
+    bottom: 0;
+    left: 58%; /* Center horizontally */
+    right: 42%; /* Center horizontally */
+    transform: translateX(-61%); /* Adjust for element's own width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    background-color: var(--color-bg-secondary);
+    border-radius: 1.2rem 1.2rem 0 0;
+    width: 90%;
+    max-width: 50rem; /* Match the max-width of .meal-cart-container */
+    z-index: 1000;
+    box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
 
 .total-amount {
   font-weight: 600;
