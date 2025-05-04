@@ -4,6 +4,9 @@
 @import url(/style/base/variables.css);
 @import url(/style/Components/buttons.css);
 @import url(/style/base/general.css);
+@import url(/style/Components/meal.css);
+@import url(/style/mediaqueries/general.css);
+
 
 /* Global overrides */
 body {
