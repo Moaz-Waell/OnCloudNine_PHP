@@ -1,0 +1,182 @@
+@import url(/style/base/base.css);
+@import url(/style/base/typography.css);
+@import url(/style/base/variables.css);
+@import url(/style/Components/buttons.css);
+@import url(/style/base/general.css);
+@import url(/style/base/utilities.css);
+@import url(/style/mediaqueries/general.css);
+
+body {
+
+    background-color: var(--color-bg-primary);
+
+}
+
+.category-container {
+    border: 1px solid var(--color-border-primary);
+    background-color: var(--color-bg-secondary);
+    padding: 20px;
+    margin: 10rem auto 0 auto;
+    width: 800px;
+    border-radius: 1.6rem;
+    box-shadow: 2px 2px 10px rgba(190, 12, 12, 0.1);
+    width: 100%;
+    max-width: 84rem;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+
+}
+
+.add-category {
+    padding: 5px 10px;
+    font-family: 'rubik', sans-serif;
+}
+
+.category-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 2rem;
+    border-radius: 2rem;
+   
+
+
+}
+
+.category-table th,
+.category-table td {
+    border: 1px solid var(--color-border-primary);
+    padding: 10px;
+    text-align: center;
+
+}
+
+.category-table th {
+    background-color: var(--color-bg-secondary);
+}
+
+button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    font-family: 'rubik', sans-serif;
+    border-radius: 1.1rem;
+    background-color: var(--color-btn-primary);
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+    border: 1px solid var(--color-border-primary);
+    cursor: pointer;
+
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.icon-img {
+    width: 50px;
+    height: 50px;
+}
+
+button:hover {
+    background-color: var(--color-btn-hover);
+    color: var(--color-text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.8rem;
+    font-size: 1.4rem;
+    background-color: var(--color-btn-primary);
+    color: var(--color-text-secondary);
+    padding: 1rem;
+    margin: 2rem ;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn-back svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    fill: var(--color-text-secondary);
+  }
+  
+  .btn-back:hover,
+  .btn-back:active {
+    background-color: var(--color-btn-hover);
+    color: var(--color-text-primary);
+  }
+/**************************/
+/* BELOW  1344px  (smaller desktops)/
+/**************************/
+@media (max-width: 84em) {}
+
+/**************************************/
+/* BELOW  1200px  (Landscape Tablets) */
+/**************************************/
+
+@media (max-width: 75em) {
+    html {
+        /* 9px / 16px = 0.5625 */
+        font-size: 56.25% !important;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/**************************/
+/* BELOW  944px  (Tablets) */
+/**************************/
+@media (max-width: 59em) {
+    html {
+        /* 8px / 16px = 0.5 */
+        font-size: 50% !important;
+    }
+}
+
+/**************************/
+/* BELOW  768px  (Landscape Phones) */
+/**************************/
+@media (max-width: 48em) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+
+    .navigation {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin: 1.5rem 0;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
