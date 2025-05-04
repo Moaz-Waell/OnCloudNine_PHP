@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pincode = $_POST['password'];
 
     // Prepare and execute the query
-    $stmt = $con->prepare("SELECT U_Name FROM users WHERE U_ID = ? AND U_Pincode = ?");
+    $stmt = $con->prepare("SELECT USERS_Name FROM users WHERE USERS_ID = ? AND USERS_Pincode = ?");
     $stmt->bind_param("is", $id, $pincode); // i: integer (U_ID), s: string (U_Pincode)
     $stmt->execute();
     $result = $stmt->get_result();
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($row) {
         // Login successful
-        $_SESSION['username'] = $row['U_Name'];
+        $_SESSION['username'] = $row['USERS_Name'];
         header("Location: ../pages/home.php"); // Redirect to pages/home.php
         exit();
     } else {

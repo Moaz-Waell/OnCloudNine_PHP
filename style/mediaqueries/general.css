@@ -12,6 +12,10 @@
         /* 9px / 16px = 0.5625 */
         font-size: 56.25% !important;
     }
+
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 /**************************/
@@ -22,4 +26,43 @@
         /* 8px / 16px = 0.5 */
         font-size: 50% !important;
     }
+}
+
+/**************************/
+/* BELOW  768px  (Landscape Phones) */
+/**************************/
+@media (max-width: 48em) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+
+    .navigation {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin: 1.5rem 0;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }
