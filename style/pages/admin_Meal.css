@@ -1,264 +1,172 @@
-/*@import url('../pages/home.css');
-
-body {
-  background-color: var(--color-bg-primary);
-
-  color: var(--color-text-primary); 
-}
-
-.container {
-
-  padding-top: 3.2rem;
-  padding-bottom: 6.4rem; 
-}
-
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 4.8rem; 
-  
-}
-
-.page-header__back {
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-}
-
-.btn-icon img {
-  width: 2.4rem;
-  height: 2.4rem;
-  display: block;
-}
-
-
-.page-header .heading-primary {
-  font-size: 2.4rem;
-  margin-bottom: 0; 
-}
-
-.meal-list {
-  display: flex;
-  flex-direction: column;
-  gap: 3.2rem; 
-}
-
-.meal-item {
-  display: grid;
-  grid-template-columns: auto 1fr auto; 
-  align-items: center;
-  column-gap: 2.4rem; 
-  padding: 2.4rem; 
-  background-color: var(--color-bg-secondary);
-  border-radius: 9px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); 
-}
-
-.meal-item__icon {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 5px;
-  object-fit: cover;
-
-  background-color: var(--color-bg-tertiary); 
-  border: 1px dashed var(--color-grey-dark-3); 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: var(--color-grey-dark-2);
-}
-
-.meal-item__icon[alt]:not([src]) {
-    color: transparent; 
-}
-
-
-.meal-item__details .heading-secondary {
-    
-}
-
-.meal-item__details .description {
-    font-size: 1.4rem; 
-    line-height: 1.4;
-}
-
-.meal-item__ingredients {
-  font-style: italic;
-  color: var(--color-grey-dark-2);
-  margin-top: 0.8rem;
-}
-
-.meal-item__actions {
-  display: flex;
-  gap: 1.2rem;
-  justify-self: end;
-  align-items: center;
-}
-
-
-
-.meal-item__actions .btn:not(.btn--full) {
-  background-color: var(--color-bg-tertiary);
-  color: var(--color-grey-dark-1);
-}
-
-.meal-item__actions .btn:not(.btn--full):hover {
-  background-color: var(--color-grey-dark-3);
-  color: var(--color-text-secondary);
-}*/
-@import url('../pages/home.css');
+@import url(/style/base/base.css);
+@import url(/style/base/typography.css);
+@import url(/style/base/variables.css);
+@import url(/style/Components/buttons.css);
+@import url(/style/base/general.css);
+@import url(/style/base/utilities.css);
+@import url(/style/mediaqueries/general.css);
 
 body {
     background-color: var(--color-bg-primary);
-    color: var(--color-text-primary);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
     margin: 0;
 }
 
-.container {
+.meal-container {
+    border: 1px solid var(--color-border-primary);
+    background-color: var(--color-bg-secondary);
+    padding: 20px;
+    margin: 10rem auto 0 auto;
     width: 100%;
-    max-width: 800px;
-    padding: 1.6rem;
+    max-width: 84rem;
+    border-radius: 1.6rem;
+    box-shadow: 2px 2px 10px rgba(190, 12, 12, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Ensure content is centered vertically if needed */
 }
 
-.page-header {
-    position: relative;
-    margin-bottom: 3.2rem;
-    width: 100%;
+.meal-header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-}
-
-.back-button {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: none;
-}
-
-.btn--circular {
-    width: 3.2rem;
-    height: 3.2rem;
-    border-radius: 50%;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: inherit;
-}
-
-.back-button::before {
-    content: "\2190";
-    font-size: 1.6rem;
-    line-height: 1;
-    color: inherit;
-}
-
-.page-header .heading-primary {
-    font-size: 2.4rem;
-    margin: 4rem 0 0 0;
-}
-
-.meal-list-section {
+    margin-bottom: 20px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 100%; /* Prevent overflow */
 }
 
-.meal-list-header {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    margin-bottom: 1.6rem;
+.add-category {
+    padding: 5px 10px;
+    font-family: 'rubik', sans-serif;
 }
 
 .meal-table {
     width: 100%;
+    max-width: 100%;
     border-collapse: collapse;
+    font-size: 2rem;
+    border-radius: 2rem;
+    margin: 0 auto; /* Center the table */
+    table-layout: fixed; /* Ensure consistent column widths */
+    display: table; /* Ensure table behaves as expected */
+}
+
+.meal-table th,
+.meal-table td {
+    border: 1px solid var(--color-border-primary);
+    padding: 10px;
+    text-align: center;
+    word-wrap: break-word; /* Prevent content overflow */
+}
+
+.category-table th {
     background-color: var(--color-bg-secondary);
-    border-radius: 9px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
-.meal-table thead {
-    background-color: var(--color-grey-dark-3);
-}
-
-.meal-table th {
-    padding: 1.2rem;
-    text-align: left;
-    font-size: 1.6rem;
+button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    font-family: 'rubik', sans-serif;
+    border-radius: 1.1rem;
+    background-color: var(--color-btn-primary);
     color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+    border: 1px solid var(--color-border-primary);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.meal-table tbody tr {
-    border-bottom: 1px solid var(--color-grey-dark-2);
+.icon-img {
+    width: 50px;
+    height: 50px;
 }
 
-.meal-table tbody tr:last-child {
-    border-bottom: none;
+button:hover {
+    background-color: var(--color-btn-hover);
+    color: var(--color-text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.meal-item__icon-container {
-    padding: 1.2rem;
-}
-
-.meal-item__icon {
-    width: 8rem;
-    height: 8rem;
-    border-radius: 5px;
-    object-fit: cover;
-    background-color: var(--color-bg-tertiary);
-    border: 1px dashed var(--color-grey-dark-3);
+.btn-back {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
-    color: var(--color-grey-dark-2);
-}
-
-.meal-item__icon[alt]:not([src]) {
-    color: transparent;
-}
-
-.meal-item__details {
-    padding: 1.2rem;
-}
-
-.meal-item__details .description {
+    gap: 1.8rem;
     font-size: 1.4rem;
-    line-height: 1.4;
-}
-
-.meal-item__ingredients {
-    font-style: italic;
-    color: var(--color-grey-dark-2);
-    margin-top: 0.8rem;
-}
-
-.meal-item__actions {
-    padding: 1.2rem;
-    display: flex;
-    gap: 1.2rem;
-    align-items: center;
-}
-
-.meal-item__actions .btn:not(.btn--full) {
-    background-color: var(--color-bg-tertiary);
-    color: var(--color-grey-dark-1);
-}
-
-.meal-item__actions .btn:not(.btn--full):hover {
-    background-color: var(--color-grey-dark-3);
+    background-color: var(--color-btn-primary);
     color: var(--color-text-secondary);
+    padding: 1rem;
+    margin: 2rem;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-back svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    fill: var(--color-text-secondary);
+}
+
+.btn-back:hover,
+.btn-back:active {
+    background-color: var(--color-btn-hover);
+    color: var(--color-text-primary);
+}
+
+@media (max-width: 75em) {
+    html {
+        font-size: 56.25% !important;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 59em) {
+    html {
+        font-size: 50% !important;
+    }
+}
+
+@media (max-width: 48em) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+
+    .navigation {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin: 1.5rem 0;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
