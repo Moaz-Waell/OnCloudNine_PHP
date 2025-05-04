@@ -6,7 +6,7 @@
 @import url(../base/utilities.css);
 @import url(../Components/sidebar.css);
 @import url(../mediaqueries/general.css);
-
+@import url(../Components/meal.css);
 
 
 .container {
