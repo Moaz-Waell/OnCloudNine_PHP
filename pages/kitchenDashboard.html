@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Dashboard</title>
+  <link rel="stylesheet" href="/style/Components/kitchenDashboard.css" />
+</head>
+<body>
+  <!-- Sticky Back Button -->
+  <a href="/index.html" class="back-button" aria-label="Back to Main Menu">
+    <span class="back-arrow">←</span>
+  </a>
+
+  <!-- Dashboard Header -->
+  <header class="dashboard-header">
+    <h1 class="dashboard-title">Order Dashboard</h1>
+  </header>
+
+  <!-- Order List -->
+  <main class="order-list">
+    <!-- Order Card Template -->
+    <div class="order-card">
+      <h2 class="order-id">#1</h2>
+      <div class="meal-group">
+        <div class="meal-item">
+          <h3 class="meal-name">Margherita</h3>
+          <p class="meal-description">tomato, mozzarella, basil</p>
+        </div>
+        <div class="meal-item">
+          <h3 class="meal-name">Pepperoni</h3>
+          <p class="meal-description">tomato, pepperoni, cheese</p>
+        </div>
+        <div class="meal-item">
+          <h3 class="meal-name">BBQ Chicken</h3>
+          <p class="meal-description">chicken, BBQ sauce, onions</p>
+        </div>
+      </div>
+      <div class="status-buttons">
+        <button class="status-btn preparing">Preparing</button>
+        <button class="status-btn delivered">Out of Delivery</button>
+      </div>
+    </div>
+
+    <!-- Duplicate for other orders -->
+    <div class="order-card">
+      <h2 class="order-id">#2</h2>
+      <!-- Add meals here -->
+      <div class="status-buttons">
+        <button class="status-btn preparing">Preparing</button>
+        <button class="status-btn delivered">Out of Delivery</button>
+      </div>
+    </div>
+
+    <div class="order-card">
+      <h2 class="order-id">#3</h2>
+      <!-- Add meals here -->
+      <div class="status-buttons">
+        <button class="status-btn preparing">Preparing</button>
+        <button class="status-btn delivered">Out of Delivery</button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
