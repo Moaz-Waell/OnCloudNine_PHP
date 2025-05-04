@@ -1,12 +1,14 @@
-@import url(/style/base/base.css);
-@import url(/style/base/typography.css);
-@import url(/style/base/variables.css);
-@import url(/style/Components/buttons.css);
-@import url(/style/base/general.css);
-@import url(/style/base/utilities.css);
-@import url(/style/pages/home.css);
+@import url(../base/variables.css);
+@import url(../base/base.css);
+@import url(../base/typography.css);
+@import url(../Components/buttons.css);
+@import url(../base/general.css);
+@import url(../base/utilities.css);
+@import url(../Components/sidebar.css);
+@import url(../mediaqueries/general.css);
+@import url(../pages/home.css);
 
-body{
+body {
   background-color: var(--color-bg-tertiary);
 }
 
@@ -90,17 +92,24 @@ label {
 
 input[type="text"],
 input[type="number"],
-input[type="date"] {
+input[type="date"],
+input[type="time"] {
   font-weight: 600;
   font-size: 1.6rem;
   padding: 0.6rem 1.6rem;
-  border: 1px solid var(--color-border-primary); 
-  border-radius: 9px; 
+  border: 1px solid var(--color-border-primary);
+  border-radius: 9px;
   background-color: var(--color-text-secondary);
   color: var(--color-text-primary);
   box-shadow: 3px 3px 12px #1b2a318f;
   outline: oldlace;
   transition: all 0.3s ease;
+}
+
+.Schedule_time,
+.Schedule_date,
+.deliver_now {
+  padding: 0.6rem 1.6rem;
 }
 
 h2.heading-secondary {
@@ -111,7 +120,7 @@ h2.heading-primary {
   color: var(--color-text-primary);
   font-size: 2.4rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .buttons {
@@ -136,7 +145,6 @@ h2.heading-primary {
   padding: 0.6rem 2.2rem;
   border-radius: 1.2rem;
   box-shadow: 3px 3px 12px #1b2a318f;
-
 }
 
 .btn:hover,
@@ -144,10 +152,8 @@ h2.heading-primary {
   background-color: var(--color-text-primary);
   color: var(--color-btn-primary-light);
   box-shadow: 3px 3px 12px #1b2a318f;
-
 }
 
-/* 2222222222222222222222222222222222222222222222 */
 
 .coupon-box {
   background-color: var(--color-bg-primary, #fff);
@@ -170,7 +176,6 @@ h2.heading-primary {
   transition: transform 0.2s ease;
   max-width: 270px;
   box-shadow: 3px 3px 12px #1b2a318f;
-
 }
 
 .coupon:hover {

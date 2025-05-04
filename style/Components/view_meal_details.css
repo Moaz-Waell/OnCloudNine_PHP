@@ -1,9 +1,11 @@
-@import url(/style/base/base.css);
-@import url(/style/base/general.css);
-@import url(/style/base/typography.css);
-@import url(/style/base/utilities.css);
-@import url(/style/base/variables.css);
-@import url(/style/Components/buttons.css);
+
+@import url(../base/variables.css);
+@import url(../base/base.css);
+@import url(../base/typography.css);
+@import url(../Components/buttons.css);
+@import url(../base/general.css);
+@import url(../base/utilities.css);
+@import url(../mediaqueries/general.css);
 
 
 .wave {
@@ -210,6 +212,7 @@ p.description {
   justify-content: center;
   border: none;
   border-radius: 1.2rem;
+  cursor: pointer;
 }
 
 .quantity__btn:hover {
