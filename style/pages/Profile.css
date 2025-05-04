@@ -517,7 +517,7 @@ input[type="checkbox"] {
   @import url(../Components/buttons.css);
   @import url(../base/general.css);
   @import url(../base/utilities.css);
-  @import url(../mediaqueries/general.css);
+   @import url(../mediaqueries/general.css); 
   
   .profile-layout.container {
     display: grid;
@@ -564,8 +564,7 @@ input[type="checkbox"] {
   
   .profile-id {
     font-size: 1.4rem;
-    color: var(--color-text-secondary, #555);
-    opacity: 0.8;
+    color: var(--color-primary);
     margin-bottom: 1rem;
   }
   
