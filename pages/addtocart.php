@@ -23,11 +23,11 @@
           </svg>
         </a>
         <!-- عنوان الصفحة -->
-        <h2 class="heading-secondary">Cart</h2>
+        <h2 class="heading-secondary ">Cart</h2>
       </nav>
-
-        <!-- Meal Cart Container -->
-        <div class="meal-cart-container">
+      
+      <!-- Meal Cart Container -->
+      <div class="meal-cart-container">
           <div class="meal-cart">
 
             <!-- Meal Item 1 -->
@@ -138,15 +138,19 @@
           </div>
         </div>
         <!-- Cart Footer (خارج الـ meal-cart-container) -->
-        <div class="cart-footer">
-          <div class="total-amount">
-            Total Amount: $<span id="total-amount">0.00</span>
-          </div>
-          <button class="btn btn--full btn--checkout">Checkout</button>
-        </div>
+    <!-- Cart Footer Wrapper -->
+<div class="cart-footer-wrapper">
+  <div class="cart-footer">
+    <div class="total-amount">
+      Total Amount: $<span id="total-amount">0.00</span>
+    </div>
+    <button class="btn btn--full btn--checkout">Checkout</button>
+  </div>
+</div>
 
     </main>
   </div>
 </body>
 
 </html>
+
