@@ -22,7 +22,7 @@ body {
   top: 1.5rem;
   left: 1.5rem;
   z-index: 1000;
-  font-size: 25px;
+  font-size: 20px;
   background: linear-gradient(135deg, var(--color-btn-primary), var(--color-btn-primary-light));
   color: white;
   border-radius: 50%;
