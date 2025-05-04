@@ -23,11 +23,11 @@
           </svg>
         </a>
         <!-- عنوان الصفحة -->
-        <h2 class="heading-secondary">Cart</h2>
+        <h2 class="heading-secondary ">Cart</h2>
       </nav>
-
-        <!-- Meal Cart Container -->
-        <div class="meal-cart-container">
+      
+      <!-- Meal Cart Container -->
+      <div class="meal-cart-container">
           <div class="meal-cart">
 
             <!-- Meal Item 1 -->

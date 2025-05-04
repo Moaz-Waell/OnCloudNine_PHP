@@ -48,6 +48,7 @@ body {
   overflow-x: hidden;
   padding-bottom: 14rem; /* مساحة لأسفل لتجنب تغطية الـ footer الثابت */
 }
+
 .heading-secondary {
   font-size: 2.4rem;
   font-weight: 700;
