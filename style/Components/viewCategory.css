@@ -29,6 +29,7 @@ body {
   height: 48px;
   display: flex;
   align-items: center;
+  text-decoration: none;
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
@@ -58,7 +59,7 @@ body {
   background: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
   -webkit-background-clip: text;
   background-clip: text;
-  margin-bottom: 2rem;
+  margin-bottom: 8rem;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -141,7 +142,7 @@ body {
   color: var(--color-grey-dark-2);
   margin: 0;
 }
-.price {
+/* .price {
   font-weight: 800;
   font-size: 1.8rem;
   color: var(--color-btn-hover);
@@ -152,13 +153,13 @@ body {
   margin-top: 0.5rem;
   align-self: flex-start;
   transition: all 0.3s ease;
-}
-.price:hover {
+} */
+/* .price:hover {
   background: var(--color-btn-hover);
   color: white;
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
+} */
 
 /* Responsive Adjustments
 @media (max-width: 768px) {
