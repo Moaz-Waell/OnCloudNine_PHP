@@ -96,52 +96,61 @@
             <div class="meal-list-header">
                 <button type="button" class="btn btn--full add-meal">Add meal</button>
             </div>
-            <div class="meal-list">
-                <article class="meal-item grid">
-                    <div class="meal-item__icon-container">
-                        <img src="" alt="Meal 1" class="meal-item__icon">
-                    </div>
-                    <div class="meal-item__details">
-                        <h2 class="heading-secondary remove-bottom meal-item__name">Meal Name 1</h2>
-                        <p class="description meal-item__description">Description: Some details about the meal go here.</p>
-                        <p class="description meal-item__ingredients">Ingredients: List, of, ingredients.</p>
-                    </div>
-                    <div class="meal-item__actions">
-                        <button type="button" class="btn">Remove</button>
-                        <button type="button" class="btn btn--full">Update</button>
-                    </div>
-                </article>
+            <table class="meal-table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Details</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="meal-item">
+                        <td class="meal-item__icon-container">
+                            <img src="" alt="Meal 1" class="meal-item__icon">
+                        </td>
+                        <td class="meal-item__details">
+                            <h2 class="heading-secondary remove-bottom meal-item__name">Meal Name 1</h2>
+                            <p class="description meal-item__description">Description: Some details about the meal go here.</p>
+                            <p class="description meal-item__ingredients">Ingredients: List, of, ingredients.</p>
+                        </td>
+                        <td class="meal-item__actions">
+                            <button type="button" class="btn">Remove</button>
+                            <button type="button" class="btn btn--full">Update</button>
+                        </td>
+                    </tr>
 
-                <article class="meal-item grid">
-                    <div class="meal-item__icon-container">
-                        <img src="" alt="Meal 2" class="meal-item__icon">
-                    </div>
-                    <div class="meal-item__details">
-                        <h2 class="heading-secondary remove-bottom meal-item__name">Meal Name 2</h2>
-                        <p class="description meal-item__description">Description: More text describing this second meal item.</p>
-                        <p class="description meal-item__ingredients">Ingredients: Flour, sugar, spice.</p>
-                    </div>
-                    <div class="meal-item__actions">
-                        <button type="button" class="btn">Remove</button>
-                        <button type="button" class="btn btn--full">Update</button>
-                    </div>
-                </article>
+                    <tr class="meal-item">
+                        <td class="meal-item__icon-container">
+                            <img src="" alt="Meal 2" class="meal-item__icon">
+                        </td>
+                        <td class="meal-item__details">
+                            <h2 class="heading-secondary remove-bottom meal-item__name">Meal Name 2</h2>
+                            <p class="description meal-item__description">Description: More text describing this second meal item.</p>
+                            <p class="description meal-item__ingredients">Ingredients: Flour, sugar, spice.</p>
+                        </td>
+                        <td class="meal-item__actions">
+                            <button type="button" class="btn">Remove</button>
+                            <button type="button" class="btn btn--full">Update</button>
+                        </td>
+                    </tr>
 
-                <article class="meal-item grid">
-                    <div class="meal-item__icon-container">
-                        <img src="" alt="Meal 3" class="meal-item__icon">
-                    </div>
-                    <div class="meal-item__details">
-                        <h2 class="heading-secondary remove-bottom meal-item__name">Third Meal Example</h2>
-                        <p class="description meal-item__description">Description: A final example meal description text.</p>
-                        <p class="description meal-item__ingredients">Ingredients: Apples, oranges, bananas.</p>
-                    </div>
-                    <div class="meal-item__actions">
-                        <button type="button" class="btn">Remove</button>
-                        <button type="button" class="btn btn--full">Update</button>
-                    </div>
-                </article>
-            </div>
+                    <tr class="meal-item">
+                        <td class="meal-item__icon-container">
+                            <img src="" alt="Meal 3" class="meal-item__icon">
+                        </td>
+                        <td class="meal-item__details">
+                            <h2 class="heading-secondary remove-bottom meal-item__name">Third Meal Example</h2>
+                            <p class="description meal-item__description">Description: A final example meal description text.</p>
+                            <p class="description meal-item__ingredients">Ingredients: Apples, oranges, bananas.</p>
+                        </td>
+                        <td class="meal-item__actions">
+                            <button type="button" class="btn">Remove</button>
+                            <button type="button" class="btn btn--full">Update</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </main>
 </body>

@@ -141,8 +141,8 @@ body {
 .back-button {
     position: absolute;
     top: 0;
-    left: 0; /* Move to top left corner */
-    transform: none; /* Remove centering transform */
+    left: 0;
+    transform: none;
 }
 
 .btn--circular {
@@ -153,19 +153,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: inherit; /* Inherit font size from .btn */
+    font-size: inherit;
 }
 
 .back-button::before {
-    content: "\2190"; /* Unicode left arrow */
+    content: "\2190";
     font-size: 1.6rem;
     line-height: 1;
-    color: inherit; /* Inherit color from .btn */
+    color: inherit;
 }
 
 .page-header .heading-primary {
     font-size: 2.4rem;
-    margin: 4rem 0 0 0; /* Space below back button */
+    margin: 4rem 0 0 0;
 }
 
 .meal-list-section {
@@ -182,22 +182,35 @@ body {
     margin-bottom: 1.6rem;
 }
 
-.meal-list {
-    display: flex;
-    flex-direction: column;
-    gap: 3.2rem;
+.meal-table {
     width: 100%;
-}
-
-.meal-item {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    column-gap: 2.4rem;
-    padding: 2.4rem;
+    border-collapse: collapse;
     background-color: var(--color-bg-secondary);
     border-radius: 9px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.meal-table thead {
+    background-color: var(--color-grey-dark-3);
+}
+
+.meal-table th {
+    padding: 1.2rem;
+    text-align: left;
+    font-size: 1.6rem;
+    color: var(--color-text-secondary);
+}
+
+.meal-table tbody tr {
+    border-bottom: 1px solid var(--color-grey-dark-2);
+}
+
+.meal-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.meal-item__icon-container {
+    padding: 1.2rem;
 }
 
 .meal-item__icon {
@@ -218,6 +231,10 @@ body {
     color: transparent;
 }
 
+.meal-item__details {
+    padding: 1.2rem;
+}
+
 .meal-item__details .description {
     font-size: 1.4rem;
     line-height: 1.4;
@@ -230,9 +247,9 @@ body {
 }
 
 .meal-item__actions {
+    padding: 1.2rem;
     display: flex;
     gap: 1.2rem;
-    justify-self: end;
     align-items: center;
 }
 
@@ -245,4 +262,3 @@ body {
     background-color: var(--color-grey-dark-3);
     color: var(--color-text-secondary);
 }
-
