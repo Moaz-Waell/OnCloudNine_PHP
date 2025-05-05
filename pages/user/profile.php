@@ -15,7 +15,6 @@
   <!-- <a href="/index.html" class="back-button" aria-label="Back to Main Menu">
     <span class="back-arrow">←</span>
   </a> -->
-
   <div class="container">
     <?php include('../../components/sideNav.html'); ?>
     <!-- Profile Container -->
@@ -24,7 +23,7 @@
       <div class="profile-card">
         <div class="profile-header">
           <div class="profile-avatar">
-            <img src="/img/avatar.png" alt="User Avatar" class="avatar-image">
+            <img src="../../img/icons/avatar.png" alt="User Avatar" class="avatar-image">
             <i class="fas fa-user"></i>
           </div>
           <div class="user-details">
