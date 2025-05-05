@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Orders</title>
-  <link rel="stylesheet" href="../style/Components/OrderAgain.css" />
+  <link rel="stylesheet" href="../style/Components/orders.css" />
 
 </head>
 
@@ -53,8 +53,8 @@
             <td><button class="btn btn--status ordersstatus">Pending</button></td>
             <td><button class="btn btn--order-again">Order Again</button></td>
           </tr>
-          <tr>         
-          <!-- Repeat rows for other orders -->
+          <tr>
+            <!-- Repeat rows for other orders -->
         </tbody>
       </table>
 

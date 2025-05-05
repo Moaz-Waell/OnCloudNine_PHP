@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($row) {
         // Login successful
         $_SESSION['username'] = $row['USERS_Name'];
-        header("Location: ../pages/home.php"); // Redirect to pages/home.php
+        header("Location: ../pages/user/home.php"); // Redirect to pages/home.php
         exit();
     } else {
         // Login failed

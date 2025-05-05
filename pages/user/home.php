@@ -1,18 +1,10 @@
-<?php
-session_start();
-if (!isset($_SESSION['username'])) {
-  header("Location: user_login.php");
-  exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OCN Food Dashboard</title>
-  <link rel="stylesheet" href="../style/pages/home.css" />
+  <link rel="stylesheet" href="../../style/pages/user/home.css" />
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
@@ -20,7 +12,7 @@ if (!isset($_SESSION['username'])) {
 <body>
   <div class="container">
     <!-- Sidebar -->
-    <?php include('../components/nav.html'); ?>
+    <?php include('../../components/sideNav.html'); ?>
     <!-- Main Content -->
     <main class="main-content">
       <!-- Header -->
@@ -36,7 +28,7 @@ if (!isset($_SESSION['username'])) {
 
         <div class="header-actions">
           <div class="user-greeting">
-            <p>Hi, <?php echo htmlspecialchars($_SESSION['username']); ?></p>
+            <p>Hi, User</p>
           </div>
         </div>
       </header>
@@ -45,18 +37,21 @@ if (!isset($_SESSION['username'])) {
         <div class="section-header">
           <h2>Category</h2>
         </div>
+
         <div class="category-flex">
           <?php
-          include('../php/config.php');
+          include('../../php/config.php');
           $query = "SELECT * FROM category";
           $result = $con->query($query);
           if ($result->num_rows > 0) {
             while ($category = $result->fetch_assoc()) {
-              $image_path = "../img/category/" . $category['CATEGORY_Icon'];
+              $image_path = "../../img/category/" . $category['CATEGORY_Icon'];
               ?>
               <div class="category-item">
-                <img src="<?php echo $image_path; ?>" alt="<?php echo htmlspecialchars($category['CATEGORY_Name']); ?>">
-                <p><?php echo htmlspecialchars($category['CATEGORY_Name']); ?></p>
+                <a href="categoryMeals.php?id=<?php echo $category['CATEGORY_ID']; ?>">
+                  <img src="<?php echo $image_path; ?>" alt="<?php echo htmlspecialchars($category['CATEGORY_Name']); ?>">
+                  <p><?php echo htmlspecialchars($category['CATEGORY_Name']); ?></p>
+                </a>
               </div>
               <?php
             }
