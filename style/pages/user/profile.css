@@ -1,0 +1,261 @@
+/* Import base styles */
+@import url(../../base/variables.css);
+@import url(../../base/base.css);
+@import url(../../base/typography.css);
+@import url(../../components/buttons.css);
+@import url(../../base/general.css);
+@import url(../../base/utilities.css);
+@import url(../../components/sideNav.css);
+@import url(../../components/meal.css);
+@import url(../../mediaqueries/general.css);
+
+/* Global overrides */
+/* body {
+  background-color: var(--color-bg-primary);
+  font-family: "Rubik", sans-serif;
+  line-height: 1.5;
+  padding-top: 80px; Space for sticky button
+}  */
+/* Sticky Back Button */
+/* .back-button {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 1000;
+  background: linear-gradient(
+    135deg,
+    var(--color-btn-primary),
+    var(--color-btn-primary-light)
+  );
+  color: white;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+.back-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+.back-arrow {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+} */
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  max-width: 100%;
+}
+
+/* Profile Container */
+.main-content  {
+  position: relative;
+  flex: 1;
+  overflow-y: auto;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Profile Card */
+.profile-card {
+  background-color: var(--color-bg-secondary);
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+}
+
+/* Profile Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Profile Avatar */
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+.profile-avatar:hover .avatar-image {
+  transform: scale(1.05);
+}
+
+/* User Details */
+.user-details h2 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: var(--color-primary-dark);
+}
+.user-details p {
+  margin: 0.4rem 0;
+  color: var(--color-grey-dark-2);
+  font-size: 1.4rem;
+}
+
+/* Input Group */
+.input-group {
+  margin-top: 1rem;
+}
+
+.input-label {
+  font-weight: bold;
+  color: var(--color-primary-dark);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--color-border-primary);
+  border-radius: 8px;
+  font-size: 1.4rem;
+  color: var(--color-primary-dark);
+  background-color: white;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease;
+}
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-btn-hover);
+  box-shadow: 0 0 0 3px rgba(72, 179, 204, 0.3);
+}
+
+/* Allergies Section */
+.allergies-section {
+  margin-top: 2rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: var(--color-primary-dark);
+  margin-bottom: 1.5rem;
+}
+
+/* Allergy Checkbox Group */
+.allergy-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Custom Checkbox */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  user-select: none;
+  color: var(--color-primary-dark);
+}
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: var(--color-bg-tertiary);
+  border-radius: 6px;
+  border: 2px solid var(--color-border-primary);
+}
+.checkbox-container:hover input ~ .checkmark {
+  background-color: var(--color-bg-tertiary);
+}
+.checkbox-container input:checked ~ .checkmark {
+  background-color: var(--color-btn-hover);
+}
+.checkbox-container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Save Button */
+.save-button {
+  margin-top: 1rem;
+}
+
+/* Success Message */
+.success-message {
+  background: var(--color-btn-hover);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 2rem auto;
+  max-width: 600px;
+  animation: fadeInOut 0.5s ease-in-out;
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .profile-avatar {
+    width: 60px;
+    height: 60px;
+  }
+  .allergy-group {
+    grid-template-columns: 1fr 1fr;
+  }
+  .checkbox-container {
+    font-size: 1.4rem;
+  }
+  .input-field {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 480px) {
+  .allergy-group {
+    grid-template-columns: 1fr;
+  }
+  .checkbox-container {
+    font-size: 1.3rem;
+  }
+}
