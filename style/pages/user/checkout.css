@@ -2,6 +2,7 @@
 @import url(../../base/base.css);
 @import url(../../base/typography.css);
 @import url(../../components/buttons.css);
+@import url(../../components/checkbox.css);
 @import url(../../base/general.css);
 @import url(../../base/utilities.css);
 @import url(../../components/sideNav.css);
@@ -189,7 +190,7 @@ h2.heading-primary {
 
 .end-date {
   font-size: 1.2rem;
-  color: var(--color-text-primary); 
+  color: var(--color-text-primary);
   margin-top: 0.5rem;
 }
 

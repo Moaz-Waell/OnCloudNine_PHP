@@ -18,10 +18,15 @@
         <div class="left_side">
           <h2 class="heading-primary">Checkout</h2>
           <h3 class="heading-secondary"><u>Order number:</u> <span>123</span></h3>
-          <div class="deliver_now">
+          <label class="checkbox-container margin-top-2rem">
+            <input type="checkbox" name="allergy" value="Deliver-Now">
+            <span class="checkmark"></span>
+            Deliver Now
+          </label>
+          <!-- <div class="deliver_now">
             <input type="checkbox" name="deliver_now" id="deliver_now" value="deliver_now" class="deliver_now" />
             <label for="deliver_now">Deliver Now</label>
-          </div>
+          </div> -->
           <div class="heading-secondary">
             <label for="Schedule_date" class="Schedule_date">Schedule Delivery</label>
             <input type="date" name="Schedule_date" id="Schedule_date" placeholder="MM/YY" />
@@ -34,7 +39,7 @@
             <div class="coupon">
               <div class="coupon-details">
                 <span class="badge">5% Off</span>
-                <span class="end-date">Ends 12/31/2024</span> 
+                <span class="end-date">Ends 12/31/2024</span>
               </div>
               <button class="apply-btn">Apply</button>
             </div>

@@ -42,11 +42,36 @@
             <i>select to remove from the meal</i>
           </p>
           <div class="grid grid-3-cols ingredients_list">
-            <div class="ingredient-item">
-              <input type="checkbox" id="ingredient1" />
-              <label class="description" for="ingredient1">Ingredient 1</label>
-            </div>
-
+            <label class="checkbox-container margin-bottom-2rem ">
+              <input type="checkbox" name="allergy" value="Deliver-Now">
+              <span class="checkmark"></span>
+              Deliver Now
+            </label>
+            <label class="checkbox-container margin-bottom-2rem ">
+              <input type="checkbox" name="allergy" value="Deliver-Now">
+              <span class="checkmark"></span>
+              Deliver Now
+            </label>
+            <label class="checkbox-container margin-bottom-2rem ">
+              <input type="checkbox" name="allergy" value="Deliver-Now">
+              <span class="checkmark"></span>
+              Deliver Now
+            </label>
+            <label class="checkbox-container margin-bottom-2rem ">
+              <input type="checkbox" name="allergy" value="Deliver-Now">
+              <span class="checkmark"></span>
+              Deliver Now
+            </label>
+            <label class="checkbox-container margin-bottom-2rem ">
+              <input type="checkbox" name="allergy" value="Deliver-Now">
+              <span class="checkmark"></span>
+              Deliver Now
+            </label>
+            <label class="checkbox-container margin-bottom-2rem ">
+              <input type="checkbox" name="allergy" value="Deliver-Now">
+              <span class="checkmark"></span>
+              Deliver Now
+            </label>
           </div>
         </div>
 
