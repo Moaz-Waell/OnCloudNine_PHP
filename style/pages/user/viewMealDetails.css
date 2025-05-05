@@ -1,11 +1,12 @@
 
-@import url(../base/variables.css);
-@import url(../base/base.css);
-@import url(../base/typography.css);
-@import url(../Components/buttons.css);
-@import url(../base/general.css);
-@import url(../base/utilities.css);
-@import url(../mediaqueries/general.css);
+@import url(../../base/variables.css);
+@import url(../../base/base.css);
+@import url(../../base/typography.css);
+@import url(../../components/buttons.css);
+@import url(../../base/general.css);
+@import url(../../base/utilities.css);
+@import url(../../mediaqueries/general.css);
+
 
 
 .wave {

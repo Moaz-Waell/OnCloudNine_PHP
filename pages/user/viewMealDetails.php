@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../style/Components/view_meal_details.css" />
+  <link rel="stylesheet" href="../../style/pages/user/viewMealDetails.css" />
 </head>
 
 <body>
@@ -30,14 +30,14 @@
         <div class="heading-primary meal_name">meal name</div>
 
         <div class="description meal_description">
-          this section will contain the discription of the meal
+          this section will contain the description of the meal
         </div>
 
-        <div class="description alergy_warning">
-          <p>"alergy detected"</p>
+        <div class="description allergy_warning">
+          <p>"allergy detected"</p>
         </div>
 
-        <div class="ingrediants">
+        <div class="ingredient">
           <p class="description">
             <i>select to remove from the meal</i>
           </p>
@@ -47,35 +47,6 @@
               <label class="description" for="ingredient1">Ingredient 1</label>
             </div>
 
-            <div class="ingredient-item">
-              <input type="checkbox" id="ingredient2" />
-              <label class="description" for="ingredient2">Ingredient 2</label>
-            </div>
-
-            <div class="ingredient-item">
-              <input type="checkbox" id="ingredient3" />
-              <label class="description" for="ingredient3">Ingredient 3</label>
-            </div>
-
-            <div class="ingredient-item">
-              <input type="checkbox" id="ingredient4" />
-              <label class="description" for="ingredient4">Ingredient 4</label>
-            </div>
-
-            <div class="ingredient-item">
-              <input type="checkbox" id="ingredient5" />
-              <label class="description" for="ingredient5">Ingredient 5</label>
-            </div>
-
-            <div class="ingredient-item">
-              <input type="checkbox" id="ingredient6" />
-              <label class="description" for="ingredient6">Ingredient 6</label>
-            </div>
-
-            <div class="ingredient-item">
-              <input type="checkbox" id="ingredient7" />
-              <label class="description" for="ingredient7">Ingredient 7</label>
-            </div>
           </div>
         </div>
 
