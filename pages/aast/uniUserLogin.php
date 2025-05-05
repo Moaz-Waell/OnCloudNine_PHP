@@ -12,6 +12,7 @@ unset($_SESSION['error']);
   <title>AASTMT Student Portal</title>
   <link rel="stylesheet" href="../../style/pages/aast/uniUserLogin.css" />
 </head>
+
 <body>
   <div class="portal-container">
     <div class="background-section">
@@ -36,6 +37,14 @@ unset($_SESSION['error']);
         <button class="register-btn">Open Registration</button>
 
         <h3>Login</h3>
+
+        <!-- Error Message Display -->
+        <?php if (!empty($error)): ?>
+          <div class="error-message">
+            <?php echo htmlspecialchars($error); ?>
+          </div>
+        <?php endif; ?>
+
         <form action="../../php/user_login_validation.php" method="post">
           <input type="text" name="ID" placeholder="Registration Number" required />
           <input type="password" name="password" placeholder="Pin Code" required />
