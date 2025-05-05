@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Orders</title>
-  <link rel="stylesheet" href="../style/Components/orders.css" />
+  <link rel="stylesheet" href="../../style/pages/user/orders.css" />
 
 </head>
 
 <body>
   <div class="container">
 
-    <?php include('../components/nav.html'); ?>
+    <?php include('../../components/sideNav.html'); ?>
     <main class="main-content">
       <!-- Navigation Bar -->
       <!-- <nav class=" navbar"> -->

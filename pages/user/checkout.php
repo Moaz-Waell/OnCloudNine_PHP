@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../style/pages/checkout.css" />
+  <link rel="stylesheet" href="../../style/pages/user/checkout.css" />
 
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -12,15 +12,15 @@
 
 <body>
   <div class="container">
-    <?php include('../components/nav.html'); ?>
+    <?php include('../../components/sideNav.html'); ?>
     <main class="main-content">
       <div class="checkout container">
         <div class="left_side">
           <h2 class="heading-primary">Checkout</h2>
           <h3 class="heading-secondary"><u>Order number:</u> <span>123</span></h3>
           <div class="deliver_now">
-            <input type="checkbox" name="deliver_now" id="deliver_now" value="deliver_now" class="deliver_now"/>
-            <label for="deliver_now">Deliver Now</label>  
+            <input type="checkbox" name="deliver_now" id="deliver_now" value="deliver_now" class="deliver_now" />
+            <label for="deliver_now">Deliver Now</label>
           </div>
           <div class="heading-secondary">
             <label for="Schedule_date" class="Schedule_date">Schedule Delivery</label>
@@ -28,28 +28,13 @@
           </div>
           <div class="heading-secondary">
             <label for="Schedule_time" class="Schedule_time">Schedule Time</label>
-            <input type="time" name="Schedule_time" id="Schedule_time"/>
+            <input type="time" name="Schedule_time" id="Schedule_time" />
           </div>
           <div class="coupon_section">
             <div class="coupon">
               <div class="coupon-details">
                 <span class="badge">5% Off</span>
-              </div>
-              <button class="apply-btn">Apply</button>
-            </div>
-          </div>
-          <div class="coupon_section">
-            <div class="coupon">
-              <div class="coupon-details">
-                <span class="badge">30% Off</span>
-              </div>
-              <button class="apply-btn">Apply</button>
-            </div>
-          </div>
-          <div class="coupon_section">
-            <div class="coupon">
-              <div class="coupon-details">
-                <span class="badge">15% Off</span>
+                <span class="end-date">Ends 12/31/2024</span> 
               </div>
               <button class="apply-btn">Apply</button>
             </div>

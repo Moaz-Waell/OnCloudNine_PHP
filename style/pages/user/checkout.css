@@ -1,12 +1,12 @@
-@import url(../base/variables.css);
-@import url(../base/base.css);
-@import url(../base/typography.css);
-@import url(../Components/buttons.css);
-@import url(../base/general.css);
-@import url(../base/utilities.css);
-@import url(../Components/sidebar.css);
-@import url(../mediaqueries/general.css);
-@import url(../pages/home.css);
+@import url(../../base/variables.css);
+@import url(../../base/base.css);
+@import url(../../base/typography.css);
+@import url(../../components/buttons.css);
+@import url(../../base/general.css);
+@import url(../../base/utilities.css);
+@import url(../../components/sideNav.css);
+@import url(../../mediaqueries/general.css);
+@import url(../../pages/user/home.css);
 
 body {
   background-color: var(--color-bg-tertiary);
@@ -154,7 +154,6 @@ h2.heading-primary {
   box-shadow: 3px 3px 12px #1b2a318f;
 }
 
-
 .coupon-box {
   background-color: var(--color-bg-primary, #fff);
   border: 1px solid var(--color-border-primary, #ddd);
@@ -188,6 +187,12 @@ h2.heading-primary {
   gap: 0.5rem;
 }
 
+.end-date {
+  font-size: 1.2rem;
+  color: var(--color-text-primary); 
+  margin-top: 0.5rem;
+}
+
 .badge {
   display: inline-block;
   background-color: var(--color-text-primary, #007bff);
@@ -196,6 +201,7 @@ h2.heading-primary {
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
   font-weight: 600;
+  width: fit-content;
 }
 
 .code {

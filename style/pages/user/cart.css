@@ -1,14 +1,16 @@
-@import url(../base/variables.css);
-@import url(../base/base.css);
-@import url(../base/typography.css);
-@import url(../Components/buttons.css);
-@import url(../base/general.css);
-@import url(../base/utilities.css);
-@import url(../mediaqueries/general.css);
-@import url(../Components/sidebar.css);
-@import url(../pages/home.css);
+@import url(../../base/variables.css);
+@import url(../../base/base.css);
+@import url(../../base/typography.css);
+@import url(../../components/buttons.css);
+@import url(../../base/general.css);
+@import url(../../base/utilities.css);
+@import url(../../mediaqueries/general.css);
+@import url(../../components/sideNav.css);
+@import url(../../pages/user/home.css);
 
 
+
+/* 
 :root {
     --color-primary: #446a76;
     --color-primary-light: #4f7b8c;
@@ -28,7 +30,7 @@
     --color-grey-dark-3: #999;
     --color-error: #ffebee;
     --color-error-dark: #d32f2f;
-}
+} */
 
 @media (max-width: 600px) {
   .cart-footer {
@@ -46,7 +48,7 @@ body {
   color: var(--color-primary);
   font-weight: 400;
   overflow-x: hidden;
-  padding-bottom: 14rem; /* مساحة لأسفل لتجنب تغطية الـ footer الثابت */
+  padding-bottom: 14rem; 
 }
 
 .heading-secondary {
@@ -57,7 +59,7 @@ body {
   text-align: center;
 }
 
-/* Container أساسي (من الكود الأول) */
+
 /* .navbar .container {
   max-width: 84rem;
   margin: 0 auto;
@@ -67,7 +69,7 @@ body {
   gap: 1.6rem;
 } */
 
-/* Navbar (من الكود الأول) */
+
 .navbar {
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
@@ -79,7 +81,7 @@ body {
   letter-spacing: -0.5px;
 }
 
-/* زر العودة (من الكود الثاني) */
+
 .btn-back {
   display: flex;
   align-items: center;
@@ -117,10 +119,10 @@ body {
   border-radius: 1.6rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  margin-bottom: 12rem; /* مساحة لأسفل لتجنب تغطية الـ footer الثابت */
+  margin-bottom: 12rem;
 }
 
-/* أنماط الوجبات (من الكود الثاني) */
+
 .meal-cart {
   margin-bottom: 2rem;
 }
@@ -179,21 +181,21 @@ body {
 .meal-item__name {
   font-size: 1.5rem;
   line-height: 1.2;
-  margin: 0; /* إزالة أي مارجين تلقائي */
+  margin: 0; 
   padding: 0;
-  flex-shrink: 0; /* منع انكماش الاسم عند طول الوصف */
+  flex-shrink: 0;
   color: var(--color-primary-secondary);
 }
 
 .meal-item__description {
   font-size: 1.5rem;
   line-height: 1.4;
-  margin: 0; /* إزالة أي مارجين */
+  margin: 0; 
   padding: 0;
-  max-height: 3rem; /* تحديد ارتفاع أقصى للوصف */
-  overflow: hidden; /* إخفاء النص الزائد */
-  text-overflow: ellipsis; /* وضع نقاط عند النص الطويل */
-  color: #777; /* لون رمادي للنص */
+  max-height: 3rem;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  color: #777; 
 }
 
 .meal-item__price {
@@ -252,7 +254,7 @@ body {
   margin-bottom: 1rem;
 }
 
-/* زر checkout */
+
 .btn--checkout {
   display: inline-block;
   text-decoration: none;

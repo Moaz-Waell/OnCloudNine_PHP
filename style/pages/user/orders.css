@@ -1,36 +1,36 @@
-@import url(../base/variables.css);
-@import url(../base/base.css);
-@import url(../base/typography.css);
-@import url(../Components/buttons.css);
-@import url(../base/general.css);
-@import url(../base/utilities.css);
-@import url(../mediaqueries/general.css);
-@import url(../Components/sidebar.css);
-@import url(../pages/home.css);
+@import url(../../base/variables.css);
+@import url(../../base/base.css);
+@import url(../../base/typography.css);
+@import url(../../components/buttons.css);
+@import url(../../base/general.css);
+@import url(../../base/utilities.css);
+@import url(../../mediaqueries/general.css);
+@import url(../../components/sideNav.css);
+@import url(../../pages/user/home.css);
 
-body{
-    line-height: 1;
-    color: var(--color-primary);
-    font-weight: 400;
-    overflow-x: hidden;
-    background-color: var(--color-bg-primary);
-  
+
+
+body {
+  line-height: 1;
+  color: var(--color-primary);
+  font-weight: 400;
+  overflow-x: hidden;
+  background-color: var(--color-bg-primary);
 }
 /* Navbar Styles */
 
 .navbar {
-    background-color: var(--color-bg-primary);
-    color:var(--color-text-primary); ;
-    padding: 2rem;
-    font-size: 3rem;
-    margin-bottom: 0;
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.5px;
-  }
-  
-  
-  /* Table Styles */
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  padding: 2rem;
+  font-size: 3rem;
+  margin-bottom: 0;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+}
+
+/* Table Styles */
 /* Basic Table Styles */
 .orders-table {
   width: 100%;
@@ -42,7 +42,6 @@ body{
   background-color: var(--color-bg-secondary);
   border-radius: 1.6rem;
   overflow: hidden;
-  
 }
 
 /* Table Headers */
@@ -58,9 +57,9 @@ body{
 
 .orders-table th {
   font-size: 3rem;
-   font-size: 1.5rem;
+  font-size: 1.5rem;
   line-height: 1.2;
-  flex-shrink: 0; /* منع انكماش الاسم عند طول الوصف */
+  flex-shrink: 0;
   margin-bottom: 1.6rem;
   color: var(--color-text-primary);
   background-color: var(--color-bg-secondary);
@@ -68,9 +67,9 @@ body{
 
 .orders-table td {
   font-size: 3rem;
-   font-size: 1.2rem;
+  font-size: 1.2rem;
   line-height: 1.2;
-  flex-shrink: 0; /* منع انكماش الاسم عند طول الوصف */
+  flex-shrink: 0; 
   margin-bottom: 1.6rem;
   color: var(--color-btn-primary);
 }
@@ -100,7 +99,6 @@ body{
   background-color: var(--color-btn-hover);
   color: var(--color-text-secondary);
 }
-
 
 /* Order Again Button */
 .btn--order-again {
