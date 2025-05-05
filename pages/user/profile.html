@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile</title>
+  <link rel="stylesheet" href="/style/Components/profile.css" />
+</head>
+<body>
+  <!-- Sticky Back Button -->
+  <a href="/index.html" class="back-button" aria-label="Back to Main Menu">
+    <span class="back-arrow">←</span>
+  </a>
+
+  <!-- Profile Container -->
+  <div class="profile-container">
+    <!-- User Info Card -->
+    <div class="profile-card">
+      <div class="profile-header">
+        <div class="profile-avatar">
+            <img src="/img/avatar.png" alt="User Avatar" class="avatar-image">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="user-details">
+          <h2 class="user-name">John Doe</h2>
+          <p class="user-id">ID: 123456</p>
+          <div class="input-group">
+            <label for="phone-input" class="input-label">Phone:</label>
+            <input 
+              type="tel" 
+              id="phone-input" 
+              class="input-field" 
+              placeholder="Enter phone number" 
+              value="+20 123 456 7890"
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Allergies Section -->
+      <div class="allergies-section">
+        <h3 class="section-title">Allergies</h3>
+        <form id="allergy-form" class="allergy-form">
+          <div class="allergy-group">
+            <label class="checkbox-container">
+              <input type="checkbox" name="allergy" value="Milk">
+              <span class="checkmark"></span>
+              Milk
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" name="allergy" value="Eggs">
+              <span class="checkmark"></span>
+              Eggs
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" name="allergy" value="Nuts">
+              <span class="checkmark"></span>
+              Nuts
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" name="allergy" value="Chocolate">
+              <span class="checkmark"></span>
+              Chocolate
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" name="allergy" value="Shellfish">
+              <span class="checkmark"></span>
+              Shellfish
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" name="allergy" value="Gluten">
+              <span class="checkmark"></span>
+              Gluten
+            </label>
+          </div>
+
+          <!-- Save Button -->
+          <button type="submit" class="btn btn--full save-button">Save Changes</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Success Message -->
+    <div id="success-message" class="success-message" style="display: none;">
+      Allergies and phone number updated successfully!
+    </div>
+  </div>
+
+  <!-- JavaScript for Save Functionality -->
+  <script>
+    document.getElementById('allergy-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      
+      // Get phone number
+      const phoneInput = document.getElementById('phone-input').value.trim();
+      
+      // Get selected allergies
+      const selected = Array.from(document.querySelectorAll('input[name="allergy"]:checked'))
+        .map(cb => cb.value);
+
+      // Show success message
+      const successMsg = document.getElementById('success-message');
+      successMsg.style.display = 'block';
+    //   successMsg.textContent = Phone: ${phoneInput} | Allergies: ${selected.join(', ') || 'None'};
+      
+      // Hide after 3 seconds
+      setTimeout(() => {
+        successMsg.style.display = 'none';
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
