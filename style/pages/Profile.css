@@ -525,7 +525,7 @@ input[type="checkbox"] {
     gap: 3.2rem;
     padding: 2rem;
     background-color: var(--color-background-page, #f4f4f4);
-    min-height: 50vh;
+    min-height: 30vh;
     box-sizing: border-box;
   }
   

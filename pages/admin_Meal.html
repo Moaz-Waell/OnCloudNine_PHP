@@ -1,22 +1,23 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Meal Management</title>
-  <link rel="stylesheet" href="../style/pages/admin_Meal.css">
+  <link rel="stylesheet" href="../style/pages/admin_Meal.css" />
 </head>
 <body>
-<div>
+  <div>
     <a href="/index.html" class="btn-back">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z" fill="currentColor" />
-        </svg>
-</a>
-</div>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z" fill="currentColor" />
+      </svg>
+    </a>
+  </div>
+
   <div class="meal-container">
     <div class="meal-header">
-      <h2> Meal</h2>
-      <button class="add-meal">Add Meal</button>
+      <h2>Meal</h2>
+      <a href="#popup" class="add-meal">Add Meal</a>
     </div>
 
     <table class="meal-table">
@@ -29,7 +30,7 @@
       </thead>
       <tbody>
         <tr>
-          <td><img src="" class="icon-img"></td>
+          <td><img src="" class="icon-img" /></td>
           <td>Meal name</td>
           <td>
             <button>Remove</button>
@@ -37,7 +38,7 @@
           </td>
         </tr>
         <tr>
-          <td><img src="checked.png" alt="checked" class="icon-img"></td>
+          <td><img src="checked.png" alt="checked" class="icon-img" /></td>
           <td>Meal name</td>
           <td>
             <button>Remove</button>
@@ -45,7 +46,7 @@
           </td>
         </tr>
         <tr>
-          <td><img src="checked.png" alt="checked" class="icon-img"></td>
+          <td><img src="checked.png" alt="checked" class="icon-img" /></td>
           <td>Meal name</td>
           <td>
             <button>Remove</button>
@@ -55,6 +56,18 @@
       </tbody>
     </table>
   </div>
-</body>
-</html> 
 
+  <div id="popup" class="popup-overlay">
+    <div class="popup-content">
+      <h3>Add Meal</h3>
+      <form>
+        <input type="text" placeholder="Meal Name" required />
+        <textarea placeholder="Description" required></textarea>
+        <textarea placeholder="Ingredients" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <a href="#" class="close-btn">Close</a>
+    </div>
+  </div>
+</body>
+</html>
