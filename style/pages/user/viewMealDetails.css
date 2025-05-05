@@ -1,11 +1,12 @@
+@import url(../../base/variables.css);
+@import url(../../base/base.css);
+@import url(../../base/typography.css);
+@import url(../../components/buttons.css);
+@import url(../../components/checkbox.css);
+@import url(../../base/general.css);
+@import url(../../base/utilities.css);
+@import url(../../mediaqueries/general.css);
 
-@import url(../base/variables.css);
-@import url(../base/base.css);
-@import url(../base/typography.css);
-@import url(../Components/buttons.css);
-@import url(../base/general.css);
-@import url(../base/utilities.css);
-@import url(../mediaqueries/general.css);
 
 
 .wave {
@@ -36,6 +37,7 @@ body {
 .meal_details {
   padding: 0 20px;
 }
+
 .container {
   display: flex;
   align-items: center;
@@ -75,10 +77,10 @@ body {
   gap: 1.1rem;
   margin-top: 2rem;
 } */
- .ingredients_list {
-  align-items: baseline;
+.ingredients_list {
+  /* align-items: baseline; */
   gap: 1.1rem;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
 }
 
 .ingredient-item {
@@ -144,6 +146,7 @@ p.description {
   .caption {
     width: 100%;
   }
+
   .description.alergy_warning {
     margin-left: auto;
     margin-right: auto;
@@ -234,6 +237,7 @@ p.description {
   .buttons {
     justify-content: center;
   }
+
   .quantity-selector {
     gap: 0.6rem;
   }
