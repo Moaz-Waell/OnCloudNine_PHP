@@ -23,7 +23,7 @@
     <div class="category-container">
       <div class="category-header">
         <h2>Category</h2>
-        <a href="#popupForm" class="add-category">Add category</a>
+        <a href="#popupForm" class="CRUD-btn">Add category</a>
       </div>
 
       <table class="category-table">
@@ -36,12 +36,17 @@
         </thead>
         <tbody>
           <tr>
-            <td><img src="checked.png" alt="checked" class="icon-img" /></td>
+            <td>
+              <img
+                src="/img/category/pizza.png"
+                alt="checked"
+                class="icon-img" />
+            </td>
             <td>Category name</td>
             <!-------- update category -------->
             <td>
-              <button class="add-category">Remove</button>
-              <a href="#popup" class="add-category">Update</a>
+              <a class="CRUD-btn">Remove</a>
+              <a href="#popup" class="CRUD-btn">Update</a>
 
               <div id="popup" class="popup">
                 <div class="popup-content">
@@ -49,7 +54,7 @@
                     <a href="#" class="close-btn">&times;</a>
                   </div>
                   <div class="popup-body">
-                    <h4 id="popheder">Update Category</h4>
+                    <h4 class="popheader">Update Category</h4>
                     <form>
                       <div class="form-group">
                         <label class="header-lable">New name:</label>
@@ -79,13 +84,13 @@
     <!-- Popup Form (activated via #popupForm anchor) -->
     <div id="popupForm" class="popup">
       <div class="popup-content">
-        <h3 id="popheder">Add Category</h3>
+        <h3 class="popheader">Add Category</h3>
         <a href="#" class="close-btn">&times;</a>
         <form>
-          <label class="header-lable">Category name:</label><br />
-          <input type="text" placeholder="Enter name" /><br /><br />
-          <label class="header-lable">Icon:</label><br />
-          <input type="text" placeholder="Image Name" /><br /><br />
+          <label class="header-lable">Category name:</label>
+          <input type="text" placeholder="Enter name" />
+          <label class="header-lable">Icon:</label>
+          <input type="text" placeholder="Image Name" />
           <button type="submit">Submit</button>
         </form>
       </div>
