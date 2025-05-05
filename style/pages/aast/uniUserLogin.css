@@ -1,4 +1,4 @@
-@import url(/style/mediaqueries/general.css);
+@import url(../../../style/mediaqueries/general.css);
 
 
 body {
@@ -16,7 +16,7 @@ body {
 .background-section {
     flex: 1;
     position: relative;
-    background-image: url('/img/aast_imgs/aastLoginImage.webp');
+    background-image: url('../../../img/aast_imgs/aastLoginImage.webp');
     background-size: cover;
     background-position: center;
 }
