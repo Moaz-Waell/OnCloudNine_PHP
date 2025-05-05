@@ -1,73 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Meal Management</title>
-  <link rel="stylesheet" href="../style/pages/admin_Meal.css" />
-</head>
-<body>
-  <div>
-    <a href="/index.html" class="btn-back">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z" fill="currentColor" />
-      </svg>
-    </a>
-  </div>
 
-  <div class="meal-container">
-    <div class="meal-header">
-      <h2>Meal</h2>
-      <a href="#popup" class="add-meal">Add Meal</a>
-    </div>
-
-    <table class="meal-table">
-      <thead>
-        <tr>
-          <th>icon</th>
-          <th>Meal Name</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><img src="" class="icon-img" /></td>
-          <td>Meal name</td>
-          <td>
-            <button>Remove</button>
-            <button>Update</button>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="checked.png" alt="checked" class="icon-img" /></td>
-          <td>Meal name</td>
-          <td>
-            <button>Remove</button>
-            <button>Update</button>
-          </td>
-        </tr>
-        <tr>
-          <td><img src="checked.png" alt="checked" class="icon-img" /></td>
-          <td>Meal name</td>
-          <td>
-            <button>Remove</button>
-            <button>Update</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div id="popup" class="popup-overlay">
-    <div class="popup-content">
-      <h3>Add Meal</h3>
-      <form>
-        <input type="text" placeholder="Meal Name" required />
-        <textarea placeholder="Description" required></textarea>
-        <textarea placeholder="Ingredients" required></textarea>
-        <button type="submit">Submit</button>
-      </form>
-      <a href="#" class="close-btn">Close</a>
-    </div>
-  </div>
-</body>
-</html>
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8" />
+   <title>Meal Management</title>
+   <link rel="stylesheet" href="../style/pages/admin_Meal.css" />
+ </head>
+ <body>
+   <div>
+     <a href="/index.html" class="btn-back">
+       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+         <path d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z" fill="currentColor" />
+       </svg>
+     </a>
+   </div>
+ 
+   <div class="meal-container">
+     <div class="meal-header">
+       <h2>Meal</h2>
+       <button class="add-meal" onclick="document.getElementById('add-popup').style.display='flex'">Add Meal</button>
+     </div>
+ 
+     <table class="meal-table">
+       <thead>
+         <tr>
+           <th>icon</th>
+           <th>Meal Name</th>
+           <th>Actions</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr>
+           <td><img src="" class="icon-img" /></td>
+           <td>Meal name</td>
+           <td>
+             <button class="update-btn" onclick="document.getElementById('update-popup').style.display='flex'">Update</button>
+             <button>Remove</button>
+           </td>
+         </tr>
+         <tr>
+           <td><img src="checked.png" alt="checked" class="icon-img" /></td>
+           <td>Meal name</td>
+           <td>
+             <button class="update-btn" onclick="document.getElementById('update-popup').style.display='flex'">Update</button>
+             <button>Remove</button>
+           </td>
+         </tr>
+         <tr>
+           <td><img src="checked.png" alt="checked" class="icon-img" /></td>
+           <td>Meal name</td>
+           <td>
+             <button class="update-btn" onclick="document.getElementById('update-popup').style.display='flex'">Update</button>
+             <button>Remove</button>
+           </td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+ 
+   <!-- Add Meal Popup Overlay -->
+   <div id="add-popup" class="popup-overlay" style="display:none;">
+     <div class="popup-content">
+       <h3>Add Meal</h3>
+       <form>
+         <input type="text" placeholder="Meal Name" required />
+         <input type="text" placeholder="Description" required />
+         <input type="text" placeholder="Ingredients" required />
+         
+         <select class="category-select" required>
+           <option value="" disabled selected>Select Category</option>
+           <option value="breakfast">Breakfast</option>
+           <option value="lunch">Lunch</option>
+           <option value="dinner">Dinner</option>
+           <option value="snack">Snack</option>
+         </select>
+   
+         <button type="submit">Submit</button>
+       </form>
+       <button class="close-btn" onclick="document.getElementById('add-popup').style.display='none'">Close</button>
+     </div>
+   </div>
+ 
+   <!-- Update Meal Popup Overlay -->
+   <div id="update-popup" class="popup-overlay" style="display:none;">
+     <div class="popup-content">
+       <h3>Update Meal</h3>
+       <form>
+         <input type="text" placeholder="Meal Name" required />
+         <input type="text" placeholder="Description" required />
+         <input type="text" placeholder="Ingredients" required />
+         
+         <select class="category-select" required>
+           <option value="" disabled selected>Select Category</option>
+           <option value="breakfast">Breakfast</option>
+           <option value="lunch">Lunch</option>
+           <option value="dinner">Dinner</option>
+           <option value="snack">Snack</option>
+         </select>
+   
+         <button type="submit">Submit</button>
+       </form>
+       <button class="close-btn" onclick="document.getElementById('update-popup').style.display='none'">Close</button>
+     </div>
+   </div>
+   
+ </body>
+ </html>
+ 
+ 
