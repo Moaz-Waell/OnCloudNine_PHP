@@ -57,7 +57,7 @@ $meals_result = $stmt_meals->get_result();
         while ($meal = $meals_result->fetch_assoc()) {
           $meal_image = htmlspecialchars($meal['MEAL_Icon']);
           $meal_name = htmlspecialchars($meal['MEAL_Name']);
-          // $meal_desc = htmlspecialchars($meal['MEAL_Description']);
+          $meal_desc = htmlspecialchars($meal['MEAL_Description']);
           $meal_price = number_format($meal['MEAL_Price'], 2);
           ?>
           <div class="menu-item">
@@ -67,7 +67,7 @@ $meals_result = $stmt_meals->get_result();
             </div>
             <div class="menu-details">
               <h3><?php echo $meal_name; ?></h3>
-              <p>testing</p>
+              <p><?php echo $meal_desc; ?></p>
               <span class="price">$<?php echo $meal_price; ?></span>
               <a href="viewMealDetails.php?id=<?php echo $meal['MEAL_ID']; ?>" class="view-details">View Details</a>
             </div>
