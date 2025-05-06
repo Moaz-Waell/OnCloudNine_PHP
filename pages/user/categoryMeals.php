@@ -7,6 +7,11 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
   exit();
 }
 
+if (!isset($_COOKIE['user_id']) || !isset($_COOKIE['username']) || !isset($_COOKIE['attendance']) || !isset($_COOKIE['phone'])) {
+  header("Location: ../../pages/aast/uniUserLogin.php");
+  exit();
+}
+
 $category_id = intval($_GET['id']);
 
 // Fetch category details
