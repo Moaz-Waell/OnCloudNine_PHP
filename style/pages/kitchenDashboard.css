@@ -1,9 +1,22 @@
 /* Import base styles */
-@import url(/style/base/base.css);
-@import url(/style/base/typography.css);
+/* @import url(../../base/variables.css);
+@import url(../../base/base.css);
+@import url(../../base/typography.css);
+@import url(../../components/buttons.css);
+@import url(../../components/checkbox.css);
+@import url(../../base/general.css);
+@import url(../../base/utilities.css);
+@import url(../../mediaqueries/general.css); */
+
+
 @import url(/style/base/variables.css);
-@import url(/style/Components/buttons.css);
+@import url(/style//base/base.css);
+@import url(/style/base/typography.css);
+@import url(/style/components/buttons.css);
+@import url(/style/components/checkbox.css);
 @import url(/style/base/general.css);
+@import url(/style/base/utilities.css);
+@import url(/style/mediaqueries/general.css); 
 
 /* Global overrides */
 body {
