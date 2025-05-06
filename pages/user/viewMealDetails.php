@@ -53,8 +53,8 @@ while ($row = $ingredients_result->fetch_assoc()) {
 
 // Check user allergies
 $allergy_warning = array();
-if (isset($_SESSION['user_id'])) {
-  $user_id = $_SESSION['user_id'];
+if (isset($_COOKIE['user_id'])) {
+  $user_id = $_COOKIE['user_id'];
   $stmt_allergies = $con->prepare("SELECT A.ALLERGY_Name FROM USER_ALLERGIES UA JOIN ALLERGY A ON UA.ALLERGY_ID = A.ALLERGY_ID WHERE UA.USERS_ID = ? AND UA.Has_Allergy = 'Yes'");
   $stmt_allergies->bind_param("i", $user_id);
   $stmt_allergies->execute();
@@ -127,31 +127,36 @@ if (isset($_SESSION['user_id'])) {
           <p class="description">
             <i>select to remove from the meal</i>
           </p>
-          <div class="grid grid-3-cols ingredients_list">
-            <?php foreach ($ingredients as $ingredient): ?>
-              <label class="checkbox-container margin-bottom-2rem ">
-                <input type="checkbox" name="ingredient" value="<?php echo $ingredient; ?>" checked>
-                <span class="checkmark"></span>
-                <?php echo $ingredient; ?>
-              </label>
-            <?php endforeach; ?>
-          </div>
+          <form action="../../php/addToCart.php" method="post"">
+          <input type="hidden" name="return_url" value="<?php echo htmlspecialchars($_SERVER['HTTP_REFERER']); ?>">
+            <input type="hidden" name="meal_id" value="<?php echo $meal_id; ?>">
+            <div class="grid grid-3-cols ingredients_list">
+              <?php foreach ($ingredients as $ingredient): ?>
+                <label class="checkbox-container margin-bottom-2rem ">
+                  <input type="checkbox" name="ingredients[]" value="<?php echo $ingredient; ?>" checked>
+                  <span class="checkmark"></span>
+                  <?php echo $ingredient; ?>
+                </label>
+              <?php endforeach; ?>
+            </div>
         </div>
 
         <div class="heading-secondary meal_price">$<?php echo $meal_price; ?></div>
 
         <div class="buttons">
           <div class="quantity-selector">
-            <button class="quantity__btn" onclick="changeQuantity(-1)">
+            <button type="button" class="quantity__btn" onclick="changeQuantity(-1)">
               -
             </button>
             <div class="quantity__display" id="quantity">1</div>
-            <button class="quantity__btn" onclick="changeQuantity(1)">
+            <button type="button" class="quantity__btn" onclick="changeQuantity(1)">
               +
             </button>
           </div>
-          <button class="btn btn--full add_to_cart">Add to Cart</button>
+          <input type="hidden" name="quantity" id="quantityInput" value="1">
+          <button type="submit" class="btn btn--full add_to_cart">Add to Cart</button>
         </div>
+        </form>
       </div>
       <img src="../../img/meals/<?php echo $category_name; ?>/<?php echo $meal_icon; ?>"
         alt="<?php echo $meal_name; ?>">
