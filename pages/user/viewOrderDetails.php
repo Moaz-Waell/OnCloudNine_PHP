@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Details</title>
+  <link rel="stylesheet" href="../../style/pages/user/viewOrderDetails.css" />
+</head>
+<body>
+  <!-- Sticky Back Button -->
+  <a href="/orders.html" class="back-button" aria-label="Back to Orders">
+    <span class="back-arrow">←</span>
+  </a>
+
+  <!-- Order Header -->
+  <div class="order-header">
+    <h1 class="category-title">Order #12345</h1>
+    <span class="order-status status-completed">Completed</span>
+  </div>
+
+  <!-- Order Summary -->
+  <div class="order-summary">
+    <div class="summary-item">
+      <span class="label">Order Date:</span>
+      <span class="value">2024-04-05 14:30</span>
+    </div>
+    <div class="summary-item">
+      <span class="label">Customer:</span>
+      <span class="value">Nada Sherif</span>
+    </div>
+  </div>
+
+  <!-- Order Items -->
+  <div class="order-items">
+    <h2 class="section-title">Items</h2>
+    <div class="order-item">
+      <div class="item-image">
+        <img src="/img/meals/Pizza/margherita-pizza.png" alt="Margherita Pizza">
+      </div>
+      <div class="item-details">
+        <h3>Margherita</h3>
+        <p>Pizza dough, tomato sauce, mozzarella cheese, oregano, olive oil.</p>
+      </div>
+      <div class="item-price">
+        <span class="quantity">x2</span>
+        <span class="unit-price">EGP 200</span>
+      </div>
+    </div>
+
+    <div class="order-item">
+      <div class="item-image">
+        <img src="/img/meals/Pizza/pepperoni-pizza.png" alt="Pepperoni Pizza">
+      </div>
+      <div class="item-details">
+        <h3>Pepperoni</h3>
+        <p>Pizza dough, tomato sauce, mozzarella, pepperoni, oregano.</p>
+      </div>
+      <div class="item-price">
+        <span class="quantity">x1</span>
+        <span class="unit-price">EGP 250</span>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Total -->
+  <div class="order-total">
+    <div class="total-row">
+      <span class="label">Subtotal:</span>
+      <span class="value">EGP 650</span>
+    </div>
+    <div class="total-row">
+      <span class="label">Delivery Fee:</span>
+      <span class="value">EGP 20</span>
+    </div>
+    <div class="total-row final-total">
+      <span class="label">Total:</span>
+      <span class="value">EGP 670</span>
+    </div>
+  </div>
+</body>
+</html>
