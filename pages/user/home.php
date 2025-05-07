@@ -1,4 +1,54 @@
+<?php
+session_start();
+include('../../php/config.php');
 
+// Check if cookies exist
+if (!isset($_COOKIE['user_id']) || !isset($_COOKIE['username']) || !isset($_COOKIE['attendance']) || !isset($_COOKIE['phone'])) {
+  header("Location: ../../pages/aast/uniUserLogin.php");
+  exit();
+}
+
+$user_id = $_COOKIE['user_id'];
+$username = $_COOKIE['username'];
+$attendance = $_COOKIE['attendance'];
+$phone = $_COOKIE['phone'];
+
+// Insert user into USERS table if not exists
+$checkUser = $con->prepare("SELECT USERS_ID FROM USERS WHERE USERS_ID = ?");
+$checkUser->bind_param("i", $user_id);
+$checkUser->execute();
+if ($checkUser->get_result()->num_rows == 0) {
+  $insertUser = $con->prepare("INSERT INTO USERS (USERS_ID, USERS_Phnumber, USERS_Name, USERS_Attendance) VALUES (?, ?, ?, ?)");
+  $insertUser->bind_param("iisi", $user_id, $phone, $username, $attendance);
+  $insertUser->execute();
+  $insertUser->close();
+}
+$checkUser->close();
+
+// Renew cookies
+setcookie('user_id', $user_id, time() + 6 * 24 * 60 * 60, '/');
+setcookie('username', $username, time() + 6 * 24 * 60 * 60, '/');
+setcookie('attendance', $attendance, time() + 6 * 24 * 60 * 60, '/');
+setcookie('phone', $phone, time() + 6 * 24 * 60 * 60, '/');
+
+// Check if allergy form submitted
+$allergyCheck = $con->prepare("SELECT USERS_ID FROM USER_ALLERGIES WHERE USERS_ID = ?");
+$allergyCheck->bind_param("i", $user_id);
+$allergyCheck->execute();
+$hasSubmitted = $allergyCheck->get_result()->num_rows > 0;
+$allergyCheck->close();
+
+// Fetch allergies from database
+$allergies = [];
+$allergyResult = $con->query("SELECT * FROM ALLERGY");
+if ($allergyResult) {
+  while ($row = $allergyResult->fetch_assoc()) {
+    $allergies[] = $row;
+  }
+}
+
+$con->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,11 +57,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OCN Food Dashboard</title>
   <link rel="stylesheet" href="../../style/pages/user/home.css" />
+  <link rel="stylesheet" href="../../style/pages/user/allergies.css">
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
+  <?php if (!$hasSubmitted): ?>
+    <div class="allergy-overlay">
+      <div class="basic-container">
+        <form method="POST" action="../../php/submit_allergies.php" class="form-container">
+          <h1 class="h1 heading-primary head-allergies">Allergies Form</h1>
+          <div class="checkbox-group label">
+            <?php foreach ($allergies as $allergy): ?>
+              <label class="checkbox-group-hover">
+                <input type="checkbox" name="allergies[]" value="<?php echo $allergy['ALLERGY_ID']; ?>">
+                <?php echo htmlspecialchars($allergy['ALLERGY_Name']); ?>
+              </label>
+            <?php endforeach; ?>
+          </div>
+          <div class="button-group">
+            <button type="submit" name="submit" class="btn btn--full">Submit</button>
+            <button type="submit" name="no_allergies" class="btn btn--full">No Allergies</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  <?php endif; ?>
   <div class="container">
     <!-- Sidebar -->
     <?php include('../../components/sideNav.html'); ?>
@@ -30,7 +102,7 @@
 
         <div class="header-actions">
           <div class="user-greeting">
-            <p>Hi, User</p>
+          <p>Hi, <?php echo htmlspecialchars($username); ?></p>
           </div>
         </div>
       </header>

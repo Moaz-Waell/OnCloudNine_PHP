@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Meal Management</title>
+    <link rel="stylesheet" href="/style/pages/admin/CRUD_Meal.css" />
+  </head>
+
+  <body>
+    <div>
+      <div></div>
+      <div class="category-container">
+        <h1 class="header-category">category name</h1>
+        <div class="category-header">
+          <h2>Meals</h2>
+          <a href="#popupForm" class="CRUD-btn add-meal">Add Meal</a>
+        </div>
+
+        <table class="category-table">
+          <thead>
+            <tr>
+              <th>Icon</th>
+              <th>Meal Name</th>
+
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <img
+                  src="/img/category/pizza.png"
+                  alt="pizza"
+                  class="icon-img" />
+              </td>
+              <td>Margherita Pizza</td>
+              <td colspan="2">
+                <a class="remove_btn">Remove</a>
+                <a href="#popup" class="CRUD-btn">Update</a>
+              </td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Add Meal Popup -->
+      <div id="popupForm" class="popup">
+        <div class="popup-content">
+          <h3 class="popheader">Add Meal</h3>
+          <a href="#" class="close-btn">&times;</a>
+          <form>
+            <label class="header-lable">Meal name:</label>
+            <input type="text" placeholder="Enter meal name" required />
+
+            <label class="header-lable">Price:</label>
+            <input type="text" placeholder="Enter Price" required />
+
+            <!-- Ingredients Dropdown Checkbox -->
+            <label class="header-lable">Ingredients:</label>
+            <div class="dropdown-check-list" tabindex="1">
+              <span class="dropdown-title">
+                <span id="ingredients-title">Select Ingredients</span>
+                <svg
+                  class="dropdown-arrow"
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 6L0 0H10L5 6Z" fill="currentColor" />
+                </svg>
+              </span>
+              <ul class="items">
+                <li>
+                  <label><input type="checkbox" value="Tomato" /> Tomato</label>
+                </li>
+                <li>
+                  <label><input type="checkbox" value="Onion" /> Onion</label>
+                </li>
+                <li>
+                  <label><input type="checkbox" value="Cheese" /> Cheese</label>
+                </li>
+                <li>
+                  <label
+                    ><input type="checkbox" value="Chicken" /> Chicken</label
+                  >
+                </li>
+                <li>
+                  <label
+                    ><input type="checkbox" value="Lettuce" /> Lettuce</label
+                  >
+                </li>
+              </ul>
+            </div>
+            <label class="header-lable">Category:</label>
+            <select class="category-select" required>
+              <option value="" disabled selected>Select Category</option>
+              <option value="breakfast">Breakfast</option>
+              <option value="lunch">Lunch</option>
+              <option value="dinner">Dinner</option>
+              <option value="snack">Snack</option>
+            </select>
+
+            <label class="header-lable">Image:</label>
+            <input type="text" placeholder="Enter Image" required />
+          </form>
+          <button type="submit" class="CRUD-btn">Submit</button>
+        </div>
+      </div>
+
+      <!-- Update Meal Popup -->
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <div class="popup-header">
+            <a href="#" class="close-btn">&times;</a>
+          </div>
+          <div class="popup-body">
+            <h4 class="popheader">Update Meal</h4>
+            <form>
+              <label class="header-lable">Meal name:</label>
+              <input type="text" placeholder="Enter meal name" required />
+
+              <label class="header-lable">Price:</label>
+              <input type="text" placeholder="Enter Price" required />
+
+              <!-- Ingredients Dropdown Checkbox -->
+              <label class="header-lable">Ingredients:</label>
+              <div class="dropdown-check-list" tabindex="1">
+                <span class="dropdown-title">
+                  <span id="ingredients-title">Select Ingredients</span>
+                  <svg
+                    class="dropdown-arrow"
+                    width="10"
+                    height="6"
+                    viewBox="0 0 10 6"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 6L0 0H10L5 6Z" fill="currentColor" />
+                  </svg>
+                </span>
+                <ul class="items">
+                  <li>
+                    <label
+                      ><input type="checkbox" value="Tomato" /> Tomato</label
+                    >
+                  </li>
+                  <li>
+                    <label><input type="checkbox" value="Onion" /> Onion</label>
+                  </li>
+                  <li>
+                    <label
+                      ><input type="checkbox" value="Cheese" /> Cheese</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="checkbox" value="Chicken" /> Chicken</label
+                    >
+                  </li>
+                  <li>
+                    <label
+                      ><input type="checkbox" value="Lettuce" /> Lettuce</label
+                    >
+                  </li>
+                </ul>
+              </div>
+              <label class="header-lable">Category:</label>
+              <select class="category-select" required>
+                <option value="" disabled selected>Select Category</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snack">Snack</option>
+              </select>
+
+              <label class="header-lable">Image:</label>
+              <input type="text" placeholder="Enter Image" required />
+              <button type="submit" class="CRUD-btn">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

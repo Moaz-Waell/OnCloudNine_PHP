@@ -63,7 +63,7 @@ body {
   color: var(--color-primary-dark);
 }
 
-.description.alergy_warning {
+.description.allergy_warning {
   color: chocolate;
   border: 1px solid chocolate;
   width: fit-content;
@@ -147,7 +147,7 @@ p.description {
     width: 100%;
   }
 
-  .description.alergy_warning {
+  .description.allergy_warning {
     margin-left: auto;
     margin-right: auto;
   }
