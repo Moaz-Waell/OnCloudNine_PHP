@@ -226,3 +226,13 @@ h2.heading-primary {
 .apply-btn:hover {
   background-color: var(--color-btn-primary-light, #0056b3);
 }
+
+.no-vouchers {
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+  color: #6c757d;
+  margin-top: 10px;
+  border: 1px solid #dee2e6;
+}

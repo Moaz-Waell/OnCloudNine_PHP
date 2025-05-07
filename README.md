@@ -1,6 +1,6 @@
 
 ```
-OCN
+OCN_Project
 ├─ components
 │  ├─ allergy_form.php
 │  └─ sideNav.html
@@ -94,6 +94,7 @@ OCN
 │     ├─ viewMealDetails.php
 │     └─ viewOrderDetails.php
 ├─ php
+│  ├─ addToCart.php
 │  ├─ admin_login_validation.php
 │  ├─ config.php
 │  ├─ logoutUniUser.php
@@ -111,8 +112,7 @@ OCN
    │  ├─ checkbox.css
    │  ├─ login.css
    │  ├─ meal.css
-   │  ├─ sideNav.css
-   │  └─ test.css
+   │  └─ sideNav.css
    ├─ mediaqueries
    │  └─ general.css
    └─ pages

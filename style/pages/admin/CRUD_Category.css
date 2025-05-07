@@ -103,6 +103,7 @@ body {
     padding: 30px 40px;
     /* Add padding to avoid overlap */
     box-sizing: border-box;
+    display: grid;
 }
 
 .header-lable {
@@ -188,14 +189,14 @@ button[type="submit"] {
 /* ----------------------update---------------------- */
 
 
-/**************************/
+//
 /* BELOW  1344px  (smaller desktops)/
-  /**************************/
+  //
 @media (max-width: 84em) {}
 
-/**************************************/
+//
 /* BELOW  1200px  (Landscape Tablets) */
-/**************************************/
+//
 
 @media (max-width: 75em) {
     html {
@@ -204,13 +205,13 @@ button[type="submit"] {
     }
 
     .menu-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/**************************/
+//
 /* BELOW  944px  (Tablets) */
-/**************************/
+//
 @media (max-width: 59em) {
     html {
         /* 8px / 16px = 0.5 */
@@ -218,9 +219,9 @@ button[type="submit"] {
     }
 }
 
-/**************************/
+//
 /* BELOW  768px  (Landscape Phones) */
-/**************************/
+//
 @media (max-width: 48em) {
     .container {
         flex-direction: column;
@@ -254,5 +255,3 @@ button[type="submit"] {
     .menu-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
-}
