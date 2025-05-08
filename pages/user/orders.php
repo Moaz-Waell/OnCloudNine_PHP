@@ -98,7 +98,7 @@ while ($row = $result->fetch_assoc()) {
         </tbody>
       </table>
 
-      <h2 class="heading-secondary padding-left-4rem">Order History</h2>
+      <h2 class="heading-secondary text-center">Order History</h2>
 
       <!-- Order History Table -->
       <table class="orders-table">
