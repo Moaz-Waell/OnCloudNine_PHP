@@ -203,7 +203,7 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.rating input[type="radio"]:checked + .rating-number {
+.rating input[type="radio"]:checked+.rating-number {
   background-color: var(--color-btn-primary);
   color: white;
 }
@@ -232,4 +232,15 @@ body {
 
 .next-btn:hover {
   background-color: var(--color-btn-hover);
+}
+
+
+/* Feedback Stars */
+.rating-stars .star {
+  color: #ddd;
+  font-size: 1.2em;
+}
+
+.rating-stars .filled {
+  color: #ffd700;
 }

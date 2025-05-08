@@ -206,7 +206,7 @@ while ($row = $result->fetch_assoc()) {
 
             <!-- Vouchers Section -->
             <div class="coupon_section">
-              <h3 class="heading-secondary">Available Vouchers</h3>
+              <h3 class="heading-secondary">Vouchers</h3>
               <?php if (empty($vouchers)): ?>
                 <div class="no-vouchers">
                   <p>No vouchers available</p>
@@ -265,7 +265,6 @@ while ($row = $result->fetch_assoc()) {
                   <input type="month" name="expiry_date" id="expiry_date">
                 </div>
               </div>
-
               <button type="submit" name="place_order" class="btn btn--full place_order_btn">
                 Place Order
               </button>

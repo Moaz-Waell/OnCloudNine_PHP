@@ -80,10 +80,10 @@ OCN_Project
 │  │  └─ uniUserPortal.php
 │  ├─ admin
 │  │  ├─ admin_login.html
-│  │  └─ CRUD_Category.html
+│  │  ├─ CRUD_Category.html
+│  │  └─ CRUD_Meal.html
 │  ├─ kitchenDashboard.html
 │  └─ user
-│     ├─ allergies.html
 │     ├─ cart.php
 │     ├─ categoryMeals.php
 │     ├─ checkout.php
@@ -120,7 +120,8 @@ OCN_Project
       │  ├─ uniUserLogin.css
       │  └─ uniUserPortal.css
       ├─ admin
-      │  └─ CRUD_Category.css
+      │  ├─ CRUD_Category.css
+      │  └─ CRUD_Meal.css
       ├─ kitchenDashboard.css
       └─ user
          ├─ allergies.css

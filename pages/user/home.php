@@ -43,7 +43,9 @@ $allergies = [];
 $allergyResult = $con->query("SELECT * FROM ALLERGY");
 if ($allergyResult) {
   while ($row = $allergyResult->fetch_assoc()) {
-    $allergies[] = $row;
+    if (trim($row['ALLERGY_Name']) !== 'No Allergies') {
+      $allergies[] = $row;
+    }
   }
 }
 
@@ -102,7 +104,7 @@ $con->close();
 
         <div class="header-actions">
           <div class="user-greeting">
-          <p>Hi, <?php echo htmlspecialchars($username); ?></p>
+            <p>Hi, <?php echo htmlspecialchars($username); ?></p>
           </div>
         </div>
       </header>

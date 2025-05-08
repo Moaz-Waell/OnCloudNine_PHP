@@ -1,82 +1,99 @@
+<?php
+session_start();
+require_once '../../php/config.php';
+
+if (!isset($_COOKIE['user_id']) || !isset($_GET['order_id'])) {
+  header("Location: ../../pages/aast/uniUserLogin.php");
+  exit();
+}
+
+$user_id = $_COOKIE['user_id'];
+$order_id = intval($_GET['order_id']);
+
+// Get order details
+$order_stmt = $con->prepare("SELECT o.*, u.USERS_Name 
+                            FROM ORDERS o
+                            JOIN USERS u ON o.USERS_ID = u.USERS_ID
+                            WHERE o.ORDER_ID = ? 
+                            AND o.USERS_ID = ?");
+$order_stmt->bind_param("ii", $order_id, $user_id);
+$order_stmt->execute();
+$order = $order_stmt->get_result()->fetch_assoc();
+
+// Get order items
+$items_stmt = $con->prepare("SELECT od.*, m.MEAL_Name, m.MEAL_Price, m.MEAL_Icon, cat.CATEGORY_Name 
+                            FROM ORDER_DETAILS od
+                            JOIN MEAL m ON od.MEAL_ID = m.MEAL_ID
+                            JOIN CATEGORY cat ON m.CATEGORY_ID = cat.CATEGORY_ID
+                            WHERE od.ORDER_ID = ?");
+$items_stmt->bind_param("i", $order_id);
+$items_stmt->execute();
+$items = $items_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Order Details</title>
   <link rel="stylesheet" href="../../style/pages/user/viewOrderDetails.css" />
 </head>
+
 <body>
-  <!-- Sticky Back Button -->
-  <a href="/orders.html" class="back-button" aria-label="Back to Orders">
+  <a href="orders.php" class="back-button" aria-label="Back to Orders">
     <span class="back-arrow">←</span>
   </a>
 
-  <!-- Order Header -->
   <div class="order-header">
-    <h1 class="category-title">Order #12345</h1>
-    <span class="order-status status-completed">Completed</span>
+    <h1 class="category-title">Order #<?= $order_id ?></h1>
+    <span class="btn btn--status order-status ordersstatus <?= strtolower(str_replace(' ', '-', $order['ORDER_Status'])) ?>">
+      <?= htmlspecialchars($order['ORDER_Status']) ?>
+    </span>
   </div>
 
-  <!-- Order Summary -->
   <div class="order-summary">
     <div class="summary-item">
       <span class="label">Order Date:</span>
-      <span class="value">2024-04-05 14:30</span>
+      <span class="value">
+        <?= date('Y-m-d H:i', strtotime($order['ORDER_ScheduleDate'] . ' ' . $order['ORDER_ScheduleTime'])) ?>
+      </span>
     </div>
     <div class="summary-item">
       <span class="label">Customer:</span>
-      <span class="value">Nada Sherif</span>
+      <span class="value"><?= htmlspecialchars($order['USERS_Name']) ?></span>
     </div>
   </div>
 
-  <!-- Order Items -->
   <div class="order-items">
     <h2 class="section-title">Items</h2>
-    <div class="order-item">
-      <div class="item-image">
-        <img src="/img/meals/Pizza/margherita-pizza.png" alt="Margherita Pizza">
+    <?php foreach ($items as $item): ?>
+      <div class="order-item">
+        <div class="item-image">
+          <img src="../../img/meals/<?= strtolower($item['CATEGORY_Name']) ?>/<?= htmlspecialchars($item['MEAL_Icon']) ?>"
+            alt="<?= htmlspecialchars($item['MEAL_Name']) ?>">
+        </div>
+        <div class="item-details">
+          <h3><?= htmlspecialchars($item['MEAL_Name']) ?></h3>
+          <?php if (!empty($item['NOTE'])): ?>
+            <p class="item-note">Note: <?= htmlspecialchars($item['NOTE']) ?></p>
+          <?php endif; ?>
+        </div>
+        <div class="item-price">
+          <span class="quantity">x<?= $item['M_Quantity'] ?></span>
+          <span class="unit-price">$<?= number_format($item['MEAL_Price'], 2) ?></span>
+        </div>
       </div>
-      <div class="item-details">
-        <h3>Margherita</h3>
-        <p>Pizza dough, tomato sauce, mozzarella cheese, oregano, olive oil.</p>
-      </div>
-      <div class="item-price">
-        <span class="quantity">x2</span>
-        <span class="unit-price">EGP 200</span>
-      </div>
-    </div>
-
-    <div class="order-item">
-      <div class="item-image">
-        <img src="/img/meals/Pizza/pepperoni-pizza.png" alt="Pepperoni Pizza">
-      </div>
-      <div class="item-details">
-        <h3>Pepperoni</h3>
-        <p>Pizza dough, tomato sauce, mozzarella, pepperoni, oregano.</p>
-      </div>
-      <div class="item-price">
-        <span class="quantity">x1</span>
-        <span class="unit-price">EGP 250</span>
-
-      </div>
-    </div>
+    <?php endforeach; ?>
   </div>
 
-  <!-- Order Total -->
   <div class="order-total">
-    <div class="total-row">
-      <span class="label">Subtotal:</span>
-      <span class="value">EGP 650</span>
-    </div>
-    <div class="total-row">
-      <span class="label">Delivery Fee:</span>
-      <span class="value">EGP 20</span>
-    </div>
     <div class="total-row final-total">
-      <span class="label">Total:</span>
-      <span class="value">EGP 670</span>
+      <span class="label">Total Amount:</span>
+      <span class="value">$<?= number_format($order['ORDER_Amount'], 2) ?></span>
     </div>
   </div>
 </body>
+
 </html>

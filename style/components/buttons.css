@@ -93,3 +93,29 @@
   color: var(--color-text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+
+.btn--status {
+  cursor: default;
+  pointer-events: none;
+}
+
+.ordersstatus.pending {
+  background: #ffd700;
+  color: #000;
+}
+
+.ordersstatus.in-progress {
+  background: #4CAF50;
+  color: #fff;
+}
+
+.ordersstatus.delivered {
+  background: #2196F3;
+  color: #fff;
+}
+
+.ordersstatus.cancelled {
+  background: #f44336;
+  color: #fff;
+}
