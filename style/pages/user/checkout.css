@@ -76,6 +76,7 @@ label {
   flex-direction: column;
   gap: 1rem;
   margin-top: 2rem;
+  margin-bottom: 2rem;
   padding: 0rem 4rem;
   background-color: var(--color-white);
   align-items: flex-start;
@@ -146,6 +147,7 @@ h2.heading-primary {
   padding: 0.6rem 2.2rem;
   border-radius: 1.2rem;
   box-shadow: 3px 3px 12px #1b2a318f;
+  margin-left: 4rem;
 }
 
 .btn:hover,
@@ -228,11 +230,12 @@ h2.heading-primary {
 }
 
 .no-vouchers {
-  padding: 15px;
+  padding: 1.5rem;
   background: #f8f9fa;
   border-radius: 8px;
   text-align: center;
   color: #6c757d;
-  margin-top: 10px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   border: 1px solid #dee2e6;
 }
