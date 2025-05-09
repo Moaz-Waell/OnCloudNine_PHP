@@ -3,12 +3,12 @@ session_start();
 include('../../php/config.php');
 
 // Check authentication
-if (!isset($_COOKIE['user_id'])) {
+if (!isset($_SESSION['user_id'])) {
   header("Location: ../../pages/aast/uniUserLogin.php");
   exit();
 }
 
-$user_id = $_COOKIE['user_id'];
+$user_id = $_SESSION['user_id'];
 
 // Handle quantity updates
 if (isset($_GET['action']) && isset($_GET['cart_id'])) {

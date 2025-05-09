@@ -2,12 +2,12 @@
 session_start();
 include('config.php');
 
-if (!isset($_COOKIE['user_id']) || !isset($_POST['order_id']) || !isset($_POST['rating'])) {
+if (!isset($_SESSION['user_id']) || !isset($_POST['order_id']) || !isset($_POST['rating'])) {
     header("Location: ../../pages/aast/uniUserLogin.php");
     exit();
 }
 
-$user_id = $_COOKIE['user_id'];
+$user_id = $_SESSION['user_id'];
 $order_id = intval($_POST['order_id']);
 $rating = intval($_POST['rating']);
 

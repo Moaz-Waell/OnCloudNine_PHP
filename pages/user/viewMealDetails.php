@@ -8,7 +8,7 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
   exit();
 }
 
-if (!isset($_COOKIE['user_id']) || !isset($_COOKIE['username']) || !isset($_COOKIE['attendance']) || !isset($_COOKIE['phone'])) {
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['username']) || !isset($_SESSION['attendance']) || !isset($_SESSION['phone'])) {
   header("Location: ../../pages/aast/uniUserLogin.php");
   exit();
 }
@@ -53,8 +53,8 @@ while ($row = $ingredients_result->fetch_assoc()) {
 
 // Check user allergies
 $allergy_warning = array();
-if (isset($_COOKIE['user_id'])) {
-  $user_id = $_COOKIE['user_id'];
+if (isset($_SESSION['user_id'])) {
+  $user_id = $_SESSION['user_id'];
   $stmt_allergies = $con->prepare("SELECT A.ALLERGY_Name FROM USER_ALLERGIES UA JOIN ALLERGY A ON UA.ALLERGY_ID = A.ALLERGY_ID WHERE UA.USERS_ID = ? AND UA.Has_Allergy = 'Yes'");
   $stmt_allergies->bind_param("i", $user_id);
   $stmt_allergies->execute();

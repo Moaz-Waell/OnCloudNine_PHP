@@ -7,12 +7,12 @@ unset($_SESSION['form_success']);
 unset($_SESSION['form_error']);
 
 // Check user authentication
-if (!isset($_COOKIE['user_id'])) {
+if (!isset($_SESSION['user_id'])) {
   header("Location: ../../pages/aast/uniUserLogin.php");
   exit();
 }
 
-$user_id = $_COOKIE['user_id'];
+$user_id = $_SESSION['user_id'];
 $error = $_SESSION['form_error'] ?? '';
 $success = $_SESSION['form_success'] ?? '';
 

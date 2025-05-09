@@ -2,13 +2,13 @@
 session_start();
 include('config.php');
 
-if (!isset($_COOKIE['user_id'])) {
+if (!isset($_SESSION['user_id'])) {
     header("Location: ../../pages/aast/uniUserLogin.php");
     exit();
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user_id = $_COOKIE['user_id'];
+    $user_id = $_SESSION['user_id'];
     $order_id = intval($_POST['order_id']);
 
     $stmt = $con->prepare("UPDATE ORDERS 

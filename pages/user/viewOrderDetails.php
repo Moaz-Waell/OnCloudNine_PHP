@@ -2,12 +2,12 @@
 session_start();
 require_once '../../php/config.php';
 
-if (!isset($_COOKIE['user_id']) || !isset($_GET['order_id'])) {
+if (!isset($_SESSION['user_id']) || !isset($_GET['order_id'])) {
   header("Location: ../../pages/aast/uniUserLogin.php");
   exit();
 }
 
-$user_id = $_COOKIE['user_id'];
+$user_id = $_SESSION['user_id'];
 $order_id = intval($_GET['order_id']);
 
 // Get order details

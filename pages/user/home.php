@@ -13,6 +13,11 @@ $username = $_COOKIE['username'];
 $attendance = $_COOKIE['attendance'];
 $phone = $_COOKIE['phone'];
 
+$_SESSION['user_id'] = $user_id;
+$_SESSION['username'] = $username;
+$_SESSION['attendance'] = $attendance;
+$_SESSION['phone'] = $phone;
+
 // Insert user into USERS table if not exists
 $checkUser = $con->prepare("SELECT USERS_ID FROM USERS WHERE USERS_ID = ?");
 $checkUser->bind_param("i", $user_id);
@@ -24,12 +29,6 @@ if ($checkUser->get_result()->num_rows == 0) {
   $insertUser->close();
 }
 $checkUser->close();
-
-// Renew cookies
-setcookie('user_id', $user_id, time() + 6 * 24 * 60 * 60, '/');
-setcookie('username', $username, time() + 6 * 24 * 60 * 60, '/');
-setcookie('attendance', $attendance, time() + 6 * 24 * 60 * 60, '/');
-setcookie('phone', $phone, time() + 6 * 24 * 60 * 60, '/');
 
 // Check if allergy form submitted
 $allergyCheck = $con->prepare("SELECT USERS_ID FROM USER_ALLERGIES WHERE USERS_ID = ?");

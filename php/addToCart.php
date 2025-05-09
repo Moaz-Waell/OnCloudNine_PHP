@@ -3,12 +3,12 @@ session_start();
 include('config.php');
 
 // Validate user and input
-if (!isset($_COOKIE['user_id'])) {
+if (!isset($_SESSION['user_id'])) {
     header("Location: ../../pages/aast/uniUserLogin.php");
     exit();
 }
 
-$user_id = $_COOKIE['user_id'];
+$user_id = $_SESSION['user_id'];
 $meal_id = filter_input(INPUT_POST, 'meal_id', FILTER_VALIDATE_INT);
 $quantity = filter_input(INPUT_POST, 'quantity', FILTER_VALIDATE_INT) ?: 1;
 $submitted_ingredients = $_POST['ingredients'] ?? [];

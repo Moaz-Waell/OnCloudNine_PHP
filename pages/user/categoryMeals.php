@@ -7,7 +7,7 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
   exit();
 }
 
-if (!isset($_COOKIE['user_id']) || !isset($_COOKIE['username']) || !isset($_COOKIE['attendance']) || !isset($_COOKIE['phone'])) {
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['username']) || !isset($_SESSION['attendance']) || !isset($_SESSION['phone'])) {
   header("Location: ../../pages/aast/uniUserLogin.php");
   exit();
 }
