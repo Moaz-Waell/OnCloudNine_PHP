@@ -35,13 +35,13 @@
     padding: 1.5rem 2rem;
     font-size: 1.6rem;
     text-decoration: none;
-    color: var(--color-text-secondary);
+    color:#f7e6c2;
     transition: all 0.3s;
 }
 
 .nav-item:hover {
     background-color: var(--color-bg-primary);
-    color: var(--color-text-primary);
+    color: var(--color-primary);
 }
 
 .nav-item i {

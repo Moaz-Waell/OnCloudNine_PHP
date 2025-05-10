@@ -117,7 +117,7 @@ unset($_SESSION['form_error']);
         <form method="POST" action="profile.php">
           <div class="profile-header">
             <div class="profile-avatar">
-              <img src="../../img/icons/avatar.png" alt="User Avatar" class="avatar-image">
+              <img src="../../img/icons/user.svg" alt="User Avatar" class="avatar-image">
               <i class="fas fa-user"></i>
             </div>
             <div class="user-details">

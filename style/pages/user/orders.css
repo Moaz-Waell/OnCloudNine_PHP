@@ -57,7 +57,7 @@ body {
   line-height: 1.2;
   flex-shrink: 0;
   margin-bottom: 1.6rem;
-  color: var(--color-text-primary);
+  color: var(--color-primary);
   background-color: var(--color-bg-secondary);
 }
 
