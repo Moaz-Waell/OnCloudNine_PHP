@@ -42,13 +42,18 @@ $items = $items_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 </head>
 
 <body>
-  <a href="orders.php" class="back-button" aria-label="Back to Orders">
-    <span class="back-arrow">←</span>
+  <a href="orders.php" class="btn-back" aria-label="Back to Orders">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z"
+        fill="currentColor" />
+    </svg>
   </a>
 
   <div class="order-header">
     <h1 class="category-title">Order #<?= $order_id ?></h1>
-    <span class="btn btn--status order-status ordersstatus <?= strtolower(str_replace(' ', '-', $order['ORDER_Status'])) ?>">
+    <span
+      class="btn btn--status order-status ordersstatus <?= strtolower(str_replace(' ', '-', $order['ORDER_Status'])) ?>">
       <?= htmlspecialchars($order['ORDER_Status']) ?>
     </span>
   </div>

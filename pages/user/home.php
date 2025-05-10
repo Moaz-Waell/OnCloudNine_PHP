@@ -94,8 +94,8 @@ $con->close();
             <?php endforeach; ?>
           </div>
           <div class="button-group">
-            <button type="submit" name="submit" class="btn btn--full">Submit</button>
             <button type="submit" name="no_allergies" class="btn btn--full">No Allergies</button>
+            <button type="submit" name="submit" class="btn btn--full">Submit</button>
           </div>
         </form>
       </div>

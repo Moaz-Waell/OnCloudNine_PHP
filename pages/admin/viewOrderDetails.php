@@ -44,7 +44,7 @@ $back_link = "../../pages/admin/admin_landing.php";
 </head>
 
 <body>
-  <a href="<?= $back_link ?>" class="back-button" aria-label="Back to Orders">
+  <a href="<?= $back_link ?>" class="btn-back" aria-label="Back to Orders">
     <span class="back-arrow">←</span>
   </a>
 

@@ -62,8 +62,7 @@ body {
 /* Modern Category Title */
 .category-title {
   font-size: 3rem;
-  color: transparent;
-  background: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+  color: var(--color-primary-dark);
   -webkit-background-clip: text;
   background-clip: text;
   margin-bottom: 1rem;

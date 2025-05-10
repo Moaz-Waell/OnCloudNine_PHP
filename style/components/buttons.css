@@ -102,8 +102,8 @@
 }
 
 .ordersstatus.pending {
-  background: #ffd700;
-  color: #000;
+  background: #143f23;
+  color: #fff;
 }
 
 .ordersstatus.in-progress {
@@ -112,7 +112,7 @@
 }
 
 .ordersstatus.delivered {
-  background: #2196F3;
+  background: #399129;
   color: #fff;
 }
 

@@ -247,13 +247,13 @@ body {
   align-items: center;
   gap: 1rem;
   padding: 2rem;
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-bg-primary);
   border-radius: 1.2rem 1.2rem 0 0;
   width: 90%;
   max-width: 50rem;
   /* Match the max-width of .meal-cart-container */
   z-index: 1000;
-  box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.1);
+  box-shadow: 12px -1rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 .total-amount {

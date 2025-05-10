@@ -24,7 +24,6 @@
 
 body {
   height: 100vh;
-  background-color: var(--color-bg-primary);
 }
 
 .meal_details {
