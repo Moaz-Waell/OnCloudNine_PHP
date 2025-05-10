@@ -2,13 +2,12 @@
 session_start();
 require_once '../../php/config.php';
 
-// Authentication check
 if (!isset($_SESSION['admin_id'])) {
   header("Location: admin_login.php");
   exit();
 }
 
-// Get all active orders (not delivered/canceled)
+// Get active orders
 $active_orders = [];
 $stmt = $con->prepare("SELECT o.*, u.USERS_Name 
                       FROM ORDERS o
@@ -18,7 +17,7 @@ $stmt = $con->prepare("SELECT o.*, u.USERS_Name
 $stmt->execute();
 $active_orders = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
-// Get order history
+// Get order history with feedback
 $order_history = [];
 $stmt = $con->prepare("SELECT o.*, u.USERS_Name 
                       FROM ORDERS o
@@ -28,7 +27,7 @@ $stmt = $con->prepare("SELECT o.*, u.USERS_Name
 $stmt->execute();
 $order_history = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
-// Get analytics data
+// Analytics
 $analytics_stmt = $con->prepare("SELECT 
                                 COUNT(*) as total_orders,
                                 SUM(ORDER_Amount) as total_revenue 
@@ -37,7 +36,7 @@ $analytics_stmt = $con->prepare("SELECT
 $analytics_stmt->execute();
 $analytics = $analytics_stmt->get_result()->fetch_assoc();
 
-// Handle messages
+// Messages
 $error = $_SESSION['error'] ?? '';
 $success = $_SESSION['success'] ?? '';
 unset($_SESSION['error'], $_SESSION['success']);
@@ -46,11 +45,11 @@ unset($_SESSION['error'], $_SESSION['success']);
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OCN Admin Dashboard</title>
-  <link rel="stylesheet" href="../../style/pages/admin/admin_landing.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="../../style/pages/admin/admin_landing.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -79,11 +78,11 @@ unset($_SESSION['error'], $_SESSION['success']);
         <section class="analysis-section">
           <h2 class="heading-secondary text-center">Analysis</h2>
           <div class="analysis-flex">
-            <div class="analysis-item color-white">
+            <div class="analysis-item">
               <p class="margin-bottom-1rem"><b>Total Orders:</b></p>
               <p><?= $analytics['total_orders'] ?? 0 ?></p>
             </div>
-            <div class="analysis-item color-white">
+            <div class="analysis-item">
               <p class="margin-bottom-1rem"><b>Total Revenue:</b></p>
               <p>$<?= number_format($analytics['total_revenue'] ?? 0, 2) ?></p>
             </div>
@@ -103,7 +102,7 @@ unset($_SESSION['error'], $_SESSION['success']);
       </div>
       <hr />
 
-      <!-- Current Orders Table -->
+      <!-- Current Orders -->
       <section class="margin-top-2rem">
         <h2 class="heading-secondary text-center">Current Orders</h2>
         <table class="orders-table">
@@ -128,7 +127,7 @@ unset($_SESSION['error'], $_SESSION['success']);
                 <td><?= date('h:i A', strtotime($order['ORDER_ScheduleTime'])) ?></td>
                 <td>$<?= number_format($order['ORDER_Amount'], 2) ?></td>
                 <td>
-                  <a href="../admin/viewOrderDetails.php?order_id=<?= $order['ORDER_ID'] ?>" class="view-details">
+                  <a href="viewOrderDetails.php?order_id=<?= $order['ORDER_ID'] ?>" class="view-details">
                     View Details
                   </a>
                 </td>
@@ -139,13 +138,13 @@ unset($_SESSION['error'], $_SESSION['success']);
                 </td>
                 <td>
                   <?php if ($order['ORDER_Status'] === 'Pending' || $order['ORDER_Status'] === 'In Progress'): ?>
-                    <form method="POST" action="../admin/cancelOrder.php" class="inline-form">
+                    <form method="POST" action="../../php/cancelOrder.php" class="inline-form">
                       <input type="hidden" name="order_id" value="<?= $order['ORDER_ID'] ?>">
                       <button type="submit" class="btn btn--order-again">Cancel</button>
                     </form>
                     <form method="POST" action="../../php/deliverOrder.php" class="inline-form">
                       <input type="hidden" name="order_id" value="<?= $order['ORDER_ID'] ?>">
-                      <button type="submit" class="btn btn--order-again">Mark To Delivered</button>
+                      <button type="submit" class="btn btn--order-again">Deliver</button>
                     </form>
                   <?php endif; ?>
                 </td>
@@ -155,7 +154,7 @@ unset($_SESSION['error'], $_SESSION['success']);
         </table>
       </section>
 
-      <!-- Order History Table -->
+      <!-- Order History with Feedback -->
       <section class="margin-top-2rem">
         <h2 class="heading-secondary text-center">Order History</h2>
         <table class="orders-table">
@@ -167,6 +166,7 @@ unset($_SESSION['error'], $_SESSION['success']);
               <th>Total</th>
               <th>Status</th>
               <th>Details</th>
+              <th>Feedback</th>
             </tr>
           </thead>
           <tbody>
@@ -182,9 +182,20 @@ unset($_SESSION['error'], $_SESSION['success']);
                   </span>
                 </td>
                 <td>
-                  <a href="../admin/viewOrderDetails.php?order_id=<?= $order['ORDER_ID'] ?>" class="view-details">
+                  <a href="viewOrderDetails.php?order_id=<?= $order['ORDER_ID'] ?>" class="view-details">
                     View Details
                   </a>
+                </td>
+                <td>
+                  <?php if ($order['ORDER_Status'] === 'Delivered' && !empty($order['ORDER_Feedback'])): ?>
+                    <div class="rating-stars">
+                      <?php for ($i = 0; $i < 5; $i++): ?>
+                        <span class="star <?= $i < $order['ORDER_Feedback'] ? 'filled' : '' ?>">★</span>
+                      <?php endfor; ?>
+                    </div>
+                  <?php else: ?>
+                    <span class="no-feedback">N/A</span>
+                  <?php endif; ?>
                 </td>
               </tr>
             <?php endforeach; ?>

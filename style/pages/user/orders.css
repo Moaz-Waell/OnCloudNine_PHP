@@ -196,12 +196,3 @@ body {
 }
 
 
-/* Feedback Stars */
-.rating-stars .star {
-  color: #ddd;
-  font-size: 1.2em;
-}
-
-.rating-stars .filled {
-  color: #ffd700;
-}

@@ -142,3 +142,13 @@
 .btn--order-again:hover {
   background-color: var(--color-btn-hover);
 }
+
+/* Feedback Stars */
+.rating-stars .star {
+  color: #ddd;
+  font-size: 1.2em;
+}
+
+.rating-stars .filled {
+  color: #ffd700;
+}
