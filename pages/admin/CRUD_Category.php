@@ -53,6 +53,8 @@ while ($row = $result->fetch_assoc()) {
   <meta charset="UTF-8" />
   <title>Category Management</title>
   <link rel="stylesheet" href="../../style/pages/admin/CRUD_Category.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 
 <body>

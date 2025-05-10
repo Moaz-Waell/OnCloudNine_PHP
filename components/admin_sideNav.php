@@ -16,7 +16,7 @@
       <i class="fas fa-list"></i>
       <span>Category</span>
     </a>
-    <a href="../../php/admin_logout.php" class="nav-item logout-item">
+    <a href="../../php/admin_logout.php" class="nav-item">
       <i class="fas fa-sign-out-alt"></i>
       <span>Logout</span>
     </a>

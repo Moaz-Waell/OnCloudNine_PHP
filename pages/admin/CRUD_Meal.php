@@ -93,6 +93,8 @@ $ingredients = $con->query("SELECT * FROM INGREDIENTS")->fetch_all(MYSQLI_ASSOC)
   <meta charset="UTF-8">
   <title>Meal Management</title>
   <link rel="stylesheet" href="../../style/pages/admin/CRUD_Meal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <script>
     // Dropdown functionality
     document.addEventListener('DOMContentLoaded', function () {
