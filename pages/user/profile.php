@@ -111,7 +111,7 @@ unset($_SESSION['form_error']);
 
 <body>
   <div class="container">
-    <?php include('../../components/sideNav.html'); ?>
+    <?php include('../../components/sideNav.php'); ?>
     <main class="main-content">
       <div class="profile-card">
         <form method="POST" action="profile.php">

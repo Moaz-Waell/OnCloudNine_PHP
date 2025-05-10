@@ -4,7 +4,7 @@
   </div>
 
   <nav class="navigation">
-    <a href="../pages/admin/admin_landing.php" class="nav-item">
+    <a href="../admin/admin_landing.php" class="nav-item">
       <i class="fas fa-home"></i>
       <span>Homepage</span>
     </a>
@@ -15,6 +15,10 @@
     <a href="" class="nav-item">
       <i class="fas fa-list"></i>
       <span>category</span>
+    </a>
+    <a href="../../php/admin_logout.php" class="nav-item logout-item">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Logout</span>
     </a>
   </nav>
 </aside>

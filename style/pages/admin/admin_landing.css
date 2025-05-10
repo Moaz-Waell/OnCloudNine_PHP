@@ -28,8 +28,13 @@
   align-items: center;
   padding-bottom: 2rem;
   margin-bottom: 2rem;
-  margin-left: 4rem;
   margin-top: 4rem;
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-title h1 {
@@ -60,8 +65,11 @@
   justify-content: flex-start;
 }
 
+.color-white {
+  background: var(--color-text-secondary);
+}
+
 .analysis-item {
-  background-color: white;
   border-radius: 1rem;
   padding: 1.5rem;
   text-align: center;
@@ -165,4 +173,26 @@
 
 .view-details:hover {
   color: var(--color-btn-hover);
+}
+
+/* Add to admin_landing.css */
+.inline-form {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.error-message {
+  color: #dc3545;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+}
+
+.success-message {
+  color: #28a745;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #28a745;
+  border-radius: 4px;
 }

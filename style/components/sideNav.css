@@ -44,10 +44,32 @@
     color: var(--color-text-primary);
 }
 
-
-
 .nav-item i {
     width: 2rem;
     display: flex;
     justify-content: center;
+}
+
+.nav-spacer {
+    flex: 1;
+    min-height: 2rem;
+}
+
+.logout-item {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* margin-top: auto; */
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.logout-item:hover {
+    background-color: var(--color-accent);
+    color: var(--color-text-secondary);
+}
+
+.logout-item i {
+    color: var(--color-accent);
+}
+
+.logout-item:hover i {
+    color: var(--color-text-secondary);
 }

@@ -65,7 +65,7 @@ while ($row = $result->fetch_assoc()) {
 
 <body>
   <div class="container">
-    <?php include('../../components/sideNav.html'); ?>
+    <?php include('../../components/sideNav.php'); ?>
     <main class="main-content">
       <form action="checkout.php" method="POST">
         <div class="meal-cart-container">

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('../../php/config.php');
 
 // Check for category ID
@@ -53,7 +54,7 @@ $meals_result = $stmt_meals->get_result();
   </a> -->
 
   <div class="container">
-    <?php include('../../components/sideNav.html'); ?>
+    <?php include('../../components/sideNav.php'); ?>
     <main class="main-content">
       <!-- Category Section -->
       <div class="menu-category">

@@ -79,45 +79,6 @@ body {
   color: var(--color-btn-hover);
 }
 
-.btn--status,
-.btn--order-again {
-  padding: 0.8rem 1.2rem;
-  border-radius: 9px;
-  font-size: 1.2rem;
-  min-width: 10rem;
-}
-
-.ordersstatus {
-  background-color: var(--color-btn-hover);
-  color: var(--color-text-secondary);
-}
-
-.btn--order-again {
-  background-color: var(--color-btn-primary);
-  color: var(--color-text-secondary);
-}
-
-.btn--order-again:hover {
-  background-color: var(--color-btn-hover);
-}
-
-.CRUD-btn {
-  padding: 5px 10px;
-  font-family: 'rubik', sans-serif;
-  margin-right: 5px;
-  border-radius: 1.1rem;
-  background-color: var(--color-btn-primary);
-  color: var(--color-text-secondary);
-  text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  cursor: pointer;
-}
-
-.CRUD-btn:hover {
-  background-color: var(--color-btn-hover);
-  color: var(--color-text-secondary);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
 
 /* Popup Styles */
 .popup {

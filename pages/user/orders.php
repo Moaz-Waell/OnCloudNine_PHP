@@ -50,7 +50,7 @@ while ($row = $result->fetch_assoc()) {
 
 <body>
   <div class="container">
-    <?php include('../../components/sideNav.html'); ?>
+    <?php include('../../components/sideNav.php'); ?>
     <main class="main-content">
       <h2 class="heading-secondary text-center">Current Orders</h2>
 

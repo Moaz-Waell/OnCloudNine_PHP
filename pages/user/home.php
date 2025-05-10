@@ -8,15 +8,16 @@ if (!isset($_COOKIE['user_id']) || !isset($_COOKIE['username']) || !isset($_COOK
   exit();
 }
 
-$user_id = $_COOKIE['user_id'];
-$username = $_COOKIE['username'];
-$attendance = $_COOKIE['attendance'];
-$phone = $_COOKIE['phone'];
+$_SESSION['user_id'] = $_COOKIE['user_id'];
+$_SESSION['username'] = $_COOKIE['username'];
+$_SESSION['attendance'] = $_COOKIE['attendance'];
+$_SESSION['phone'] = $_COOKIE['phone'];
 
-$_SESSION['user_id'] = $user_id;
-$_SESSION['username'] = $username;
-$_SESSION['attendance'] = $attendance;
-$_SESSION['phone'] = $phone;
+// Assign local variables from session
+$user_id = $_SESSION['user_id'];
+$username = $_SESSION['username'];
+$attendance = $_SESSION['attendance'];
+$phone = $_SESSION['phone'];
 
 // Insert user into USERS table if not exists
 $checkUser = $con->prepare("SELECT USERS_ID FROM USERS WHERE USERS_ID = ?");
@@ -87,7 +88,7 @@ $con->close();
   <?php endif; ?>
   <div class="container">
     <!-- Sidebar -->
-    <?php include('../../components/sideNav.html'); ?>
+    <?php include('../../components/sideNav.php'); ?>
     <!-- Main Content -->
     <main class="main-content">
       <!-- Header -->

@@ -2,6 +2,7 @@
 ```
 OCN_Project
 ├─ components
+│  ├─ admin_sideNav.html
 │  ├─ allergy_form.php
 │  └─ sideNav.html
 ├─ img
@@ -22,14 +23,14 @@ OCN_Project
 │  │  ├─ onCloudNine-white.svg
 │  │  └─ onCloudNine.svg
 │  └─ meals
-│     ├─ breakfast
+│     ├─ breakfasts
 │     │  ├─ avocado_toast.jpg
 │     │  ├─ egg_sandwich.jpg
 │     │  ├─ english_breakfast.jpg
 │     │  ├─ mcmuffin.jpg
 │     │  ├─ omelette.jpg
 │     │  └─ pancakes.jpg
-│     ├─ crepe
+│     ├─ crepes
 │     │  ├─ chicken_crepes.jpg
 │     │  ├─ fruit_crepes.jpg
 │     │  ├─ ham_cheese_crepes.jpg
@@ -79,7 +80,8 @@ OCN_Project
 │  │  ├─ uniUserLogin.php
 │  │  └─ uniUserPortal.php
 │  ├─ admin
-│  │  ├─ admin_login.html
+│  │  ├─ admin_landing.php
+│  │  ├─ admin_login.php
 │  │  ├─ CRUD_Category.html
 │  │  └─ CRUD_Meal.html
 │  ├─ kitchenDashboard.html
@@ -96,10 +98,14 @@ OCN_Project
 ├─ php
 │  ├─ addToCart.php
 │  ├─ admin_login_validation.php
+│  ├─ cancelOrder.php
 │  ├─ config.php
 │  ├─ logoutUniUser.php
+│  ├─ reorder.php
+│  ├─ submitFeedback.php
 │  ├─ submit_allergies.php
 │  └─ user_login_validation.php
+├─ README.md
 └─ style
    ├─ base
    │  ├─ base.css
@@ -120,6 +126,7 @@ OCN_Project
       │  ├─ uniUserLogin.css
       │  └─ uniUserPortal.css
       ├─ admin
+      │  ├─ admin_landing.css
       │  ├─ CRUD_Category.css
       │  └─ CRUD_Meal.css
       ├─ kitchenDashboard.css

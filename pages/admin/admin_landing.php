@@ -2,34 +2,45 @@
 session_start();
 require_once '../../php/config.php';
 
-// Check authentication
-$user_id = $_COOKIE['user_id'];
-
-// Get active orders (not delivered or canceled)
-$active_orders = [];
-$stmt = $con->prepare("SELECT * FROM ORDERS 
-                      WHERE USERS_ID = ? 
-                      AND ORDER_Status NOT IN ('Delivered', 'Cancelled')
-                      ORDER BY ORDER_ScheduleDate DESC");
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
-while ($row = $result->fetch_assoc()) {
-  $active_orders[] = $row;
+// Authentication check
+if (!isset($_SESSION['admin_id'])) {
+  header("Location: admin_login.php");
+  exit();
 }
+
+// Get all active orders (not delivered/canceled)
+$active_orders = [];
+$stmt = $con->prepare("SELECT o.*, u.USERS_Name 
+                      FROM ORDERS o
+                      JOIN USERS u ON o.USERS_ID = u.USERS_ID
+                      WHERE ORDER_Status NOT IN ('Delivered', 'Cancelled')
+                      ORDER BY ORDER_ScheduleDate DESC");
+$stmt->execute();
+$active_orders = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
 // Get order history
 $order_history = [];
-$stmt = $con->prepare("SELECT * FROM ORDERS 
-                      WHERE USERS_ID = ? 
-                      AND ORDER_Status IN ('Delivered', 'Cancelled')
+$stmt = $con->prepare("SELECT o.*, u.USERS_Name 
+                      FROM ORDERS o
+                      JOIN USERS u ON o.USERS_ID = u.USERS_ID
+                      WHERE ORDER_Status IN ('Delivered', 'Cancelled')
                       ORDER BY ORDER_ScheduleDate DESC");
-$stmt->bind_param("i", $user_id);
 $stmt->execute();
-$result = $stmt->get_result();
-while ($row = $result->fetch_assoc()) {
-  $order_history[] = $row;
-}
+$order_history = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+// Get analytics data
+$analytics_stmt = $con->prepare("SELECT 
+                                COUNT(*) as total_orders,
+                                SUM(ORDER_Amount) as total_revenue 
+                                FROM ORDERS 
+                                WHERE ORDER_Status = 'Delivered'");
+$analytics_stmt->execute();
+$analytics = $analytics_stmt->get_result()->fetch_assoc();
+
+// Handle messages
+$error = $_SESSION['error'] ?? '';
+$success = $_SESSION['success'] ?? '';
+unset($_SESSION['error'], $_SESSION['success']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,102 +48,104 @@ while ($row = $result->fetch_assoc()) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OCN Food Dashboard</title>
+  <title>OCN Admin Dashboard</title>
   <link rel="stylesheet" href="../../style/pages/admin/admin_landing.css" />
-  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
 <body>
   <div class="container">
-    <!-- Sidebar -->
-    <?php include('../../components/admin_sideNav.html'); ?>
-    <!-- Main Content -->
+    <?php include('../../components/admin_sideNav.php'); ?>
+
     <main class="main-content">
-      <!-- Header -->
-      <header class="header">
+      <header class="header flex-space-between">
         <div class="header-title">
           <h1>Dashboard</h1>
         </div>
+        <div class="header-title">
+          <h1>Welcome, <?= htmlspecialchars($_SESSION['admin_name'] ?? 'Admin') ?></h1>
+        </div>
       </header>
-      <!-- top Section -->
+
+      <?php if ($error): ?>
+        <div class="error-message"><?= htmlspecialchars($error) ?></div>
+      <?php endif; ?>
+
+      <?php if ($success): ?>
+        <div class="success-message"><?= htmlspecialchars($success) ?></div>
+      <?php endif; ?>
 
       <div class="top">
         <section class="analysis-section">
-          <div>
-            <h2 class="heading-secondary text-center">Analysis</h2>
-          </div>
+          <h2 class="heading-secondary text-center">Analysis</h2>
           <div class="analysis-flex">
-            <div class="analysis-item">
-              <p class="margin-bottom-1rem"><b>total number of orders:</b></p>
-              <p>676</p>
+            <div class="analysis-item color-white">
+              <p class="margin-bottom-1rem"><b>Total Orders:</b></p>
+              <p><?= $analytics['total_orders'] ?? 0 ?></p>
             </div>
-            <div class="analysis-item">
-              <p class="margin-bottom-1rem"><b>total revenue:</b></p>
-              <p>7656</p>
-            </div>
-          </div>
-        </section>
-        <section class="analysis-section">
-          <div>
-            <h2 class="heading-secondary text-center">voucher</h2>
-            <span class="underline"></span>
-          </div>
-          <div class="analysis-flex">
-            <div class="btn btn--order-again analysis-item">
-              <p>send vouchers</p>
+            <div class="analysis-item color-white">
+              <p class="margin-bottom-1rem"><b>Total Revenue:</b></p>
+              <p>$<?= number_format($analytics['total_revenue'] ?? 0, 2) ?></p>
             </div>
           </div>
         </section>
 
+        <section class="analysis-section">
+          <h2 class="heading-secondary text-center">Vouchers</h2>
+          <div class="analysis-flex">
+            <form method="POST" action="../../php/sendVouchers.php">
+              <button type="submit" class="btn btn--order-again analysis-item">
+                Send Vouchers
+              </button>
+            </form>
+          </div>
+        </section>
       </div>
       <hr />
 
-      <!-- Active Orders Table -->
+      <!-- Current Orders Table -->
       <section class="margin-top-2rem">
         <h2 class="heading-secondary text-center">Current Orders</h2>
-
         <table class="orders-table">
           <thead>
             <tr class="heading-secondary">
               <th>Order ID</th>
+              <th>Customer</th>
               <th>Date</th>
               <th>Time</th>
               <th>Total</th>
               <th>Details</th>
               <th>Status</th>
-              <th>Action</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach ($active_orders as $order): ?>
               <tr>
                 <td>#<?= htmlspecialchars($order['ORDER_ID']) ?></td>
+                <td><?= htmlspecialchars($order['USERS_Name']) ?></td>
                 <td><?= date('M j', strtotime($order['ORDER_ScheduleDate'])) ?></td>
                 <td><?= date('h:i A', strtotime($order['ORDER_ScheduleTime'])) ?></td>
                 <td>$<?= number_format($order['ORDER_Amount'], 2) ?></td>
                 <td>
-                  <a href="viewOrderDetails.php?order_id=<?= $order['ORDER_ID'] ?>" class="view-details">
+                  <a href="../admin/viewOrderDetails.php?order_id=<?= $order['ORDER_ID'] ?>" class="view-details">
                     View Details
                   </a>
                 </td>
                 <td>
-                  <button
-                    class="btn btn--status ordersstatus <?= strtolower(str_replace(' ', '-', $order['ORDER_Status'])) ?>">
+                  <span class="btn btn--status ordersstatus <?= strtolower($order['ORDER_Status']) ?>">
                     <?= htmlspecialchars($order['ORDER_Status']) ?>
-                  </button>
+                  </span>
                 </td>
                 <td>
                   <?php if ($order['ORDER_Status'] === 'Pending' || $order['ORDER_Status'] === 'In Progress'): ?>
-                    <form method="POST" action="../../php/cancelOrder.php">
+                    <form method="POST" action="../admin/cancelOrder.php" class="inline-form">
                       <input type="hidden" name="order_id" value="<?= $order['ORDER_ID'] ?>">
-                      <button type="submit" class="btn btn--order-again">Cancel Order</button>
+                      <button type="submit" class="btn btn--order-again">Cancel</button>
                     </form>
-                  <?php endif; ?>
-                  <?php if ($order['ORDER_Status'] === 'Pending' || $order['ORDER_Status'] === 'In Progress'): ?>
-                    <form method="POST" action="../../php/cancelOrder.php">
+                    <form method="POST" action="../../php/deliverOrder.php" class="inline-form">
                       <input type="hidden" name="order_id" value="<?= $order['ORDER_ID'] ?>">
-                      <button type="submit" class="btn btn--order-again">Delivered</button>
+                      <button type="submit" class="btn btn--order-again">Mark To Delivered</button>
                     </form>
                   <?php endif; ?>
                 </td>
@@ -142,50 +155,36 @@ while ($row = $result->fetch_assoc()) {
         </table>
       </section>
 
-
-      <section>
+      <!-- Order History Table -->
+      <section class="margin-top-2rem">
         <h2 class="heading-secondary text-center">Order History</h2>
-
-        <!-- Order History Table -->
         <table class="orders-table">
           <thead>
             <tr class="heading-secondary">
               <th>Order ID</th>
+              <th>Customer</th>
               <th>Date</th>
               <th>Total</th>
-              <th>Details</th>
               <th>Status</th>
-              <th>Feedback</th>
+              <th>Details</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach ($order_history as $order): ?>
               <tr>
                 <td>#<?= htmlspecialchars($order['ORDER_ID']) ?></td>
+                <td><?= htmlspecialchars($order['USERS_Name']) ?></td>
                 <td><?= date('M j, Y', strtotime($order['ORDER_ScheduleDate'])) ?></td>
                 <td>$<?= number_format($order['ORDER_Amount'], 2) ?></td>
                 <td>
-                  <a href="viewOrderDetails.php?order_id=<?= $order['ORDER_ID'] ?>" class="view-details">
+                  <span class="btn btn--status ordersstatus <?= strtolower($order['ORDER_Status']) ?>">
+                    <?= htmlspecialchars($order['ORDER_Status']) ?>
+                  </span>
+                </td>
+                <td>
+                  <a href="../admin/viewOrderDetails.php?order_id=<?= $order['ORDER_ID'] ?>" class="view-details">
                     View Details
                   </a>
-                </td>
-                <td>
-                  <button class="btn btn--status ordersstatus <?= strtolower($order['ORDER_Status']) ?>">
-                    <?= htmlspecialchars($order['ORDER_Status']) ?>
-                  </button>
-                </td>
-                <td>
-                  <?php if ($order['ORDER_Status'] === 'Delivered' && empty($order['ORDER_Feedback'])): ?>
-                    <button class="btn btn--order-again open-feedback" data-order-id="<?= $order['ORDER_ID'] ?>">
-                      Give Feedback
-                    </button>
-                  <?php elseif ($order['ORDER_Feedback']): ?>
-                    <div class="rating-stars">
-                      <?php for ($i = 0; $i < 5; $i++): ?>
-                        <span class="star <?= $i < $order['ORDER_Feedback'] ? 'filled' : '' ?>">★</span>
-                      <?php endfor; ?>
-                    </div>
-                  <?php endif; ?>
                 </td>
               </tr>
             <?php endforeach; ?>
