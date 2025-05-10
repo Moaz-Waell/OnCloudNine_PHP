@@ -86,9 +86,10 @@ $con->close();
           <h1 class="h1 heading-primary head-allergies">Allergies Form</h1>
           <div class="checkbox-group label">
             <?php foreach ($allergies as $allergy): ?>
-              <label class="checkbox-group-hover">
+              <label class="checkbox-container">
                 <input type="checkbox" name="allergies[]" value="<?php echo $allergy['ALLERGY_ID']; ?>">
                 <?php echo htmlspecialchars($allergy['ALLERGY_Name']); ?>
+                <span class="checkmark"></span>
               </label>
             <?php endforeach; ?>
           </div>
