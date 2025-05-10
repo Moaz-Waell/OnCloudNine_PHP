@@ -7,6 +7,7 @@
 @import url(../../components/sideNav.css);
 @import url(../../components/meal.css);
 @import url(../../mediaqueries/general.css);
+@import url(../../../style/pages/user/home.css);
 
 body {
     background-color: var(--color-bg-primary);
@@ -32,7 +33,7 @@ body {
     background-color: var(--color-bg-secondary);
     padding: 20px;
     margin: 10rem auto 0 auto;
-    width: 840px;
+    width: 107rem;
 
     border-radius: 1.6rem;
     box-shadow: 2px 2px 10px rgba(190, 12, 12, 0.1);

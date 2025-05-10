@@ -2,9 +2,9 @@
 ```
 OCN_Project
 ├─ components
-│  ├─ admin_sideNav.html
+│  ├─ admin_sideNav.php
 │  ├─ allergy_form.php
-│  └─ sideNav.html
+│  └─ sideNav.php
 ├─ img
 │  ├─ aast_imgs
 │  │  ├─ AAST-LOGO-BLUE.png
@@ -82,8 +82,10 @@ OCN_Project
 │  ├─ admin
 │  │  ├─ admin_landing.php
 │  │  ├─ admin_login.php
-│  │  ├─ CRUD_Category.html
-│  │  └─ CRUD_Meal.html
+│  │  ├─ cancelOrder.php
+│  │  ├─ CRUD_Category.php
+│  │  ├─ CRUD_Meal.php
+│  │  └─ viewOrderDetails.php
 │  ├─ kitchenDashboard.html
 │  └─ user
 │     ├─ cart.php
@@ -98,10 +100,14 @@ OCN_Project
 ├─ php
 │  ├─ addToCart.php
 │  ├─ admin_login_validation.php
+│  ├─ admin_logout.php
 │  ├─ cancelOrder.php
 │  ├─ config.php
+│  ├─ deliverOrder.php
 │  ├─ logoutUniUser.php
 │  ├─ reorder.php
+│  ├─ search_meals.php
+│  ├─ sendVouchers.php
 │  ├─ submitFeedback.php
 │  ├─ submit_allergies.php
 │  └─ user_login_validation.php

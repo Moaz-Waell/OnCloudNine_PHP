@@ -8,16 +8,15 @@ if (!isset($_COOKIE['user_id']) || !isset($_COOKIE['username']) || !isset($_COOK
   exit();
 }
 
-$_SESSION['user_id'] = $_COOKIE['user_id'];
-$_SESSION['username'] = $_COOKIE['username'];
-$_SESSION['attendance'] = $_COOKIE['attendance'];
-$_SESSION['phone'] = $_COOKIE['phone'];
+$user_id = $_COOKIE['user_id'];
+$username = $_COOKIE['username'];
+$attendance = $_COOKIE['attendance'];
+$phone = $_COOKIE['phone'];
 
-// Assign local variables from session
-$user_id = $_SESSION['user_id'];
-$username = $_SESSION['username'];
-$attendance = $_SESSION['attendance'];
-$phone = $_SESSION['phone'];
+$_SESSION['user_id'] = $user_id;
+$_SESSION['username'] = $username;
+$_SESSION['attendance'] = $attendance;
+$_SESSION['phone'] = $phone;
 
 // Insert user into USERS table if not exists
 $checkUser = $con->prepare("SELECT USERS_ID FROM USERS WHERE USERS_ID = ?");
@@ -48,6 +47,21 @@ if ($allergyResult) {
     }
   }
 }
+
+// Get bestseller meals with category names
+$bestsellers = [];
+$bestseller_stmt = $con->prepare("
+    SELECT m.*, c.CATEGORY_Name, SUM(od.M_Quantity) AS total_ordered 
+    FROM MEAL m
+    JOIN ORDER_DETAILS od ON m.MEAL_ID = od.MEAL_ID
+    JOIN CATEGORY c ON m.CATEGORY_ID = c.CATEGORY_ID
+    GROUP BY m.MEAL_ID
+    HAVING total_ordered >= 25
+    ORDER BY total_ordered DESC
+    LIMIT 6
+");
+$bestseller_stmt->execute();
+$bestsellers = $bestseller_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
 $con->close();
 ?>
@@ -142,74 +156,27 @@ $con->close();
         <div class="section-header">
           <h2>Best Seller</h2>
         </div>
-
         <div class="menu-grid">
-          <div class="menu-item">
-            <div class="menu-image">
-              <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3" alt="Pizza" />
+          <?php if (!empty($bestsellers)): ?>
+            <?php foreach ($bestsellers as $meal): ?>
+              <div class="menu-item">
+                <div class="menu-image">
+                  <img src="../../img/meals/<?= strtolower($meal['CATEGORY_Name']) ?>/<?= $meal['MEAL_Icon'] ?>"
+                    alt="<?= htmlspecialchars($meal['MEAL_Name']) ?>">
+                </div>
+                <div class="menu-details">
+                  <h3><?= htmlspecialchars($meal['MEAL_Name']) ?></h3>
+                  <p><?= htmlspecialchars($meal['MEAL_Description']) ?></p>
+                  <span class="price">$<?= number_format($meal['MEAL_Price'], 2) ?></span>
+                  <a href="viewMealDetails.php?id=<?= $meal['MEAL_ID'] ?>" class="view-details">View Details</a>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          <?php else: ?>
+            <div class="no-results">
+              <p>No bestsellers available right now. Check back later!</p>
             </div>
-            <div class="menu-details">
-              <h3>Pepperoni Pizza</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <span class="price">$5.59</span>
-              <a href="#" class="view-details">View Details</a>
-            </div>
-          </div>
-
-          <div class="menu-item">
-            <div class="menu-image">
-              <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624" alt="Ramen" />
-            </div>
-            <div class="menu-details">
-              <h3>Japanese Ramen</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <span class="price">$5.59</span>
-            </div>
-          </div>
-
-          <div class="menu-item">
-            <div class="menu-image">
-              <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b" alt="Fried Rice" />
-            </div>
-            <div class="menu-details">
-              <h3>Fried Rice</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <span class="price">$5.59</span>
-            </div>
-          </div>
-
-          <div class="menu-item">
-            <div class="menu-image">
-              <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3" alt="Vegan Pizza" />
-            </div>
-            <div class="menu-details">
-              <h3>Vegan Pizza</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <span class="price">$5.59</span>
-            </div>
-          </div>
-
-          <div class="menu-item">
-            <div class="menu-image">
-              <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="Beef Burger" />
-            </div>
-            <div class="menu-details">
-              <h3>Beef Burger</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <span class="price">$5.59</span>
-            </div>
-          </div>
-
-          <div class="menu-item">
-            <div class="menu-image">
-              <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828" alt="Fish Burger" />
-            </div>
-            <div class="menu-details">
-              <h3>Fish Burger</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <span class="price">$5.59</span>
-            </div>
-          </div>
+          <?php endif; ?>
         </div>
       </section>
     </main>

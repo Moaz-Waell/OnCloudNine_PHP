@@ -8,13 +8,13 @@
       <i class="fas fa-home"></i>
       <span>Homepage</span>
     </a>
-    <a href="" class="nav-item">
+    <a href="../admin/CRUD_Meal.php" class="nav-item">
       <i class="fa-solid fa-utensils"></i>
-      <span>meal</span>
+      <span>Meal</span>
     </a>
-    <a href="" class="nav-item">
+    <a href="../admin/CRUD_Category.php" class="nav-item">
       <i class="fas fa-list"></i>
-      <span>category</span>
+      <span>Category</span>
     </a>
     <a href="../../php/admin_logout.php" class="nav-item logout-item">
       <i class="fas fa-sign-out-alt"></i>
