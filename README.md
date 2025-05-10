@@ -18,7 +18,7 @@ OCN_Project
 │  │  ├─ spaghetti.png
 │  │  └─ sushi.png
 │  ├─ icons
-│  │  └─ avatar.png
+│  │  └─ user.svg
 │  ├─ logo
 │  │  ├─ onCloudNine-white.svg
 │  │  └─ onCloudNine.svg
@@ -86,7 +86,7 @@ OCN_Project
 │  │  ├─ CRUD_Category.php
 │  │  ├─ CRUD_Meal.php
 │  │  └─ viewOrderDetails.php
-│  ├─ kitchenDashboard.html
+│  ├─ kitchenDashboard.php
 │  └─ user
 │     ├─ cart.php
 │     ├─ categoryMeals.php
@@ -110,6 +110,7 @@ OCN_Project
 │  ├─ sendVouchers.php
 │  ├─ submitFeedback.php
 │  ├─ submit_allergies.php
+│  ├─ update_order_status.php
 │  └─ user_login_validation.php
 ├─ README.md
 └─ style

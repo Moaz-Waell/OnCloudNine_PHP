@@ -137,7 +137,7 @@ unset($_SESSION['error'], $_SESSION['success']);
                   </span>
                 </td>
                 <td>
-                  <?php if ($order['ORDER_Status'] === 'Pending' || $order['ORDER_Status'] === 'In Progress'): ?>
+                  <?php if ($order['ORDER_Status'] === 'Pending' || $order['ORDER_Status'] === 'In Progress' || $order['ORDER_Status'] === 'Out For Delivery' || $order['ORDER_Status'] === 'Preparing'): ?>
                     <form method="POST" action="../../php/cancelOrder.php" class="inline-form">
                       <input type="hidden" name="order_id" value="<?= $order['ORDER_ID'] ?>">
                       <button type="submit" class="btn btn--order-again">Cancel</button>

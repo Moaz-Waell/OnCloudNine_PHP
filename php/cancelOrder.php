@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                           SET ORDER_Status = 'Cancelled' 
                           WHERE ORDER_ID = ? 
                           AND USERS_ID = ?
-                          AND ORDER_Status IN ('Pending', 'In Progress')");
+                          AND ORDER_Status IN ('Pending', 'In Progress', 'Out For Delivery', 'Preparing')");
     $stmt->bind_param("ii", $order_id, $user_id);
     $stmt->execute();
 
