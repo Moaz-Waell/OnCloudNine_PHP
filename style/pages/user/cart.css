@@ -111,7 +111,6 @@ body {
   color: var(--color-text-primary);
 }
 
-/* Meal Cart Container */
 .meal-cart-container {
   width: 90%;
   max-width: 84rem;
@@ -139,9 +138,7 @@ body {
   padding: 2rem 2.5rem;
   margin: 1.5rem auto;
   gap: 2rem;
-  /* cursor: pointer; */
   width: 100%;
-  /* height: 8rem; */
   justify-content: space-between;
   position: relative;
 }
@@ -171,7 +168,6 @@ body {
   height: auto;
   border-radius: 9px;
   object-fit: cover;
-  /* Maintain aspect ratio and cover the area */
 }
 
 .meal-item__content {
@@ -237,23 +233,16 @@ body {
   position: fixed;
   bottom: 0;
   left: 58%;
-  /* Center horizontally */
   right: 42%;
-  /* Center horizontally */
   transform: translateX(-61%);
-  /* Adjust for element's own width */
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
   padding: 2rem;
-  background-color: var(--color-bg-secondary);
-  border-radius: 1.2rem 1.2rem 0 0;
-  width: 90%;
   max-width: 50rem;
-  /* Match the max-width of .meal-cart-container */
   z-index: 1000;
-  box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.1);
+  background-color: var(--color-bg-primary);
 }
 
 .total-amount {
