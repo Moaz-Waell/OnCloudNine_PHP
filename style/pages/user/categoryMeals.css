@@ -4,16 +4,16 @@
 @import url(../../base/typography.css);
 @import url(../../components/buttons.css);
 @import url(../../base/general.css);
+@import url(../../components/sideNav.css);
 @import url(../../components/meal.css);
 @import url(../../mediaqueries/general.css);
-
+@import url(../../pages/user/home.css);
 
 /* Global overrides */
 body {
   background-color: var(--color-bg-primary);
   font-family: "Rubik", sans-serif;
   line-height: 1.5;
-  padding-top: 80px;
   /* Space for sticky button */
 }
 
