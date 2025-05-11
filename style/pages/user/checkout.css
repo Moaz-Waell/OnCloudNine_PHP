@@ -10,7 +10,7 @@
 @import url(../../pages/user/home.css);
 
 body {
-  background-color: var(--color-bg-tertiary);
+  background-color: var(--color-bg-primary);
 }
 
 .checkout.container {
@@ -21,9 +21,6 @@ body {
   padding: 2rem;
   min-height: 100vh;
   flex-wrap: wrap;
-  /* border: var(--color-border-primary) 1px solid;
-  margin: 2rem;
-  border-radius: 1.2rem; */
 }
 
 .total_price .description {
@@ -31,13 +28,13 @@ body {
 }
 
 h3.heading-secondary {
-  color: var(--color-text-primary);
+  color: var(--color-primary);
   margin-bottom: 1rem;
   font-weight: 600;
 }
 
 div.heading-secondary label {
-  color: var(--color-text-primary);
+  color: var(--color-primary);
   font-weight: 600;
   font-size: 1.6rem;
   margin-top: 2px;
@@ -57,7 +54,7 @@ div.heading-secondary {
 }
 
 .right_side {
-  background-color: var(--color-btn-hover);
+  background-color: #f7e6c2;
   padding: 2.2rem;
   border-radius: 1.2rem;
   box-shadow: 4px 1rem 1rem rgba(0, 0, 0, 0.08);
@@ -65,7 +62,7 @@ div.heading-secondary {
 }
 
 label {
-  color: var(--color-text-primary);
+  color: var(--color-primary);
   margin-bottom: 0.5rem;
   font-weight: 600;
   font-size: 1.6rem;
@@ -76,6 +73,7 @@ label {
   flex-direction: column;
   gap: 1rem;
   margin-top: 2rem;
+  margin-bottom: 2rem;
   padding: 0rem 4rem;
   background-color: var(--color-white);
   align-items: flex-start;
@@ -100,8 +98,8 @@ input[type="time"] {
   padding: 0.6rem 1.6rem;
   border: 1px solid var(--color-border-primary);
   border-radius: 9px;
-  background-color: var(--color-text-secondary);
-  color: var(--color-text-primary);
+  background-color: #fffcf6;
+  color: var(--color-primary);
   box-shadow: 3px 3px 12px #1b2a318f;
   outline: oldlace;
   transition: all 0.3s ease;
@@ -118,7 +116,7 @@ h2.heading-secondary {
 }
 
 h2.heading-primary {
-  color: var(--color-text-primary);
+  color: var(--color-primary);
   font-size: 2.4rem;
   font-weight: 600;
   margin-bottom: 2rem;
@@ -140,24 +138,25 @@ h2.heading-primary {
 
 .btn,
 .buttons .place_order_btn {
-  background-color: var(--color-text-primary);
+  background-color: var(--color-btn-primary);
   color: var(--color-text-secondary);
   font-size: 1.7rem;
   padding: 0.6rem 2.2rem;
   border-radius: 1.2rem;
   box-shadow: 3px 3px 12px #1b2a318f;
+  margin-left: 4rem;
 }
 
 .btn:hover,
 .buttons .place_order_btn:hover {
-  background-color: var(--color-text-primary);
-  color: var(--color-btn-primary-light);
+  background-color: var(--color-btn-hover);
+  color: var(--color-text-primary);
   box-shadow: 3px 3px 12px #1b2a318f;
 }
 
 .coupon-box {
   background-color: var(--color-bg-primary, #fff);
-  border: 1px solid var(--color-border-primary, #ddd);
+  border: 1px solid var(--color-border-primary);
   border-radius: 12px;
   padding: 2rem;
   margin-top: 2rem;
@@ -168,7 +167,7 @@ h2.heading-primary {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid var(--color-border-primary, #ddd);
+  border: 1px solid var(--color-border-primary);
   border-radius: 10px;
   padding: 1rem;
   margin-bottom: 1.5rem;
@@ -190,13 +189,13 @@ h2.heading-primary {
 
 .end-date {
   font-size: 1.2rem;
-  color: var(--color-text-primary);
+  color: var(--color-border-primary);
   margin-top: 0.5rem;
 }
 
 .badge {
   display: inline-block;
-  background-color: var(--color-text-primary, #007bff);
+  background-color: var(--color-error-dark);
   color: #fff;
   font-size: 1.2rem;
   padding: 0.3rem 0.8rem;
@@ -213,7 +212,7 @@ h2.heading-primary {
 }
 
 .apply-btn {
-  background-color: var(--color-text-primary, #007bff);
+  background-color: var(--color-border-primary);
   color: #fff;
   border: none;
   padding: 0.5rem 1.2rem;
@@ -225,4 +224,15 @@ h2.heading-primary {
 
 .apply-btn:hover {
   background-color: var(--color-btn-primary-light, #0056b3);
+}
+
+.no-vouchers {
+  padding: 1.5rem;
+  background: var(--color-bg-primary);
+  border-radius: 8px;
+  text-align: center;
+  color: var(--color-error-dark);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-error-dark);
 }

@@ -6,19 +6,27 @@ if (!isset($_SESSION['id'])) {
   header("Location: uniUserLogin.php");
   exit();
 }
-$stmt = $con->prepare("SELECT USERS_ID, USERS_Name, USERS_Attendance FROM Uni_users WHERE USERS_ID = ?");
-$stmt->bind_param("i", $_SESSION['id']); // Changed to integer binding
+
+// Fetch user data including phone number
+$stmt = $con->prepare("SELECT USERS_ID, USERS_Name, USERS_Attendance, USERS_Phnumber FROM Uni_users WHERE USERS_ID = ?");
+$stmt->bind_param("i", $_SESSION['id']);
 $stmt->execute();
 $result = $stmt->get_result();
 $userData = $result->fetch_assoc();
 $stmt->close();
-$con->close();
-
 
 if (!$userData) {
   header("Location: uniUserLogin.php");
   exit();
 }
+
+// Set cookies with user data (expires in 6 days)
+setcookie('user_id', $userData['USERS_ID'], time() + 6 * 24 * 60 * 60, '/');
+setcookie('username', $userData['USERS_Name'], time() + 6 * 24 * 60 * 60, '/');
+setcookie('attendance', $userData['USERS_Attendance'], time() + 6 * 24 * 60 * 60, '/');
+setcookie('phone', $userData['USERS_Phnumber'], time() + 6 * 24 * 60 * 60, '/');
+
+$con->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +75,7 @@ if (!$userData) {
           <h3>Student Schedule</h3>
         </div>
         <div class="card">
-          <a href="http://">
+          <a href="../user/home.php">
             <img src="../../img/logo/onCloudNine.svg" alt="On Cloud Nine" />
             <h3>On Cloud Nine</h3>
           </a>

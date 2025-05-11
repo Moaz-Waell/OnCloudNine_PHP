@@ -1,26 +1,26 @@
 :root {
-  --color-primary: #446a76;
-  --color-primary-light: #4f7b8c;
-  --color-primary-dark: #3d5963;
+  --color-primary: #143f23;
+  --color-primary-light:#1c5f32;
+  --color-primary-dark: #1d783b;
 
   /* buttons color */
-  --color-btn-primary: #446a76;
-  --color-btn-primary-light: #4f7b8c;
-  --color-btn-primary-dark: #3d5963;
-  --color-btn-hover: #9abfcb;
+  --color-btn-primary: #dd6213;
+  /* --color-btn-primary-light: #4f7b8c;
+  --color-btn-primary-dark: #3d5963; */
+  --color-btn-hover: #f8c079;
 
   /* text colors */
-  --color-text-primary: #1d292f;
-  --color-text-secondary: #ffffff;
+  --color-text-primary: #ffff;
+  --color-text-secondary:#2d1107;
 
   /* background colors */
-  --color-bg-primary: #f3f1e5;
-  --color-bg-secondary: #efeee9;
-  --color-bg-tertiary: #e3e3e3;
+  --color-bg-primary:#fef8ee;
+  /* --color-bg-secondary: #efeee9;
+  --color-bg-tertiary: #e3e3e3; */
 
 
   /* borders colors */
-  --color-border-primary: #446a76;
+  --color-border-primary: #dd6213;
 
 
   /* grey shades */
@@ -29,7 +29,7 @@
   --color-grey-dark-3: #999;
 
   --color-error: #ffebee;
-  --color-error-dark: #d32f2f;
+  --color-error-dark: #dd6213;
 
   --card-padding: 2.4rem;
   --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);

@@ -10,27 +10,6 @@
 
 
 
-/* 
-:root {
-    --color-primary: #446a76;
-    --color-primary-light: #4f7b8c;
-    --color-primary-dark: #3d5963;
-    --color-btn-primary: #446a76;
-    --color-btn-primary-light: #4f7b8c;
-    --color-btn-primary-dark: #3d5963;
-    --color-btn-hover: #9abfcb;
-    --color-text-primary: #1d292f;
-    --color-text-secondary: #ffffff;
-    --color-bg-primary: #f3f1e5;
-    --color-bg-secondary: #efeee9;
-    --color-bg-tertiary: #e3e3e3;
-    --color-border-primary: #446a76;
-    --color-grey-dark-1: #333;
-    --color-grey-dark-2: #777;
-    --color-grey-dark-3: #999;
-    --color-error: #ffebee;
-    --color-error-dark: #d32f2f;
-} */
 
 @media (max-width: 600px) {
   .cart-footer {
@@ -48,8 +27,40 @@ body {
   color: var(--color-primary);
   font-weight: 400;
   overflow-x: hidden;
-  padding-bottom: 14rem; 
+  padding-bottom: 14rem;
 }
+
+
+.empty-cart-message {
+  text-align: center;
+  padding: 4rem;
+  background: #f8f9fa;
+  border-radius: 1rem;
+  margin: 2rem 0;
+}
+
+.empty-cart-message i {
+  font-size: 4rem;
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+.empty-cart-message h2 {
+  color: #343a40;
+  margin-bottom: 0.5rem;
+}
+
+.empty-cart-message p {
+  color: #6c757d;
+  margin-bottom: 2rem;
+}
+
+.btn--checkout:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #6c757d;
+}
+
 
 .heading-secondary {
   font-size: 2.4rem;
@@ -58,16 +69,6 @@ body {
   margin-bottom: 1.6rem;
   text-align: center;
 }
-
-
-/* .navbar .container {
-  max-width: 84rem;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-} */
 
 
 .navbar {
@@ -109,6 +110,7 @@ body {
   background-color: var(--color-btn-hover);
   color: var(--color-text-primary);
 }
+
 /* Meal Cart Container */
 .meal-cart-container {
   width: 90%;
@@ -137,9 +139,9 @@ body {
   padding: 2rem 2.5rem;
   margin: 1.5rem auto;
   gap: 2rem;
-  cursor: pointer;
+  /* cursor: pointer; */
   width: 100%;
-  height: 8rem;
+  /* height: 8rem; */
   justify-content: space-between;
   position: relative;
 }
@@ -168,7 +170,8 @@ body {
   width: 100%;
   height: auto;
   border-radius: 9px;
-  object-fit: cover; /* Maintain aspect ratio and cover the area */
+  object-fit: cover;
+  /* Maintain aspect ratio and cover the area */
 }
 
 .meal-item__content {
@@ -178,10 +181,11 @@ body {
   align-items: flex-start;
   gap: 0.5rem;
 }
+
 .meal-item__name {
   font-size: 1.5rem;
   line-height: 1.2;
-  margin: 0; 
+  margin: 0;
   padding: 0;
   flex-shrink: 0;
   color: var(--color-primary-secondary);
@@ -190,12 +194,12 @@ body {
 .meal-item__description {
   font-size: 1.5rem;
   line-height: 1.4;
-  margin: 0; 
+  margin: 0;
   padding: 0;
   max-height: 3rem;
-  overflow: hidden; 
+  overflow: hidden;
   text-overflow: ellipsis;
-  color: #777; 
+  color: #777;
 }
 
 .meal-item__price {
@@ -229,24 +233,28 @@ body {
   color: var(--color-text-primary);
 }
 
-  .cart-footer {
-    position: fixed;
-    bottom: 0;
-    left: 58%; /* Center horizontally */
-    right: 42%; /* Center horizontally */
-    transform: translateX(-61%); /* Adjust for element's own width */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding: 2rem;
-    background-color: var(--color-bg-secondary);
-    border-radius: 1.2rem 1.2rem 0 0;
-    width: 90%;
-    max-width: 50rem; /* Match the max-width of .meal-cart-container */
-    z-index: 1000;
-    box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.1);
-  }
+.cart-footer {
+  position: fixed;
+  bottom: 0;
+  left: 58%;
+  /* Center horizontally */
+  right: 42%;
+  /* Center horizontally */
+  transform: translateX(-61%);
+  /* Adjust for element's own width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: var(--color-bg-primary);
+  border-radius: 1.2rem 1.2rem 0 0;
+  width: 90%;
+  max-width: 50rem;
+  /* Match the max-width of .meal-cart-container */
+  z-index: 1000;
+  box-shadow: 12px -1rem 1rem rgba(0, 0, 0, 0.1);
+}
 
 .total-amount {
   font-weight: 600;
