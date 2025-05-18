@@ -18,15 +18,27 @@ $_SESSION['username'] = $username;
 $_SESSION['attendance'] = $attendance;
 $_SESSION['phone'] = $phone;
 
-// Insert user into USERS table if not exists
-$checkUser = $con->prepare("SELECT USERS_ID FROM USERS WHERE USERS_ID = ?");
+// Insert or update user in USERS table
+$checkUser = $con->prepare("SELECT USERS_ID, USERS_Attendance FROM USERS WHERE USERS_ID = ?");
 $checkUser->bind_param("i", $user_id);
 $checkUser->execute();
-if ($checkUser->get_result()->num_rows == 0) {
+$result = $checkUser->get_result();
+
+if ($result->num_rows == 0) {
+  // Insert new user
   $insertUser = $con->prepare("INSERT INTO USERS (USERS_ID, USERS_Phnumber, USERS_Name, USERS_Attendance) VALUES (?, ?, ?, ?)");
   $insertUser->bind_param("iisi", $user_id, $phone, $username, $attendance);
   $insertUser->execute();
   $insertUser->close();
+} else {
+  // Check if attendance needs updating
+  $userData = $result->fetch_assoc();
+  if ($userData['USERS_Attendance'] != $attendance) {
+    $updateAttendance = $con->prepare("UPDATE USERS SET USERS_Attendance = ? WHERE USERS_ID = ?");
+    $updateAttendance->bind_param("ii", $attendance, $user_id);
+    $updateAttendance->execute();
+    $updateAttendance->close();
+  }
 }
 $checkUser->close();
 
