@@ -3,12 +3,12 @@ session_start();
 include('../../php/config.php');
 
 // Check authentication
-if (!isset($_COOKIE['user_id'])) {
+if (!isset($_SESSION['user_id'])) {
   header("Location: ../../pages/aast/uniUserLogin.php");
   exit();
 }
 
-$user_id = $_COOKIE['user_id'];
+$user_id = $_SESSION['user_id'];
 $error = '';
 $subtotal = 0;
 $discount = 0;
@@ -20,9 +20,9 @@ if (isset($_SESSION['applied_discount'])) {
   $discount_percent = $_SESSION['discount_percent'];
 }
 
-// Get cart items and calculate subtotal
+// Get cart items with all necessary details
 $cart_items = [];
-$stmt = $con->prepare("SELECT c.*, m.MEAL_Price, m.MEAL_Name, m.MEAL_Icon, cat.CATEGORY_Name 
+$stmt = $con->prepare("SELECT c.*, m.MEAL_ID, m.MEAL_Price, m.MEAL_Name, cat.CATEGORY_Name 
                       FROM CART c
                       JOIN MEAL m ON c.MEAL_ID = m.MEAL_ID
                       JOIN CATEGORY cat ON m.CATEGORY_ID = cat.CATEGORY_ID
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['place_order'])) {
   try {
     $con->begin_transaction();
 
-    // Recalculate discount based on current subtotal
+    // Recalculate discount
     if (isset($_SESSION['applied_voucher'])) {
       $discount_percent = $_SESSION['discount_percent'];
       $discount = $subtotal * ($discount_percent / 100);
@@ -86,8 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['place_order'])) {
 
     // Create order
     $order_stmt = $con->prepare("INSERT INTO ORDERS 
-                  (ORDER_Status, ORDER_ScheduleDate, ORDER_ScheduleTime, ORDER_Amount, ORDER_PaymentType, USERS_ID)
-                  VALUES ('Pending', ?, ?, ?, ?, ?)");
+                    (ORDER_Status, ORDER_ScheduleDate, ORDER_ScheduleTime, ORDER_Amount, ORDER_PaymentType, USERS_ID)
+                    VALUES ('Pending', ?, ?, ?, ?, ?)");
     $order_stmt->bind_param(
       "ssdsi",
       $schedule_date,
@@ -97,6 +97,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['place_order'])) {
       $user_id
     );
     $order_stmt->execute();
+
+    // Get the new order ID
+    $order_id = $con->insert_id;
+
+    // Insert order details
+    foreach ($cart_items as $item) {
+      $detail_stmt = $con->prepare("INSERT INTO ORDER_DETAILS 
+                                        (MEAL_ID, ORDER_ID, M_Quantity, NOTE)
+                                        VALUES (?, ?, ?, ?)");
+      $detail_stmt->bind_param(
+        "iiis",
+        $item['MEAL_ID'],
+        $order_id,
+        $item['QUANTITY'],
+        $item['NOTE']
+      );
+      $detail_stmt->execute();
+    }
 
     // Clear cart
     $delete_cart = $con->prepare("DELETE FROM CART WHERE USERS_ID = ?");
@@ -110,7 +128,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['place_order'])) {
       $delete_voucher->bind_param("ii", $user_id, $_SESSION['applied_voucher']);
       $delete_voucher->execute();
 
-      // Clear voucher session data
       unset($_SESSION['applied_voucher']);
       unset($_SESSION['discount_percent']);
       unset($_SESSION['applied_discount']);
@@ -157,7 +174,7 @@ while ($row = $result->fetch_assoc()) {
 
 <body>
   <div class="container">
-    <?php include('../../components/sideNav.html'); ?>
+    <?php include('../../components/sideNav.php'); ?>
     <main class="main-content">
       <div class="checkout container">
         <?php if ($error): ?>
@@ -183,8 +200,8 @@ while ($row = $result->fetch_assoc()) {
             </div>
             <div class="heading-secondary">
               <label for="Schedule_time">Schedule Time</label>
-              <input type="time" name="Schedule_time" id="Schedule_time" min="<?= date('H:i') ?>" required value="
-                    <?= isset($_POST['Schedule_time']) ? htmlspecialchars($_POST['Schedule_time']) : '' ?>">
+              <input type="time" name="Schedule_time" id="Schedule_time" min="<?= date('H:i') ?>" required
+                value="<?= isset($_POST['Schedule_time']) ? htmlspecialchars($_POST['Schedule_time']) : '' ?>">
             </div>
 
             <!-- Vouchers Section -->
@@ -202,8 +219,7 @@ while ($row = $result->fetch_assoc()) {
                         <?= htmlspecialchars($voucher['VOUCHER_Percentage']) ?>% Off
                       </span>
                       <span class="end-date">
-                        Valid until
-                        <?= htmlspecialchars($voucher['VOUCHER_EndDate']) ?>
+                        Valid until <?= htmlspecialchars($voucher['VOUCHER_EndDate']) ?>
                       </span>
                     </div>
                     <button type="submit" name="apply_voucher" value="<?= $voucher['VOUCHER_ID'] ?>" class="apply-btn">
@@ -216,15 +232,9 @@ while ($row = $result->fetch_assoc()) {
 
             <!-- Order Summary -->
             <div class="total_price">
-              <h3 class="description">Subtotal: $
-                <?= number_format($subtotal, 2) ?>
-              </h3>
-              <h3 class="description">Discount: $
-                <?= number_format($discount, 2) ?>
-              </h3>
-              <h3 class="heading-secondary">Total Price: $
-                <?= number_format($subtotal - $discount, 2) ?>
-              </h3>
+              <h3 class="description">Subtotal: $<?= number_format($subtotal, 2) ?></h3>
+              <h3 class="description">Discount: $<?= number_format($discount, 2) ?></h3>
+              <h3 class="heading-secondary">Total Price: $<?= number_format($subtotal - $discount, 2) ?></h3>
             </div>
           </div>
 
@@ -242,9 +252,19 @@ while ($row = $result->fetch_assoc()) {
               </div>
 
               <div id="card-details" style="display: none;">
-                <!-- Card details fields remain same -->
+                <div class="form">
+                  <label for="cardholder_name">Cardholder Name</label>
+                  <input type="text" name="cardholder_name" id="cardholder_name">
+                </div>
+                <div class="form">
+                  <label for="card_number">Card Number</label>
+                  <input type="text" name="card_number" id="card_number">
+                </div>
+                <div class="form">
+                  <label for="expiry_date">Expiry Date</label>
+                  <input type="month" name="expiry_date" id="expiry_date">
+                </div>
               </div>
-
               <button type="submit" name="place_order" class="btn btn--full place_order_btn">
                 Place Order
               </button>

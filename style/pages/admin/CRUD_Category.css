@@ -1,10 +1,12 @@
-@import url(/style/base/base.css);
-@import url(/style/base/typography.css);
-@import url(/style/base/variables.css);
-@import url(/style/Components/buttons.css);
-@import url(/style/base/general.css);
-@import url(/style/base/utilities.css);
-@import url(/style/mediaqueries/general.css);
+@import url(../../../style/base/base.css);
+@import url(../../../style/base/typography.css);
+@import url(../../../style/base/variables.css);
+@import url(../../../style/Components/buttons.css);
+@import url(../../../style/base/general.css);
+@import url(../../../style/base/utilities.css);
+@import url(../../components/sideNav.css);
+@import url(../../../style/mediaqueries/general.css);
+@import url(../../../style/pages/user/home.css);
 
 body {
 
@@ -81,27 +83,16 @@ body {
 }
 
 .popup-content {
-    width: 300px;
     margin: 100px auto;
-    padding: 20px;
-    border-radius: 6px;
     font-family: cursive;
-    background-color: var(--color-bg-secondary);
+    background-color: var(--color-bg-primary);
     border-radius: 1.6rem;
-    padding: 40px 60px;
     max-width: 400px;
     width: 90%;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
     position: relative;
-    /* Required for absolute positioning */
     padding: 30px 40px;
-    /* Add padding to avoid overlap */
-    box-sizing: border-box;
-    position: relative;
-    /* Required for absolute positioning */
-    padding: 30px 40px;
-    /* Add padding to avoid overlap */
     box-sizing: border-box;
     display: grid;
 }
@@ -110,7 +101,7 @@ body {
     font-size: 1.8rem;
     font-weight: bold;
     font-family: 'rubik', sans-serif;
-    color: var(--color-text-primary);
+    color: var(--color-primary);
 }
 
 /*---------------- Close Button----------------- */

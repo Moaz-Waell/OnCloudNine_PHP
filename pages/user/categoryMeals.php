@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('../../php/config.php');
 
 // Check for category ID
@@ -7,7 +8,7 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
   exit();
 }
 
-if (!isset($_COOKIE['user_id']) || !isset($_COOKIE['username']) || !isset($_COOKIE['attendance']) || !isset($_COOKIE['phone'])) {
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['username']) || !isset($_SESSION['attendance']) || !isset($_SESSION['phone'])) {
   header("Location: ../../pages/aast/uniUserLogin.php");
   exit();
 }
@@ -53,7 +54,7 @@ $meals_result = $stmt_meals->get_result();
   </a> -->
 
   <div class="container">
-    <?php include('../../components/sideNav.html'); ?>
+    <?php include('../../components/sideNav.php'); ?>
     <main class="main-content">
       <!-- Category Section -->
       <div class="menu-category">

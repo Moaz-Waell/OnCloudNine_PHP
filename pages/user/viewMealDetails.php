@@ -8,7 +8,7 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
   exit();
 }
 
-if (!isset($_COOKIE['user_id']) || !isset($_COOKIE['username']) || !isset($_COOKIE['attendance']) || !isset($_COOKIE['phone'])) {
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['username']) || !isset($_SESSION['attendance']) || !isset($_SESSION['phone'])) {
   header("Location: ../../pages/aast/uniUserLogin.php");
   exit();
 }
@@ -53,8 +53,8 @@ while ($row = $ingredients_result->fetch_assoc()) {
 
 // Check user allergies
 $allergy_warning = array();
-if (isset($_COOKIE['user_id'])) {
-  $user_id = $_COOKIE['user_id'];
+if (isset($_SESSION['user_id'])) {
+  $user_id = $_SESSION['user_id'];
   $stmt_allergies = $con->prepare("SELECT A.ALLERGY_Name FROM USER_ALLERGIES UA JOIN ALLERGY A ON UA.ALLERGY_ID = A.ALLERGY_ID WHERE UA.USERS_ID = ? AND UA.Has_Allergy = 'Yes'");
   $stmt_allergies->bind_param("i", $user_id);
   $stmt_allergies->execute();
@@ -103,7 +103,7 @@ if (isset($_COOKIE['user_id'])) {
   </div>
   <div class="wave">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-      <path fill="#3d5963" fill-opacity="1"
+      <path fill="#143f23" fill-opacity="1"
         d="M0,288L40,282.7C80,277,160,267,240,229.3C320,192,400,128,480,101.3C560,75,640,85,720,106.7C800,128,880,160,960,144C1040,128,1120,64,1200,80C1280,96,1360,192,1400,240L1440,288L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z">
       </path>
     </svg>

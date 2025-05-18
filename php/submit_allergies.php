@@ -2,11 +2,12 @@
 session_start();
 include('config.php');
 
-if (!isset($_COOKIE['user_id'])) {
-    die("Unauthorized.");
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../../pages/aast/uniUserLogin.php");
+    exit();
 }
 
-$user_id = $_COOKIE['user_id'];
+$user_id = $_SESSION['user_id'];
 
 // Delete existing allergies
 // $con->query("DELETE FROM USER_ALLERGIES WHERE USERS_ID = $user_id");

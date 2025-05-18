@@ -7,12 +7,12 @@ unset($_SESSION['form_success']);
 unset($_SESSION['form_error']);
 
 // Check user authentication
-if (!isset($_COOKIE['user_id'])) {
+if (!isset($_SESSION['user_id'])) {
   header("Location: ../../pages/aast/uniUserLogin.php");
   exit();
 }
 
-$user_id = $_COOKIE['user_id'];
+$user_id = $_SESSION['user_id'];
 $error = $_SESSION['form_error'] ?? '';
 $success = $_SESSION['form_success'] ?? '';
 
@@ -111,13 +111,13 @@ unset($_SESSION['form_error']);
 
 <body>
   <div class="container">
-    <?php include('../../components/sideNav.html'); ?>
+    <?php include('../../components/sideNav.php'); ?>
     <main class="main-content">
       <div class="profile-card">
         <form method="POST" action="profile.php">
           <div class="profile-header">
             <div class="profile-avatar">
-              <img src="../../img/icons/avatar.png" alt="User Avatar" class="avatar-image">
+              <img src="../../img/icons/user.svg" alt="User Avatar" class="avatar-image">
               <i class="fas fa-user"></i>
             </div>
             <div class="user-details">

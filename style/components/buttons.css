@@ -6,6 +6,7 @@
 .btn:link,
 .btn:visited {
   /* this is inline element, make it inline-block so that the box model applies as usual */
+  text-align: center;
   display: inline-block;
   text-decoration: none;
   border: none;
@@ -92,4 +93,62 @@
   background-color: var(--color-btn-hover);
   color: var(--color-text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.btn--status {
+  cursor: default;
+  pointer-events: none;
+}
+
+.ordersstatus.pending {
+  background: #143f23;
+  color: #fff;
+}
+
+.ordersstatus.in-progress {
+  background: #4CAF50;
+  color: #fff;
+}
+
+.ordersstatus.delivered {
+  background: #399129;
+  color: #fff;
+}
+
+.ordersstatus.cancelled {
+  background: #f44336;
+  color: #fff;
+}
+
+.btn--status,
+.btn--order-again {
+  padding: 0.8rem 1.2rem;
+  border-radius: 9px;
+  font-size: 1.2rem;
+  min-width: 10rem;
+}
+
+.ordersstatus {
+  background-color: var(--color-btn-hover);
+  color: var(--color-text-secondary);
+}
+
+.btn--order-again {
+  background-color: var(--color-btn-primary);
+  color: var(--color-text-secondary);
+}
+
+.btn--order-again:hover {
+  background-color: var(--color-btn-hover);
+}
+
+/* Feedback Stars */
+.rating-stars .star {
+  color: #ddd;
+  font-size: 1.2em;
+}
+
+.rating-stars .filled {
+  color: #ffd700;
 }

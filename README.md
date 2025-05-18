@@ -2,8 +2,9 @@
 ```
 OCN_Project
 ├─ components
+│  ├─ admin_sideNav.php
 │  ├─ allergy_form.php
-│  └─ sideNav.html
+│  └─ sideNav.php
 ├─ img
 │  ├─ aast_imgs
 │  │  ├─ AAST-LOGO-BLUE.png
@@ -17,19 +18,19 @@ OCN_Project
 │  │  ├─ spaghetti.png
 │  │  └─ sushi.png
 │  ├─ icons
-│  │  └─ avatar.png
+│  │  └─ user.svg
 │  ├─ logo
 │  │  ├─ onCloudNine-white.svg
 │  │  └─ onCloudNine.svg
 │  └─ meals
-│     ├─ breakfast
+│     ├─ breakfasts
 │     │  ├─ avocado_toast.jpg
 │     │  ├─ egg_sandwich.jpg
 │     │  ├─ english_breakfast.jpg
 │     │  ├─ mcmuffin.jpg
 │     │  ├─ omelette.jpg
 │     │  └─ pancakes.jpg
-│     ├─ crepe
+│     ├─ crepes
 │     │  ├─ chicken_crepes.jpg
 │     │  ├─ fruit_crepes.jpg
 │     │  ├─ ham_cheese_crepes.jpg
@@ -79,11 +80,14 @@ OCN_Project
 │  │  ├─ uniUserLogin.php
 │  │  └─ uniUserPortal.php
 │  ├─ admin
-│  │  ├─ admin_login.html
-│  │  └─ CRUD_Category.html
-│  ├─ kitchenDashboard.html
+│  │  ├─ admin_landing.php
+│  │  ├─ admin_login.php
+│  │  ├─ cancelOrder.php
+│  │  ├─ CRUD_Category.php
+│  │  ├─ CRUD_Meal.php
+│  │  └─ viewOrderDetails.php
+│  ├─ kitchenDashboard.php
 │  └─ user
-│     ├─ allergies.html
 │     ├─ cart.php
 │     ├─ categoryMeals.php
 │     ├─ checkout.php
@@ -96,10 +100,19 @@ OCN_Project
 ├─ php
 │  ├─ addToCart.php
 │  ├─ admin_login_validation.php
+│  ├─ admin_logout.php
+│  ├─ cancelOrder.php
 │  ├─ config.php
+│  ├─ deliverOrder.php
 │  ├─ logoutUniUser.php
+│  ├─ reorder.php
+│  ├─ search_meals.php
+│  ├─ sendVouchers.php
+│  ├─ submitFeedback.php
 │  ├─ submit_allergies.php
+│  ├─ update_order_status.php
 │  └─ user_login_validation.php
+├─ README.md
 └─ style
    ├─ base
    │  ├─ base.css
@@ -120,7 +133,9 @@ OCN_Project
       │  ├─ uniUserLogin.css
       │  └─ uniUserPortal.css
       ├─ admin
-      │  └─ CRUD_Category.css
+      │  ├─ admin_landing.css
+      │  ├─ CRUD_Category.css
+      │  └─ CRUD_Meal.css
       ├─ kitchenDashboard.css
       └─ user
          ├─ allergies.css

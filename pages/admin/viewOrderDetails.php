@@ -2,23 +2,23 @@
 session_start();
 require_once '../../php/config.php';
 
-if (!isset($_SESSION['user_id']) || !isset($_GET['order_id'])) {
-  header("Location: ../../pages/aast/uniUserLogin.php");
+if (!isset($_SESSION['admin_id']) || !isset($_GET['order_id'])) {
+  header("Location: ../../pages/admin/admin_login.php");
   exit();
 }
 
-$user_id = $_SESSION['user_id'];
+// $user_id = $_SESSION['user_id'];
 $order_id = intval($_GET['order_id']);
 
 // Get order details
-$order_stmt = $con->prepare("SELECT o.*, u.USERS_Name 
-                            FROM ORDERS o
-                            JOIN USERS u ON o.USERS_ID = u.USERS_ID
-                            WHERE o.ORDER_ID = ? 
-                            AND o.USERS_ID = ?");
-$order_stmt->bind_param("ii", $order_id, $user_id);
-$order_stmt->execute();
-$order = $order_stmt->get_result()->fetch_assoc();
+$order_query = "SELECT o.*, u.USERS_Name 
+               FROM ORDERS o
+               JOIN USERS u ON o.USERS_ID = u.USERS_ID
+               WHERE o.ORDER_ID = ?";
+$stmt = $con->prepare($order_query);
+$stmt->bind_param("i", $order_id);
+$stmt->execute();
+$order = $stmt->get_result()->fetch_assoc();
 
 // Get order items
 $items_stmt = $con->prepare("SELECT od.*, m.MEAL_Name, m.MEAL_Price, m.MEAL_Icon, cat.CATEGORY_Name 
@@ -29,6 +29,8 @@ $items_stmt = $con->prepare("SELECT od.*, m.MEAL_Name, m.MEAL_Price, m.MEAL_Icon
 $items_stmt->bind_param("i", $order_id);
 $items_stmt->execute();
 $items = $items_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$back_link = "../../pages/admin/admin_landing.php";
 ?>
 
 <!DOCTYPE html>
@@ -42,12 +44,8 @@ $items = $items_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 </head>
 
 <body>
-  <a href="orders.php" class="btn-back" aria-label="Back to Orders">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z"
-        fill="currentColor" />
-    </svg>
+  <a href="<?= $back_link ?>" class="btn-back" aria-label="Back to Orders">
+    <span class="back-arrow">←</span>
   </a>
 
   <div class="order-header">
