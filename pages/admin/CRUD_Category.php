@@ -30,12 +30,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 }
 
+
+
+
+
+
 // Handle delete action
+// Handle delete action with cascading deletions
 if (isset($_GET['delete'])) {
   $id = intval($_GET['delete']);
-  $stmt = $con->prepare("DELETE FROM CATEGORY WHERE CATEGORY_ID = ?");
-  $stmt->bind_param("i", $id);
-  $stmt->execute();
+
+  // Start transaction
+  $con->begin_transaction();
+
+  try {
+    // First delete meal ingredients for all meals in this category
+    $stmt = $con->prepare("
+      DELETE mi FROM MEAL_INGREDIENTS mi
+      INNER JOIN MEAL m ON mi.MEAL_ID = m.MEAL_ID
+      WHERE m.CATEGORY_ID = ?
+    ");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+
+    // Then delete meals in this category
+    $stmt = $con->prepare("DELETE FROM MEAL WHERE CATEGORY_ID = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    // Finally delete the category
+    $stmt = $con->prepare("DELETE FROM CATEGORY WHERE CATEGORY_ID = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+
+    // Commit transaction
+    $con->commit();
+
+  } catch (Exception $e) {
+    // Rollback transaction on error
+    $con->rollback();
+    $_SESSION['error'] = "Error deleting category: " . $e->getMessage();
+  }
 }
 
 // Get all categories

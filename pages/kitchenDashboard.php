@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../php/config.php');
+include '../php/config.php';
 
 date_default_timezone_set('Africa/Cairo');
 $con->query("SET SESSION time_zone = '+02:00'");
@@ -15,6 +15,7 @@ if (isset($_SESSION['error'])) {
 $query = "
     SELECT 
         o.ORDER_ID,
+        o.ORDER_Status,
         u.USERS_Name AS customer_name,
         o.ORDER_ScheduleDate,
         o.ORDER_ScheduleTime,
@@ -49,6 +50,7 @@ while ($row = $result->fetch_assoc()) {
       'date' => date('d M Y', strtotime($row['ORDER_ScheduleDate'])),
       'time' => date('h:i A', strtotime($row['ORDER_ScheduleTime'])),
       'priority' => $row['is_priority'],
+      'status' => $row['ORDER_Status'],
       'meals' => []
     ];
   }
@@ -136,8 +138,9 @@ while ($row = $result->fetch_assoc()) {
             <form method="GET" action="../php/update_order_status.php" class="status-form">
               <input type="hidden" name="order_id" value="<?= $orderId ?>">
               <input type="hidden" name="status" value="Preparing">
-              <button type="submit" class="status-btn in-progress">
-                <i class="fas fa-spinner"></i> In Progress
+              <button type="submit" class="status-btn in-progress" <?= $order['status'] == 'preparing' ? 'disabled' : '' ?>>
+                <i class="fas fa-spinner"></i>
+                <?= $order['status'] == 'Pending' ? 'In Progress' : 'Preparing' ?>
               </button>
             </form>
             <form method="GET" action="../php/update_order_status.php" class="status-form">
@@ -170,7 +173,7 @@ while ($row = $result->fetch_assoc()) {
     }
     setInterval(updateClock, 1000);
 
-    // Auto-refresh every 30 seconds
+    // Auto-refresh every 5 seconds
     setInterval(() => {
       window.location.reload();
     }, 5000);
