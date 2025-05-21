@@ -21,7 +21,6 @@
   font-size: 3rem;
   font-family: "rubik", sans-serif;
   color: var(--color-primary);
-  margin-bottom: -rem;
 }
 
 .category-container {
@@ -167,7 +166,6 @@ button.CRUD-btn:hover {
 }
 
 .remove_btn {
-  margin-bottom: px;
   padding: 5px 10px;
   font-family: "rubik", sans-serif;
 
