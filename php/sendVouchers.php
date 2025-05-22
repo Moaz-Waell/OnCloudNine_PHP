@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once 'config.php';
+include ('config.php');
+
 
 if (!isset($_SESSION['admin_id'])) {
     header("Location: ../pages/admin/admin_login.php");
