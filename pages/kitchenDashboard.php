@@ -180,7 +180,7 @@ unset($_SESSION['error'], $_SESSION['success']);
     setInterval(updateClock, 1000);
 
     // Auto-refresh every 30 seconds
-    setInterval(() => window.location.reload(), 30000);
+    setInterval(() => window.location.reload(), 5000);
   </script>
 </body>
 
