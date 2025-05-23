@@ -73,7 +73,7 @@ $bestseller_stmt = $con->prepare("
     LIMIT 6
 ");
 $bestseller_stmt->execute();
-$bestsellers = $bestseller_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+$bestsellers = $bestseller_stmt->get_result()->fetch_all(mode: MYSQLI_ASSOC);
 
 $con->close();
 ?>

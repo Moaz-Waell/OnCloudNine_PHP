@@ -2,7 +2,6 @@
   <div class="logo">
     <img src="../../img/logo/onCloudNine-white.svg" alt="OCN Logo" />
   </div>
-
   <nav class="navigation">
     <a href="../user/home.php" class="nav-item">
       <i class="fas fa-home"></i>
@@ -19,6 +18,10 @@
     <a href="../user/profile.php" class="nav-item">
       <i class="fas fa-user"></i>
       <span>Profile</span>
+    </a>
+    <a href="../aast/uniUserPortal.php" class="nav-item">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Logout</span>
     </a>
   </nav>
 </aside>

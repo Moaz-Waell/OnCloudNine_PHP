@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once '../../php/config.php';
+include ('../../php/config.php');
+
 
 if (!isset($_SESSION['user_id']) || !isset($_GET['order_id'])) {
   header("Location: ../../pages/aast/uniUserLogin.php");

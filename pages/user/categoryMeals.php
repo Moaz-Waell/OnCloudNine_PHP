@@ -48,11 +48,6 @@ $meals_result = $stmt_meals->get_result();
 </head>
 
 <body>
-  <!-- Sticky Back Button
-  <a href="home.php" class="back-button" aria-label="Back to Main Menu">
-    <span class="back-arrow">←</span>
-  </a> -->
-
   <div class="container">
     <?php include('../../components/sideNav.php'); ?>
     <main class="main-content">

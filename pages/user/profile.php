@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../../php/config.php';
+include ('../../php/config.php');
 
 // Clear previous messages
 unset($_SESSION['form_success']);

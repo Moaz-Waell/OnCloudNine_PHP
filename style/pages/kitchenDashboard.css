@@ -52,7 +52,11 @@
 
 .order-card.priority {
   border-left: 6px solid var(--color-primary);
-  background: linear-gradient(to right, rgba(255, 215, 0, 0.05), var(--color-bg-secondary));
+  background: linear-gradient(
+    to right,
+    rgba(255, 215, 0, 0.05),
+    var(--color-bg-secondary)
+  );
 }
 
 .order-header {
@@ -136,7 +140,6 @@
   gap: 1rem;
   margin-top: 1.5rem;
 }
-
 
 /* No Orders Message */
 .no-orders {
@@ -236,4 +239,56 @@
   margin: 1rem auto;
   max-width: 1200px;
   text-align: center;
+}
+
+.status-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 5px;
+}
+.status-btn.in-progress {
+  background-color: #4caf50;
+}
+
+.status-btn.preparing {
+  background-color: #2aa92f82;
+}
+
+.status-btn.out-delivery {
+  background-color: #2196f3;
+}
+
+.status-btn.out-delivery:disabled {
+  background-color: #53b0f99e;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.priority {
+  border-left: 5px solid #ff5722;
+  background-color: #fff3e0;
+}
+
+.error-message,
+.success-message {
+  padding: 15px;
+  margin: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #b71c1c;
+  border: 1px solid #ffcdd2;
+}
+
+.success-message {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
 }

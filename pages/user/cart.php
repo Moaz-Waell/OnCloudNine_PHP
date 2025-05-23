@@ -31,6 +31,12 @@ if (isset($_GET['action']) && isset($_GET['cart_id'])) {
     }
     header("Location: cart.php");
     exit();
+  } elseif ($_GET['action'] === 'increment') {
+    $update = $con->prepare("UPDATE CART SET QUANTITY = QUANTITY + 1 WHERE CART_ID = ?");
+    $update->bind_param("i", $cart_id);
+    $update->execute();
+    header("Location: cart.php");
+    exit();
   }
 }
 
@@ -98,9 +104,16 @@ while ($row = $result->fetch_assoc()) {
                       $<?= number_format($item['MEAL_Price'], 2) ?>
                     </div>
                   </div>
-                  <a href="cart.php?action=decrement&cart_id=<?= $item['CART_ID'] ?>" class="meal-item__remove-btn">
-                    <i class="fas fa-minus"></i>
-                  </a>
+                  <div class="quantity-controls">
+                    <a href="cart.php?action=decrement&cart_id=<?= $item['CART_ID'] ?>" class="quantity-btn">
+                      <i class="fas fa-minus"></i>
+                    </a>
+                  </div>
+                  <div class="quantity-controls">
+                    <a href="cart.php?action=increment&cart_id=<?= $item['CART_ID'] ?>" class="quantity-btn">
+                      <i class="fas fa-plus"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
             <?php endforeach; ?>

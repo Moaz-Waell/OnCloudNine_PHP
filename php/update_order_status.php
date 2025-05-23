@@ -1,29 +1,71 @@
 <?php
 session_start();
-include('config.php');
+require_once '../php/config.php';
 
-$orderId = filter_input(INPUT_GET, 'order_id', FILTER_VALIDATE_INT);
-$status = filter_input(INPUT_GET, 'status', FILTER_SANITIZE_STRING);
 
-$allowed_statuses = ['Preparing', 'Out For Delivery'];
-if (!$orderId || !in_array($status, $allowed_statuses)) {
-    $_SESSION['error'] = "Invalid update request";
+// Validate input
+if (!isset($_POST['order_id']) || !isset($_POST['status'])) {
+    $_SESSION['error'] = "Invalid request parameters";
     header("Location: ../pages/kitchenDashboard.php");
     exit();
 }
 
-try {
-    $stmt = $con->prepare("UPDATE ORDERS SET ORDER_Status = ? WHERE ORDER_ID = ?");
-    $stmt->bind_param("si", $status, $orderId);
-    $stmt->execute();
+$order_id = (int) $_POST['order_id'];
+$new_status = $_POST['status'];
 
-    if ($stmt->affected_rows === 0) {
-        $_SESSION['error'] = "No changes made - order might not exist";
-    }
-} catch (Exception $e) {
-    $_SESSION['error'] = "Update failed: " . $e->getMessage();
+// Validate allowed status transitions
+$allowed_statuses = ['Preparing', 'Out For Delivery'];
+if (!in_array($new_status, $allowed_statuses)) {
+    $_SESSION['error'] = "Invalid status update";
+    header("Location: ../pages/kitchenDashboard.php");
+    exit();
 }
 
+// Get current order status
+$stmt = $con->prepare("SELECT ORDER_Status FROM ORDERS WHERE ORDER_ID = ?");
+$stmt->bind_param("i", $order_id);
+$stmt->execute();
+$current_status = $stmt->get_result()->fetch_assoc()['ORDER_Status'];
+
+// Validate status transition
+$valid_transitions = [
+    'Pending' => ['Preparing'],
+    'Preparing' => ['Out For Delivery'],
+    'Out For Delivery' => []
+];
+
+if (!in_array($new_status, $valid_transitions[$current_status])) {
+    $_SESSION['error'] = "Invalid status transition from $current_status to $new_status";
+    header("Location: ../pages/kitchenDashboard.php");
+    exit();
+}
+
+// Update order status
+$update_stmt = $con->prepare("UPDATE ORDERS SET ORDER_Status = ? WHERE ORDER_ID = ?");
+$update_stmt->bind_param("si", $new_status, $order_id);
+
+try {
+    $update_stmt->execute();
+
+    if ($update_stmt->affected_rows === 1) {
+        $_SESSION['success'] = "Order #$order_id status updated to $new_status";
+
+        // If moving to delivery, record timestamp
+        if ($new_status === 'out_for_delivery') {
+            $timestamp_stmt = $con->prepare("UPDATE ORDERS SET ORDER_DeliveryTime = NOW() WHERE ORDER_ID = ?");
+            $timestamp_stmt->bind_param("i", $order_id);
+            $timestamp_stmt->execute();
+            $timestamp_stmt->close();
+        }
+
+    } else {
+        $_SESSION['error'] = "No changes made to order #$order_id";
+    }
+} catch (mysqli_sql_exception $e) {
+    $_SESSION['error'] = "Database error: " . $e->getMessage();
+}
+
+$update_stmt->close();
 header("Location: ../pages/kitchenDashboard.php");
 exit();
 ?>

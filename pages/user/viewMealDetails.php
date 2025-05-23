@@ -2,9 +2,10 @@
 session_start();
 include('../../php/config.php');
 
+
 // Check if meal ID is valid
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-  header("Location: home.php");
+  header("Location: ../../pages/aast/uniUserLogin.php");
   exit();
 }
 
