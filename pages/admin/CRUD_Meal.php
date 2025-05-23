@@ -166,7 +166,7 @@ $ingredients = $con->query("SELECT * FROM INGREDIENTS")->fetch_all(MYSQLI_ASSOC)
             <input type="text" name="meal_name" placeholder="Enter meal name" required>
 
             <label class="header-lable">Price:</label>
-            <input type="text" name="price" placeholder="Enter Price" required>
+            <input type="number" min="1" name="price" placeholder="Enter Price" required>
 
             <label class="header-lable">Ingredients:</label>
             <div class="dropdown-check-list" tabindex="1">

@@ -109,8 +109,8 @@
 
 .top {
   display: flex;
-  margin-left: 14rem;
-  gap: 23rem;
+  align-items: center;
+  justify-content: space-around;
 }
 
 /* Navbar Styles */
@@ -173,7 +173,6 @@
 
 .view-details:hover {
   color: var(--color-btn-hover);
-
 }
 
 /* Add to admin_landing.css */
@@ -196,4 +195,14 @@
   margin: 10px 0;
   border: 1px solid #28a745;
   border-radius: 4px;
+}
+
+.btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.btn[disabled] .fa-lock {
+  margin-left: 5px;
 }

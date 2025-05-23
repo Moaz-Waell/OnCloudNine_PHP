@@ -23,7 +23,7 @@ $stmt = $con->prepare("SELECT o.*, u.USERS_Name
                       FROM ORDERS o
                       JOIN USERS u ON o.USERS_ID = u.USERS_ID
                       WHERE ORDER_Status IN ('Delivered', 'Cancelled')
-                      ORDER BY ORDER_ScheduleDate DESC");
+                      ORDER BY ORDER_ID DESC");
 $stmt->execute();
 $order_history = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
@@ -35,6 +35,18 @@ $analytics_stmt = $con->prepare("SELECT
                                 WHERE ORDER_Status = 'Delivered'");
 $analytics_stmt->execute();
 $analytics = $analytics_stmt->get_result()->fetch_assoc();
+
+// Today's Analytics
+$today = date('Y-m-d');
+$today_analytics_stmt = $con->prepare("SELECT 
+                                      COUNT(*) as today_orders,
+                                      SUM(ORDER_Amount) as today_revenue 
+                                      FROM ORDERS 
+                                      WHERE ORDER_Status = 'Delivered'
+                                      AND DATE(ORDER_ScheduleDate) = ?");
+$today_analytics_stmt->bind_param("s", $today);
+$today_analytics_stmt->execute();
+$today_analytics = $today_analytics_stmt->get_result()->fetch_assoc();
 
 // Messages
 $error = $_SESSION['error'] ?? '';
@@ -50,6 +62,7 @@ unset($_SESSION['error'], $_SESSION['success']);
   <title>OCN Admin Dashboard</title>
   <link rel="stylesheet" href="../../style/pages/admin/admin_landing.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
 </head>
 
 <body>
@@ -85,6 +98,14 @@ unset($_SESSION['error'], $_SESSION['success']);
             <div class="analysis-item">
               <p class="margin-bottom-1rem"><b>Total Revenue:</b></p>
               <p>$<?= number_format($analytics['total_revenue'] ?? 0, 2) ?></p>
+            </div>
+            <div class="analysis-item">
+              <p class="margin-bottom-1rem"><b>Today's Orders:</b></p>
+              <p><?= $today_analytics['today_orders'] ?? 0 ?></p>
+            </div>
+            <div class="analysis-item">
+              <p class="margin-bottom-1rem"><b>Today's Revenue:</b></p>
+              <p>$<?= number_format($today_analytics['today_revenue'] ?? 0, 2) ?></p>
             </div>
           </div>
         </section>
@@ -137,7 +158,7 @@ unset($_SESSION['error'], $_SESSION['success']);
                   </span>
                 </td>
                 <td>
-                  <?php if ($order['ORDER_Status'] === 'Pending' || $order['ORDER_Status'] === 'In Progress' || $order['ORDER_Status'] === 'Out For Delivery' || $order['ORDER_Status'] === 'Preparing'): ?>
+                  <?php if ($order['ORDER_Status'] === 'Out For Delivery'): ?>
                     <form method="POST" action="../../php/cancelOrder.php" class="inline-form">
                       <input type="hidden" name="order_id" value="<?= $order['ORDER_ID'] ?>">
                       <button type="submit" class="btn btn--order-again">Cancel</button>
@@ -146,6 +167,15 @@ unset($_SESSION['error'], $_SESSION['success']);
                       <input type="hidden" name="order_id" value="<?= $order['ORDER_ID'] ?>">
                       <button type="submit" class="btn btn--order-again">Deliver</button>
                     </form>
+                  <?php else: ?>
+                    <form method="POST" action="../../php/cancelOrder.php" class="inline-form">
+                      <input type="hidden" name="order_id" value="<?= $order['ORDER_ID'] ?>">
+                      <button type="submit" class="btn btn--order-again">Cancel</button>
+                    </form>
+                    <button class="btn btn--order-again" disabled
+                      title="Can only deliver orders marked as 'Out For Delivery'">
+                      Deliver <i class="fas fa-lock"></i>
+                    </button>
                   <?php endif; ?>
                 </td>
               </tr>
@@ -154,7 +184,7 @@ unset($_SESSION['error'], $_SESSION['success']);
         </table>
       </section>
 
-      <!-- Order History with Feedback -->
+      <!-- Order History -->
       <section class="margin-top-2rem">
         <h2 class="heading-secondary text-center">Order History</h2>
         <table class="orders-table">

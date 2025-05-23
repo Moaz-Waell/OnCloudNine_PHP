@@ -1,6 +1,6 @@
 <?php
 session_start();
-include ('../../php/config.php');
+include('../../php/config.php');
 
 // Check authentication
 if (!isset($_SESSION['user_id'])) {
@@ -28,7 +28,7 @@ $order_history = [];
 $stmt = $con->prepare("SELECT * FROM ORDERS 
                       WHERE USERS_ID = ? 
                       AND ORDER_Status IN ('Delivered', 'Cancelled')
-                      ORDER BY ORDER_ScheduleDate DESC");
+                      ORDER BY ORDER_ID DESC"); // Changed from ORDER_ScheduleDate DESC to ORDER_ID DESC
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
