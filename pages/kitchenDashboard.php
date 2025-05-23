@@ -2,13 +2,6 @@
 session_start();
 require_once '../php/config.php';
 
-// Authenticate staff
-// if (!isset($_SESSION['staff_id'])) {
-//     header("Location: staff_login.php");
-//     exit();
-// }
-
-// Fetch today's orders with status
 $query = "
     SELECT 
         o.ORDER_ID,
