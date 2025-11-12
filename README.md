@@ -57,7 +57,7 @@ The project addresses the need for an efficient, user-friendly food ordering sys
 
 ---
 
-## 🖼️ Demo/Screenshots
+## 🖼️ Screenshots
 
 ### Home Page
 
