@@ -194,8 +194,8 @@ OnCloudNine_PHP/
 
 ### Development Team
 
-**Moaz Wael**
-**Shahd Osama**
+- **Moaz Wael**
+- **Shahd Osama**
 
 ### Inspiration
 
